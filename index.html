@@ -2,29 +2,386 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flotzy</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(135deg, #6a5af9, #d66efd);
-    color: #fff;
-    text-align: center;
-    padding: 2rem;
-  }
-  h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-  p { font-size: 1.25rem; opacity: 0.9; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flotzy — Journal of Applied Flatology</title>
+<meta name="description" content="Flotzy: a peer-reviewed-adjacent journal of applied flatology. Composition, acoustics, taxonomy, dietary loading and multi-medium simulation of human intestinal gas.">
+<meta property="og:title" content="Flotzy — Journal of Applied Flatology">
+<meta property="og:description" content="The serious study of an unserious gas.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236B4423'/%3E%3Cellipse cx='12' cy='19' rx='7' ry='5.5' fill='%23E1D2B9' opacity='.9'/%3E%3Cellipse cx='21' cy='14' rx='5' ry='4' fill='%23B4762B'/%3E%3Cellipse cx='24' cy='22' rx='3.4' ry='2.7' fill='%23E1D2B9' opacity='.7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/paper.css">
 </head>
 <body>
-  <div>
-    <h1>Flotzy</h1>
-    <p>Coming soon.</p>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="wordmark" href="index.html">
+      <b>FLOTZY</b>
+      <span class="heb" lang="he" dir="rtl">פלוץ</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="types.html">Typology</a>
+      <a href="foods.html">Substrates</a>
+      <a href="science.html">Simulation</a>
+      <a class="sub" href="amplification.html">Amplification</a>
+    </nav>
   </div>
+</header>
+
+<main id="main" class="shell paper-body">
+
+  <!-- ======================= MASTHEAD ======================= -->
+  <div class="masthead">
+    <div class="masthead__meta">
+      <span>Flotzy Institute</span>
+      <span>Vol. I · No. 1</span>
+      <span>Open Access</span>
+      <span>Received: after lunch</span>
+      <span>Accepted: immediately</span>
+    </div>
+    <p class="kicker">Review Article · Gastroenterology &amp; Acoustics</p>
+    <h1>The Journal of Applied Flatology</h1>
+    <p class="subtitle">A comprehensive treatment of human intestinal gas: its origin, composition,
+      acoustic behaviour, dietary determinants, and propagation through media both ordinary and inadvisable.</p>
+    <p class="byline">
+      <b>The Flotzy Institute for Lower Gastrointestinal Research</b> · Department of Pneumatics<br>
+      Correspondence: pull my finger. <span class="muted">No funding was received. No funding was offered.</span>
+    </p>
+  </div>
+
+  <div class="paper-grid section-gap numbered">
+
+    <!-- ======================= ABSTRACT ======================= -->
+    <div class="full">
+      <div class="abstract flow-md">
+        <h2>Abstract</h2>
+        <p class="dropcap">Flatus — from the Latin <i>flatus</i>, "a blowing" — is the terminal expression of
+          gases accumulated within the human gastrointestinal tract. Despite being produced by
+          approximately one hundred percent of the population on a daily basis, the phenomenon remains
+          conspicuously under-theorised outside of the schoolyard. This journal exists to correct that
+          imbalance. We present a unified account of flatal science across four domains: <b>composition</b>,
+          in which we establish that the offending gas is overwhelmingly odourless; <b>taxonomy</b>, in which
+          we classify fifteen acoustically distinct specimens; <b>substrate loading</b>, in which forty-two
+          foodstuffs are ranked by measured gas yield; and <b>propagation</b>, in which we simulate
+          flatal behaviour across nine physical media, including several in which no human should
+          reasonably attempt it.</p>
+        <p><b>Keywords:</b> flatus · flatulence · borborygmus · raffinose · hydrogen sulfide ·
+          sphincteric acoustics · Helmholtz coupling · plausible deniability</p>
+      </div>
+    </div>
+
+    <!-- ======================= 1. INTRODUCTION ======================= -->
+    <section>
+      <h2 class="section-head">Introduction</h2>
+      <div class="prose flow-md">
+        <p>The average adult human produces between <b>0.5 and 2.0 litres</b> of intestinal gas per day and
+          releases it across <b>five to twenty-five discrete events</b>.<a class="fn" href="#r1">1</a> This is not
+          a disorder. It is not a moral failing. It is the unavoidable exhaust of a fermentation reactor
+          that you carry with you at all times and feed several times a day, largely without consulting it.</p>
+
+        <p>Two mechanisms supply the gas. The first is <b>aerophagia</b> — swallowed atmospheric air, which
+          arrives already assembled and is mostly nitrogen. The second, and by far the more interesting,
+          is <b>bacterial fermentation</b>: the colonic microbiota metabolising carbohydrates that the small
+          intestine could not break down, and exhaling hydrogen, carbon dioxide and — in roughly one third
+          of the population — methane as a byproduct.<a class="fn" href="#r2">2</a></p>
+
+        <p>The central and most counter-intuitive finding of the entire field is this: <b>flatus is
+          approximately 99% odourless.</b> The nitrogen, hydrogen, carbon dioxide, oxygen and methane that
+          constitute the overwhelming bulk of the emission have no smell whatsoever. The reputation of the
+          entire phenomenon rests on a trace fraction — under one percent — of volatile sulfur compounds,
+          principally hydrogen sulfide, methanethiol and dimethyl sulfide.<a class="fn" href="#r3">3</a>
+          The human nose detects hydrogen sulfide at concentrations near <b>0.5 parts per billion</b>.
+          It is, in effect, a rounding error that has ruined countless elevator rides.</p>
+      </div>
+
+      <aside class="marginal">
+        <b>On the word.</b> Hebrew <span lang="he" dir="rtl">פלוץ</span> (<i>flotz</i>), n., a fart;
+        <span lang="he" dir="rtl">להפליץ</span> (<i>lehaflitz</i>), v., to produce one. The journal takes its
+        name from the noun, in acknowledgement that the noun is the more studied of the two.
+      </aside>
+    </section>
+
+    <!-- ======================= 2. COMPOSITION ======================= -->
+    <section>
+      <h2 class="section-head">Composition of the emission</h2>
+
+      <div class="prose flow-md">
+        <p>Composition varies enormously between individuals, between meals, and between the beginning
+          and end of a single event. The figure below gives a representative profile for a fasted adult
+          on a mixed Western diet. Note the scale of the sulfur fraction, which has been enlarged for
+          visibility because at true scale it would be invisible.</p>
+      </div>
+
+      <figure data-fig class="full">
+        <div class="gasbar" role="img" aria-label="Stacked bar: nitrogen 59 percent, hydrogen 21 percent, carbon dioxide 12 percent, methane 5 percent, oxygen 3 percent, sulfur compounds under 1 percent.">
+          <span style="--w:59; --c:var(--steam)"></span>
+          <span style="--w:21; --c:var(--methane)"></span>
+          <span style="--w:12; --c:var(--brown)"></span>
+          <span style="--w:5;  --c:var(--ochre)"></span>
+          <span style="--w:2.4;--c:var(--rule)"></span>
+          <span style="--w:0.6;--c:var(--hazard)"></span>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1rem">
+          <table>
+            <thead>
+              <tr><th>Constituent</th><th>Formula</th><th class="num">Typical %</th><th class="num">Range %</th><th>Odour</th><th>Origin</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="tag tag--steam">N₂</span> Nitrogen</td><td class="mono">N₂</td><td class="num">59</td><td class="num">20–90</td><td class="muted">None</td><td>Swallowed air</td></tr>
+              <tr><td><span class="tag tag--meth">H₂</span> Hydrogen</td><td class="mono">H₂</td><td class="num">21</td><td class="num">0–50</td><td class="muted">None</td><td>Colonic fermentation</td></tr>
+              <tr><td><span class="tag tag--brown">CO₂</span> Carbon dioxide</td><td class="mono">CO₂</td><td class="num">12</td><td class="num">10–30</td><td class="muted">None</td><td>Fermentation; bicarbonate buffering</td></tr>
+              <tr><td><span class="tag tag--ochre">CH₄</span> Methane</td><td class="mono">CH₄</td><td class="num">5</td><td class="num">0–10</td><td class="muted">None</td><td><i>Methanobrevibacter smithii</i></td></tr>
+              <tr><td><span class="tag">O₂</span> Oxygen</td><td class="mono">O₂</td><td class="num">2.4</td><td class="num">0–10</td><td class="muted">None</td><td>Swallowed air, residual</td></tr>
+              <tr><td><span class="tag tag--haz">VSC</span> Sulfur compounds</td><td class="mono">H₂S, CH₃SH, (CH₃)₂S</td><td class="num">&lt;1</td><td class="num">0–0.1</td><td><b>Total</b></td><td>Sulfate-reducing bacteria</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption>Representative volumetric composition of adult human flatus. <b>The bottom row is
+          responsible for the entire cultural significance of the other five.</b> Sulfur fraction shown at
+          exaggerated width; at true scale it would occupy roughly one pixel of this bar.</figcaption>
+      </figure>
+
+      <div class="prose flow-md" style="margin-top:1.5rem">
+        <p>Two consequences follow. First, <b>volume and odour are independent variables.</b> A large,
+          acoustically impressive emission of hydrogen and carbon dioxide may be entirely inoffensive,
+          while a silent 30 mL release rich in hydrogen sulfide can clear a room. This decoupling is the
+          organising principle behind our typology (§ <a href="types.html">Typology</a>) and our substrate
+          rankings (§ <a href="foods.html">Substrates</a>), both of which score volume and odour separately.</p>
+        <p>Second, <b>hydrogen and methane are flammable.</b> We note this for completeness and
+          immediately advise against acting on it.<a class="fn" href="#r4">4</a></p>
+      </div>
+    </section>
+
+    <!-- ======================= 3. QUANTITATIVE BASELINE ======================= -->
+    <section>
+      <h2 class="section-head">Quantitative baseline</h2>
+
+      <div class="full">
+        <div class="metrics">
+          <div class="metric"><div class="metric__v">13<small>/day</small></div><div class="metric__k">Median events</div></div>
+          <div class="metric"><div class="metric__v">705<small>mL</small></div><div class="metric__k">Daily volume</div></div>
+          <div class="metric"><div class="metric__v">37<small>°C</small></div><div class="metric__k">Exit temperature</div></div>
+          <div class="metric"><div class="metric__v">3.0<small>m/s</small></div><div class="metric__k">Exit velocity</div></div>
+          <div class="metric"><div class="metric__v">0.5<small>ppb</small></div><div class="metric__k">H₂S detection limit</div></div>
+          <div class="metric"><div class="metric__v">83<small>dB</small></div><div class="metric__k">Recorded maximum</div></div>
+        </div>
+      </div>
+
+      <div class="prose flow-md" style="margin-top:1.5rem">
+        <p>Exit velocity deserves comment. At roughly <b>3 metres per second</b>, flatus travels
+          considerably slower than the sound it makes — the acoustic wavefront arrives at a bystander
+          approximately 114 times faster than the gas itself. At two metres' separation this yields a
+          warning interval of about <b>0.66 seconds</b>. This interval is the entire basis of the tactical
+          literature and is discussed at length in
+          <a href="amplification.html">Acoustic Amplification &amp; Resonance Engineering</a>.</p>
+      </div>
+
+      <aside class="marginal">
+        <b>The gap.</b> Sound: 343 m/s. Gas: 3 m/s. You will always hear it before you smell it — unless
+        it was silent, in which case the warning system has been deliberately disabled by the operator.
+      </aside>
+    </section>
+
+    <!-- ======================= 4. ACOUSTICS ======================= -->
+    <section>
+      <h2 class="section-head">Acoustic principles</h2>
+
+      <div class="prose flow-md">
+        <p>Flatus is not, acoustically speaking, the sound of gas. It is the sound of <b>tissue</b>. The
+          external anal sphincter functions as a <b>lip-reed valve</b> — mechanically equivalent to the
+          embouchure of a trumpeter — in which pressurised flow drives two apposed soft-tissue folds into
+          self-sustained oscillation.<a class="fn" href="#r5">5</a> The gas itself is silent. It is merely
+          the working fluid.</p>
+
+        <p>Three parameters govern the resulting sound:</p>
+      </div>
+
+      <div class="grid-2 full" style="margin-top:1.25rem">
+        <div class="card">
+          <span class="card__no">Parameter I</span>
+          <h3>Aperture tension</h3>
+          <p>Sets the fundamental frequency. A tight aperture oscillates fast and high — the squeak. A
+            relaxed aperture oscillates slow and low — the rumble. Range observed: <b class="mono">25–450 Hz</b>.</p>
+        </div>
+        <div class="card">
+          <span class="card__no">Parameter II</span>
+          <h3>Volumetric flow rate</h3>
+          <p>Sets amplitude. Loudness scales with the pressure differential across the valve, which is why
+            retention increases output — see the <a href="amplification.html">retention protocol</a>.</p>
+        </div>
+        <div class="card">
+          <span class="card__no">Parameter III</span>
+          <h3>Acoustic coupling</h3>
+          <p>Sets everything else. A bare wooden bench reflects; upholstery absorbs; a bathtub resonates.
+            The same emission can vary by <b class="mono">18 dB</b> depending entirely on furniture.</p>
+        </div>
+      </div>
+
+      <figure data-fig class="full" style="margin-top:1.5rem">
+        <div class="panel">
+          <div class="panel__bar"><span class="dot"></span> Live specimen · synthesised reed-valve model</div>
+          <div class="panel__body">
+            <p class="tiny muted" style="margin-bottom:.9rem">Every sound on this site is generated in your
+              browser from the physical parameters listed beside it — no recordings are used. Press to audition.</p>
+            <div class="chips">
+              <button class="chip" data-fart="trumpet" type="button">▶ The Trumpet · 132 Hz</button>
+              <button class="chip" data-fart="squeaker" type="button">▶ The Squeaker · 340 Hz</button>
+              <button class="chip" data-fart="ripper" type="button">▶ The Ripper · 105 Hz</button>
+              <button class="chip" data-fart="silent" type="button">▶ Silent But Deadly · 40 Hz</button>
+              <button class="chip" data-fart="machinegun" type="button">▶ Machine Gun · 11 bursts</button>
+            </div>
+          </div>
+        </div>
+        <figcaption>Audition panel. Four of fifteen catalogued specimens. Full descriptions, measured
+          parameters and waveform previews appear in the <a href="types.html">Typology</a>.
+          <b>Press <kbd>Esc</kbd> at any time to silence all playback.</b></figcaption>
+      </figure>
+    </section>
+
+    <!-- ======================= 5. DEPARTMENTS ======================= -->
+    <section>
+      <h2 class="section-head">Departments of this journal</h2>
+
+      <div class="cards full">
+        <a class="card" href="types.html">
+          <span class="card__no">Part II</span>
+          <h3>A Typology of Flatus</h3>
+          <p>Fifteen specimens, formally described and given binomial names. Each entry carries measured
+            duration, fundamental frequency, sound pressure level, odour index, and a deniability rating.
+            All are audible.</p>
+          <span class="card__go">Read the typology →</span>
+        </a>
+        <a class="card" href="foods.html">
+          <span class="card__no">Part III</span>
+          <h3>Substrate Loading</h3>
+          <p>Forty-two foodstuffs ranked on the Flatulence Index: gas yield, odour intensity, onset latency,
+            campaign duration and dominant acoustic class. Sortable. Includes the sugar-free gum incident.</p>
+          <span class="card__go">Consult the rankings →</span>
+        </a>
+        <a class="card" href="science.html">
+          <span class="card__no">Part IV</span>
+          <h3>Multi-Medium Simulation</h3>
+          <p>An interactive model of flatal propagation through air, water, honey, vacuum, upholstery and
+            five further media. Adjustable aperture, volume and temperature; live thermal, acoustic and
+            schlieren rendering.</p>
+          <span class="card__go">Run the simulation →</span>
+        </a>
+        <a class="card" href="amplification.html">
+          <span class="card__no">Part IV(a)</span>
+          <h3>Acoustic Amplification</h3>
+          <p>Applied resonance engineering. Eleven techniques for increasing sound pressure level, each
+            with a measured decibel gain, stackable in a live signal chain you can hear. Includes the
+            Helmholtz cavity calculator.</p>
+          <span class="card__go">Increase output →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================= 6. ETHICS ======================= -->
+    <section>
+      <h2 class="section-head">Methods, ethics and limitations</h2>
+
+      <div class="grid-2 full">
+        <div class="note note--data">
+          <span class="note__title">Methods</span>
+          Figures in this journal are drawn from the published gastroenterological literature where such
+          literature exists, and from confident estimation where it does not. Acoustic parameters are
+          modelled rather than measured. The taxonomy is our own and has been peer-reviewed by three
+          colleagues who found it funny.
+        </div>
+        <div class="note note--warn">
+          <span class="note__title">Ethics statement</span>
+          No human subjects were formally enrolled. All authors contributed data continuously and
+          involuntarily throughout the study period. The institutional review board was informed and
+          asked us to stop emailing them.
+        </div>
+        <div class="note note--tip">
+          <span class="note__title">Clinical note</span>
+          Flatulence is normal. Persistent bloating, sudden change in bowel habit, blood, unexplained
+          weight loss or severe pain are not, and warrant an actual physician rather than a satirical
+          website. Nothing here is medical advice.
+        </div>
+        <div class="note">
+          <span class="note__title">Limitations</span>
+          The principal limitation of this work is that it is a website about farts. Secondary limitations
+          include the absence of controls, the absence of a control group, the absence of ethics approval,
+          and the authors' evident enthusiasm for the subject matter.
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= REFERENCES ======================= -->
+    <section id="refs">
+      <h2 class="section-head">References</h2>
+      <ol class="refs full">
+        <li id="r1">Tomlin J., Lowis C., Read N.W. <i>Investigation of normal flatus production in healthy volunteers.</i>
+          Gut, 32(6):665–669, 1991. — The foundational volumetric study. Genuinely exists.</li>
+        <li id="r2">Levitt M.D., Bond J.H. <i>Volume, composition and source of intestinal gas.</i>
+          Gastroenterology, 59(6):921–929, 1970.</li>
+        <li id="r3">Suarez F.L., Springfield J., Levitt M.D. <i>Identification of gases responsible for the odour
+          of human flatus and evaluation of a device purported to reduce this odour.</i> Gut, 43(1):100–104, 1998.
+          — The one where they paid two judges to rank the smell of 100 samples on a scale. Also real.</li>
+        <li id="r4">Flotzy Institute Safety Committee. <i>Don't.</i> Internal memorandum, undated, laminated.</li>
+        <li id="r5">Flotzy Institute Department of Pneumatics. <i>The sphincter as a lip-reed aerophone:
+          toward a Hornbostel–Sachs classification of the human body.</i> Proceedings of Nobody, 1(1):1–1.</li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="site-foot__grid">
+      <div>
+        <h4>Flotzy</h4>
+        <p class="tiny">The Journal of Applied Flatology. A serious treatment of an unserious gas,
+          published continuously since this afternoon.</p>
+      </div>
+      <div>
+        <h4>Parts</h4>
+        <ul>
+          <li><a href="index.html">I · Introduction</a></li>
+          <li><a href="types.html">II · Typology</a></li>
+          <li><a href="foods.html">III · Substrates</a></li>
+          <li><a href="science.html">IV · Simulation</a></li>
+          <li><a href="amplification.html">IV(a) · Amplification</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="#refs">References</a></li>
+          <li><a href="types.html#key">Diagnostic key</a></li>
+          <li><a href="foods.html#index">The Flatulence Index</a></li>
+          <li><a href="science.html#media">Medium library</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Notice</h4>
+        <p class="tiny">All audio is synthesised in-browser via Web Audio. Nothing is recorded, uploaded
+          or transmitted. Not medical advice. Please do not ignite anything.</p>
+      </div>
+    </div>
+    <div class="site-foot__base">
+      <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
+      <span class="mono">ISSN 0000-0000 · <span lang="he" dir="rtl">פלוץ</span></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Page-local: stacked gas composition bar */
+  .gasbar { display: flex; height: 46px; border-radius: 3px; overflow: hidden; border: 1px solid var(--rule); }
+  .gasbar span { flex: var(--w); background: var(--c); }
+  .gasbar span + span { border-left: 1px solid color-mix(in srgb, var(--paper) 55%, transparent); }
+</style>
+
+<script src="assets/js/synth.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>

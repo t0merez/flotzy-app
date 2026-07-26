@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acoustic Amplification &amp; Resonance Engineering — Flotzy</title>
+<meta name="description" content="Eleven stackable techniques for increasing flatal sound pressure level, each with a measured decibel gain, plus a Helmholtz cavity calculator and a live signal chain.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236B4423'/%3E%3Cellipse cx='12' cy='19' rx='7' ry='5.5' fill='%23E1D2B9' opacity='.9'/%3E%3Cellipse cx='21' cy='14' rx='5' ry='4' fill='%23B4762B'/%3E%3Cellipse cx='24' cy='22' rx='3.4' ry='2.7' fill='%23E1D2B9' opacity='.7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/paper.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="wordmark" href="index.html"><b>FLOTZY</b><span class="heb" lang="he" dir="rtl">פלוץ</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="types.html">Typology</a>
+      <a href="foods.html">Substrates</a>
+      <a href="science.html">Simulation</a>
+      <a class="sub" href="amplification.html">Amplification</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="shell paper-body">
+
+  <div class="masthead">
+    <div class="masthead__meta">
+      <span>Part IV(a)</span><span>Subordinate to Part IV</span><span>11 techniques</span><span>Applied Acoustics</span>
+    </div>
+    <p class="kicker">Technical Report · Applied Resonance Engineering</p>
+    <h1>Acoustic Amplification<br>&amp; Resonance Engineering</h1>
+    <p class="subtitle">Eleven techniques for increasing sound pressure level and hardening the attack
+      transient — with measured decibel gains, a stackable live signal chain, and a Helmholtz cavity
+      calculator for those pursuing the matter seriously.</p>
+    <p class="byline">
+      <b>Department of Computational Flatodynamics</b> · Acoustics Group<br>
+      Parent report: <a href="science.html">Part IV · Multi-Medium Simulation</a>
+    </p>
+  </div>
+
+  <div class="paper-grid section-gap numbered">
+
+    <div class="full">
+      <div class="abstract flow-md">
+        <h2>Abstract</h2>
+        <p>Part IV established how flatus <i>propagates</i>. This report addresses the natural follow-up:
+          how to make it propagate considerably more. We treat the emitter as an acoustic system with
+          three tractable stages — <b>source</b> (the reed valve and the pressure driving it),
+          <b>substrate</b> (the surface it couples into), and <b>environment</b> (the volume it radiates
+          within) — and identify eleven interventions across them. Applied singly, gains range from
+          +2 to +9 dB. Applied together, the naive sum reaches +55 dB, which is nonsense; a
+          diminishing-returns model gives a realistic <b>+23 dB</b>, taking a 62 dB baseline emission to
+          approximately <b>85 dB</b>. That is city-traffic loud. It is achievable with a bucket.</p>
+      </div>
+    </div>
+
+    <!-- ================= PHYSICS ================= -->
+    <section>
+      <h2 class="section-head">Why an emission is loud</h2>
+
+      <div class="prose flow-md">
+        <p>As established in Part I, the sound is produced by the sphincter operating as a
+          <b>lip-reed valve</b> — the same class of oscillator as a trumpeter's embouchure. Sound pressure
+          level at the listener is therefore set by four things, and only four:</p>
+        <ol class="numlist">
+          <li><b>Pressure differential across the valve.</b> Radiated acoustic power scales roughly with
+            the square of the flow velocity, and flow velocity scales with the pressure drop. Doubling
+            the pressure is worth about +6 dB. This is why <a href="#retention">retention</a> is the single
+            highest-yield source intervention.</li>
+          <li><b>Coupling efficiency.</b> A vibrating valve radiating into free air is a poor
+            loudspeaker — most of the energy circulates locally instead of radiating. Coupling it to a
+            resonant volume or a reflective plane transfers far more of it outward.</li>
+          <li><b>Boundary reinforcement.</b> A source near a hard surface radiates into half a sphere
+            rather than a full one, doubling intensity for free: +3 dB per boundary. Two walls and a floor
+            gives up to <b>+9 dB</b> for doing nothing but sitting in a corner.</li>
+          <li><b>Reverberation.</b> In a room with a long RT60, direct and reflected energy sum at the
+            listener. A tiled bathroom adds 6–8 dB of perceived level over a carpeted bedroom for an
+            identical source.</li>
+        </ol>
+        <p>Note that three of the four have nothing to do with the operator. <b>Most of flatal loudness is
+          interior design.</b></p>
+      </div>
+
+      <aside class="marginal">
+        <b>The decibel scale is logarithmic.</b> +3 dB is a doubling of acoustic power. +10 dB is
+        perceived as roughly twice as loud. The +23 dB achievable with the full stack is therefore
+        somewhere near <b>five times</b> the subjective loudness of the untreated baseline.
+      </aside>
+    </section>
+
+    <!-- ================= THE STACK ================= -->
+    <section class="full" id="stack">
+      <h2 class="section-head">The amplification stack</h2>
+
+      <p class="prose" style="margin-bottom:1.25rem">Enable techniques to build a signal chain. Decibel
+        gains combine with diminishing returns — each successive technique operates on an already-modified
+        signal and contributes less. Press <b>Fire</b> to hear the current chain; press <b>Baseline</b>
+        to hear the untreated reference for comparison.</p>
+
+      <div class="panel">
+        <div class="panel__bar">
+          <span class="dot"></span>
+          <span>Amplification bench · signal chain</span>
+          <span class="muted" style="margin-left:auto;text-transform:none;letter-spacing:0;font-weight:400">
+            Baseline: FL-001 Sputterer, 62 dB @ 1 m, upholstered chair
+          </span>
+        </div>
+
+        <div class="panel__body flow-md">
+
+          <!-- output display -->
+          <div class="splbox">
+            <div>
+              <div class="splbox__v"><span id="splTotal">62.0</span><small>dB @ 1 m</small></div>
+              <div class="meter" id="splMeter" style="--v:27.5;--c:var(--methane);height:9px;margin:.7rem 0 .5rem"></div>
+              <p class="tiny muted">Comparable to <b id="splCompare">normal conversation</b></p>
+            </div>
+            <div class="readouts" style="align-content:start">
+              <div class="readout"><b id="splGain">+0.0</b><span>Effective gain</span></div>
+              <div class="readout"><b id="splNaive">+0</b><span>Naive sum</span></div>
+              <div class="readout"><b id="splCount">0</b><span>Techniques active</span></div>
+            </div>
+          </div>
+
+          <p class="note note--warn tiny" id="hearingWarn" hidden>
+            <span class="note__title">Above 85 dB</span>
+            Sustained exposure at this level causes permanent hearing damage. The Institute notes that
+            nobody has ever sustained a fart for eight hours, but records the warning for completeness.
+          </p>
+
+          <div class="btn-row">
+            <button class="btn" id="ampFire" type="button">⏻ Fire through chain</button>
+            <button class="btn btn--ghost" id="ampBaseline" type="button">Baseline (untreated)</button>
+            <button class="btn btn--ghost" id="ampAll" type="button">Toggle all</button>
+          </div>
+
+          <hr class="hr">
+
+          <!-- SOURCE -->
+          <div>
+            <div class="ctrl-label">Stage 1 · Source <span class="muted">— the valve and the pressure behind it</span></div>
+            <div class="switches">
+              <label class="switch" id="retention">
+                <input type="checkbox" data-tech="retention">
+                <span><b>Retention protocol</b>
+                  <small>Delay release to accumulate reservoir pressure. Radiated power scales with the
+                  square of flow velocity, so the pressure differential is the highest-leverage variable
+                  available to the operator. Diminishing beyond ~20 minutes; painful beyond ~40.</small></span>
+                <span class="gain">+6 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="tensioning">
+                <span><b>Sphincter tensioning (embouchure)</b>
+                  <small>Deliberately raise aperture tension to lift the reed frequency into the
+                  120–180 Hz band, where both radiation efficiency and human hearing sensitivity are
+                  better than at 60–80 Hz. Same energy, more of it audible.</small></span>
+                <span class="gain">+3 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="lean">
+                <span><b>The tactical lean</b>
+                  <small>Single-buttock elevation, weight shifted to the opposite hip. Removes soft-tissue
+                  occlusion from the radiating aperture and opens a direct path to free air. Universally
+                  known; rarely credited as the acoustic intervention it is.</small></span>
+                <span class="gain">+4 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="carbonation">
+                <span><b>Carbonation preload</b>
+                  <small>Dissolved CO₂ increases charge volume with an onset of under thirty minutes —
+                  far faster than any fermentation pathway. Extends duration and adds a secondary burst.
+                  See <a href="foods.html">Part III</a>, mechanism 6.</small></span>
+                <span class="gain">+4 dB</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SUBSTRATE -->
+          <div id="substrate">
+            <div class="ctrl-label">Stage 2 · Substrate <span class="muted">— what you are sitting on</span></div>
+            <div class="switches">
+              <label class="switch">
+                <input type="checkbox" data-tech="hardSubstrate">
+                <span><b>Hard reflective substrate</b>
+                  <small>A wooden bench, plastic stadium seat or bare stair reflects nearly all incident
+                  energy. Upholstery absorbs 60–80% of everything above 500 Hz — precisely the band that
+                  makes an emission identifiable rather than deniable. Choose the bench.</small></span>
+                <span class="gain">+5 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="skinLeather">
+                <span><b>Bare skin on leather or vinyl</b>
+                  <small>Adds a percussive secondary transient as the skin–surface seal releases. Strictly
+                  this is a separate sound source superimposed on the emission, which is why it reads as
+                  "harder" rather than merely louder.</small></span>
+                <span class="gain">+3 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="nylon">
+                <span><b>Nylon or technical fabric</b>
+                  <small>Low-mass, high-tension synthetics transmit high frequencies that denim and wool
+                  damp out, adding the characteristic tracksuit buzz. The smallest gain in the table but
+                  the cheapest to obtain.</small></span>
+                <span class="gain">+2 dB</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- COUPLING -->
+          <div>
+            <div class="ctrl-label">Stage 3 · Coupling <span class="muted">— resonators and horns</span></div>
+            <div class="switches">
+              <label class="switch">
+                <input type="checkbox" data-tech="cavity">
+                <span><b>Helmholtz cavity coupling</b>
+                  <small>The single largest gain available. A bucket, a bathtub, a traffic cone or an
+                  empty drum forms a resonator that stores and re-radiates energy at its natural
+                  frequency. Tune the cavity near the reed fundamental and it acts as an acoustic
+                  transformer. See the <a href="#helmholtz">calculator</a> below.</small></span>
+                <span class="gain">+9 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="megaphone">
+                <span><b>Horn loading (cupped hand)</b>
+                  <small>A flaring cross-section matches the high-impedance source to the low-impedance
+                  air, raising radiation efficiency and adding directivity. Every brass instrument ends
+                  in a bell for this reason. A cupped hand is a poor bell but a bell nonetheless.</small></span>
+                <span class="gain">+6 dB</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ENVIRONMENT -->
+          <div>
+            <div class="ctrl-label">Stage 4 · Environment <span class="muted">— the room</span></div>
+            <div class="switches">
+              <label class="switch">
+                <input type="checkbox" data-tech="corner">
+                <span><b>Corner placement (boundary reinforcement)</b>
+                  <small>Each adjacent hard boundary halves the solid angle the source radiates into and
+                  adds 3 dB. Floor plus two walls is 9 dB of gain for changing where you sit. This is
+                  free, silent, and requires no preparation whatsoever.</small></span>
+                <span class="gain">+6 dB</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-tech="tiled">
+                <span><b>Tiled room (long RT60)</b>
+                  <small>A tiled bathroom has a reverberation time around 1.2–1.6 s against 0.3–0.5 s for
+                  a carpeted bedroom. Reflected energy accumulates and sums with the direct sound at the
+                  listener. This is why every good story about this subject happens in a bathroom.</small></span>
+                <span class="gain">+7 dB</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HELMHOLTZ ================= -->
+    <section class="full" id="helmholtz">
+      <h2 class="section-head">The Helmholtz cavity calculator</h2>
+
+      <div class="grid-2">
+        <div class="prose flow-md">
+          <p>A rigid vessel with a single opening is a <b>Helmholtz resonator</b>: the air in the neck acts
+            as a mass, the air in the body as a spring, and together they oscillate at one strongly
+            preferred frequency. It is the same physics as blowing across a bottle.</p>
+          <p>Its resonant frequency is:</p>
+          <p class="eqn mono">f = (c / 2π) · √( A / (V · L<sub>eff</sub>) )</p>
+          <p class="tiny muted">where <b>c</b> = 343 m/s, <b>A</b> = neck cross-sectional area,
+            <b>V</b> = cavity volume, and <b>L<sub>eff</sub></b> = neck length plus an end correction of
+            0.85·√(A/π), because the air just outside the opening moves with the air inside it.</p>
+          <p>Tune the cavity so that <b>f</b> lands on or just below the reed fundamental of your intended
+            class — 88 Hz for the Sputterer, 132 Hz for the Trumpet — and the resonator will reinforce
+            it. Tune it far away and the cavity does nothing at all except look strange.</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel__bar"><span class="dot"></span> Cavity calculator</div>
+          <div class="panel__body flow-md">
+            <div class="ctrl">
+              <label for="hV">Cavity volume <output data-unit=" L">20</output></label>
+              <input type="range" id="hV" min="0.3" max="300" step="0.1" value="20">
+            </div>
+            <div class="ctrl">
+              <label for="hA">Neck area <output data-unit=" cm²">200</output></label>
+              <input type="range" id="hA" min="5" max="900" step="5" value="200">
+            </div>
+            <div class="ctrl">
+              <label for="hL">Neck length <output data-unit=" cm">10</output></label>
+              <input type="range" id="hL" min="0.5" max="60" step="0.5" value="10">
+            </div>
+
+            <div class="hres">
+              <div class="hres__v"><span id="hOut">—</span><small>Hz</small></div>
+              <div class="meter" id="hMeter" style="--v:20;--c:var(--ochre);height:8px"></div>
+              <p class="tiny muted" id="hNote"></p>
+            </div>
+
+            <div>
+              <div class="ctrl-label">Presets</div>
+              <div class="chips">
+                <button class="chip" type="button" data-cavity="0.4,28,8">Coffee mug</button>
+                <button class="chip" type="button" data-cavity="20,200,10">Bucket</button>
+                <button class="chip" type="button" data-cavity="150,600,6">Bathtub</button>
+                <button class="chip" type="button" data-cavity="30,320,45">Traffic cone</button>
+                <button class="chip" type="button" data-cavity="3,45,60">Cardboard tube</button>
+                <button class="chip" type="button" data-cavity="200,900,12">Wheelie bin</button>
+              </div>
+            </div>
+
+            <button class="btn" id="hHear" type="button">⏻ Hear this cavity</button>
+            <p class="tiny muted">Plays FL-003 Trumpet coupled to the calculated resonance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUBSTRATE TABLE ================= -->
+    <section class="full">
+      <h2 class="section-head">Substrate reference</h2>
+
+      <div class="table-wrap">
+        <table data-sortable>
+          <caption><b>Table 3.</b> Common seating substrates by acoustic behaviour. Absorption coefficient
+            α is given at 500 Hz — 0 reflects everything, 1 absorbs everything. Sort by any column.</caption>
+          <thead>
+            <tr>
+              <th data-sort="text">Substrate</th>
+              <th class="num" data-sort="num">α @ 500 Hz</th>
+              <th class="num" data-sort="num">Gain (dB)</th>
+              <th data-sort="text">Character</th>
+              <th data-sort="text">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Wooden bench / pew</td><td class="num">0.06</td><td class="num">+5.0</td><td>Bright, full reflection, slight resonant body</td><td><span class="tag tag--meth">Optimal</span></td></tr>
+            <tr><td>Plastic stadium seat</td><td class="num">0.05</td><td class="num">+5.2</td><td>Hard, hollow, adds its own shell resonance</td><td><span class="tag tag--meth">Optimal</span></td></tr>
+            <tr><td>Ceramic (bathroom)</td><td class="num">0.01</td><td class="num">+5.5</td><td>Total reflection; couples to room reverberation</td><td><span class="tag tag--meth">Optimal</span></td></tr>
+            <tr><td>Leather, bare skin</td><td class="num">0.10</td><td class="num">+4.0</td><td>Reflective plus percussive seal-release transient</td><td><span class="tag tag--meth">Excellent</span></td></tr>
+            <tr><td>Vinyl / pleather</td><td class="num">0.12</td><td class="num">+3.6</td><td>As leather, with more squeak and less dignity</td><td><span class="tag tag--meth">Excellent</span></td></tr>
+            <tr><td>Metal folding chair</td><td class="num">0.04</td><td class="num">+4.4</td><td>Bright with a metallic ring; poor deniability</td><td><span class="tag tag--ochre">Good</span></td></tr>
+            <tr><td>Nylon / technical fabric</td><td class="num">0.20</td><td class="num">+2.0</td><td>Transmits the buzz; the tracksuit signature</td><td><span class="tag tag--ochre">Good</span></td></tr>
+            <tr><td>Office mesh</td><td class="num">0.35</td><td class="num">+0.5</td><td>Partially transparent, partially absorptive</td><td><span class="tag">Neutral</span></td></tr>
+            <tr><td>Denim on hard seat</td><td class="num">0.30</td><td class="num">+0.8</td><td>Damps the top end; muffled and rounded</td><td><span class="tag">Neutral</span></td></tr>
+            <tr><td>Car seat (fabric)</td><td class="num">0.55</td><td class="num">−3.0</td><td>Heavy absorption; also retains and re-releases</td><td><span class="tag tag--haz">Poor</span></td></tr>
+            <tr><td>Upholstered armchair</td><td class="num">0.70</td><td class="num">−5.0</td><td>Absorbs almost everything above 500 Hz</td><td><span class="tag tag--haz">Poor</span></td></tr>
+            <tr><td>Memory foam / thick duvet</td><td class="num">0.88</td><td class="num">−9.0</td><td>Near-total absorption; the acoustic void</td><td><span class="tag tag--haz">Worst</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note note--data" style="margin-top:1.25rem">
+        <span class="note__title">The inverse application</span>
+        Read the bottom of this table upward and it becomes a suppression guide. Memory foam at
+        α = 0.88 removes roughly 9 dB — enough to convert an
+        <a href="types.html#ripper">FL-005 Ripper</a> into something plausibly attributable to plumbing.
+        The Institute records both directions without preference.
+      </div>
+    </section>
+
+    <!-- ================= HARDNESS ================= -->
+    <section>
+      <h2 class="section-head">On hardness, as distinct from loudness</h2>
+
+      <div class="prose flow-md">
+        <p>Operators frequently request not merely a <i>louder</i> emission but a <i>harder</i> one. These
+          are different acoustic properties and require different interventions.</p>
+        <p><b>Loudness</b> is amplitude — how much energy arrives. <b>Hardness</b> is
+          <b>attack transient</b>: how fast the amplitude arrives. A sound reaching full level in 5 ms
+          reads as a crack; the identical sound reaching the identical level over 200 ms reads as a
+          rumble. Perceived hardness is governed almost entirely by the first 20 milliseconds.</p>
+        <p>Three interventions sharpen the attack specifically:</p>
+        <ol class="numlist">
+          <li><b>Sudden aperture release rather than progressive.</b> A valve that yields all at once
+            produces a step-function pressure front; one that opens gradually produces a ramp. This is
+            precisely the distinction between <a href="types.html#ripper">FL-005 The Ripper</a> and
+            <a href="types.html#crescendo">FL-010 The Crescendo</a>.</li>
+          <li><b>A reflective plane within 10 cm.</b> The reflection arrives inside the fusion window and
+            the ear integrates it into the direct sound as a single, sharper event rather than hearing an
+            echo.</li>
+          <li><b>A superimposed percussive source</b> — the skin-on-leather seal release above. A separate
+            broadband click at t = 0 is read by the auditory system as part of the same event and makes
+            the whole thing sound considerably more violent than it is.</li>
+        </ol>
+        <p>Note that all three concern the first fraction of a second. Everything after that is decoration.</p>
+      </div>
+
+      <aside class="marginal">
+        <b>Why tiled rooms flatter everything.</b> The first reflection from a hard wall 1.5 m away
+        arrives about 9 ms after the direct sound — inside the ~40 ms fusion window. The ear does not
+        hear an echo. It hears one louder, harder event.
+      </aside>
+    </section>
+
+    <!-- ================= SAFETY ================= -->
+    <section class="full">
+      <h2 class="section-head">Safety, ethics and the limits of the technique</h2>
+
+      <div class="grid-2">
+        <div class="note note--warn">
+          <span class="note__title">Do not strain</span>
+          Retention is an acoustic technique, not an athletic one. Forced Valsalva against a closed
+          sphincter raises intra-abdominal and intrathoracic pressure and is a genuinely poor idea —
+          the recognised risks include haemorrhoids, syncope and, in rare documented cases, worse. The
+          +6 dB is not worth a hospital visit.
+        </div>
+        <div class="note note--warn">
+          <span class="note__title">Do not ignite</span>
+          The hydrogen and methane fractions are flammable and the flame front can propagate back toward
+          the source. This is the only instruction in the entire journal that we repeat on every page.
+        </div>
+        <div class="note note--tip">
+          <span class="note__title">Confirm the class first</span>
+          Never attempt amplification on a specimen showing a moisture index above 6.0
+          (<a href="types.html#wet">FL-009</a>). Amplification techniques increase flow rate and remove
+          restriction, which are the two things you least want in that situation. Abort and relocate.
+        </div>
+        <div class="note">
+          <span class="note__title">Consider the audience</span>
+          Every technique here works. That is precisely the difficulty. The Institute observes that the
+          gap between <i>can</i> and <i>should</i> is, in this field, unusually wide, and declines to
+          offer further guidance.
+        </div>
+      </div>
+    </section>
+
+    <section class="full">
+      <h2 class="section-head">Related reports</h2>
+      <div class="cards">
+        <a class="card" href="science.html"><span class="card__no">Part IV</span><h3>Multi-Medium Simulation</h3><p>The parent report. Nine media, five rendering modes, live particle physics — including the two media in which none of these techniques work at all.</p><span class="card__go">Back to Part IV →</span></a>
+        <a class="card" href="types.html"><span class="card__no">Part II</span><h3>Typology</h3><p>Know what you are amplifying. Fifteen classes with full acoustic parameters and a diagnostic key.</p><span class="card__go">Typology →</span></a>
+        <a class="card" href="foods.html"><span class="card__no">Part III</span><h3>Substrates</h3><p>Dietary loading as an input to acoustic output. The legume section is the relevant one.</p><span class="card__go">Substrate rankings →</span></a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="site-foot__grid">
+      <div><h4>Flotzy</h4><p class="tiny">The Journal of Applied Flatology. A serious treatment of an unserious gas.</p></div>
+      <div><h4>Parts</h4><ul>
+        <li><a href="index.html">I · Introduction</a></li>
+        <li><a href="types.html">II · Typology</a></li>
+        <li><a href="foods.html">III · Substrates</a></li>
+        <li><a href="science.html">IV · Simulation</a></li>
+        <li><a href="amplification.html">IV(a) · Amplification</a></li>
+      </ul></div>
+      <div><h4>This part</h4><ul>
+        <li><a href="#stack">The amplification stack</a></li>
+        <li><a href="#helmholtz">Cavity calculator</a></li>
+        <li><a href="#substrate">Substrate selection</a></li>
+      </ul></div>
+      <div><h4>Notice</h4><p class="tiny">Do not strain. Do not ignite. Do not attempt on a moisture index above 6.0. Press <kbd>Esc</kbd> to stop audio.</p></div>
+    </div>
+    <div class="site-foot__base">
+      <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
+      <span class="mono">ISSN 0000-0000 · <span lang="he" dir="rtl">פלוץ</span></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ctrl-label {
+    font-family: var(--sans); font-size: .68rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2);
+    margin-bottom: .55rem;
+  }
+  .ctrl-label .muted { font-weight: 400; letter-spacing: .02em; text-transform: none; font-size: .8rem; }
+  .switches { display: grid; gap: .5rem; }
+  @media (min-width: 900px) { .switches { grid-template-columns: 1fr 1fr; } }
+
+  .splbox {
+    display: grid; gap: 1.25rem; align-items: start;
+    padding: 1.1rem 1.2rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  @media (min-width: 700px) { .splbox { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); } }
+  .splbox__v {
+    font-family: var(--mono); font-size: clamp(2.4rem, 1.8rem + 3vw, 3.6rem);
+    font-weight: 600; line-height: 1; color: var(--brown);
+    font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+  }
+  .splbox__v small {
+    font-size: .26em; color: var(--ink-3); font-weight: 400;
+    letter-spacing: .1em; margin-left: .5em; text-transform: uppercase;
+  }
+
+  .numlist { padding-left: 1.4rem; display: grid; gap: .6rem; }
+  .numlist li::marker { color: var(--ochre); font-weight: 700; font-family: var(--mono); font-size: .85em; }
+
+  .eqn {
+    font-size: 1.15rem; text-align: center; padding: .9rem 1rem;
+    background: var(--paper-2); border: 1px solid var(--rule);
+    border-radius: var(--radius); color: var(--brown);
+  }
+
+  .hres { text-align: center; padding: .9rem 0; }
+  .hres__v {
+    font-family: var(--mono); font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+    font-weight: 600; color: var(--ochre); line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .hres__v small { font-size: .3em; color: var(--ink-3); margin-left: .3em; letter-spacing: .1em; }
+  .hres .meter { margin: .7rem 0 .5rem; }
+</style>
+
+<script src="assets/js/synth.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/amp.js"></script>
+</body>
+</html>

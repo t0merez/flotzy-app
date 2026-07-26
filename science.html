@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Medium Simulation — Flotzy</title>
+<meta name="description" content="An interactive Lagrangian particle simulation of flatal propagation through nine media — air, water, honey, vacuum, upholstery, microgravity, liquid nitrogen, sulfur hexafluoride and helium — in five rendering modes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236B4423'/%3E%3Cellipse cx='12' cy='19' rx='7' ry='5.5' fill='%23E1D2B9' opacity='.9'/%3E%3Cellipse cx='21' cy='14' rx='5' ry='4' fill='%23B4762B'/%3E%3Cellipse cx='24' cy='22' rx='3.4' ry='2.7' fill='%23E1D2B9' opacity='.7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/paper.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="wordmark" href="index.html"><b>FLOTZY</b><span class="heb" lang="he" dir="rtl">פלוץ</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="types.html">Typology</a>
+      <a href="foods.html">Substrates</a>
+      <a href="science.html">Simulation</a>
+      <a class="sub" href="amplification.html">Amplification</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="shell paper-body">
+
+  <div class="masthead">
+    <div class="masthead__meta">
+      <span>Part IV</span><span>Computational Flatodynamics</span><span>9 media · 5 views</span><span>Interactive</span>
+    </div>
+    <p class="kicker">Original Research · Fluid Dynamics</p>
+    <h1>Multi-Medium Simulation</h1>
+    <p class="subtitle">A Lagrangian particle model of flatal propagation, solved live in your browser
+      across nine physical media and rendered five different ways — including two in which the emission
+      makes no sound at all, and one in which it makes considerably more.</p>
+    <p class="byline">
+      <b>Department of Computational Flatodynamics</b> · Flotzy Institute<br>
+      See also the subordinate report: <a href="amplification.html">IV(a) · Acoustic Amplification &amp; Resonance Engineering</a>
+    </p>
+  </div>
+
+  <div class="paper-grid section-gap numbered">
+
+    <div class="full">
+      <div class="abstract flow-md">
+        <h2>Abstract</h2>
+        <p>Flatus is a buoyant, warm, multi-component gas jet released into a stationary medium. Its
+          subsequent behaviour is governed almost entirely by three properties of that medium — density,
+          viscosity and speed of sound — and by two of the source: aperture diameter and charge volume.
+          We implement a particle-advection model with drag, buoyancy and stochastic diffusion, and expose
+          it as an interactive instrument. <b>The principal finding is that the medium matters far more
+          than the emitter.</b> The same 180 mL charge that disperses across two metres in air travels
+          under 40 cm in honey, sinks rather than rises in sulfur hexafluoride, and in vacuum expands
+          spherically and silently forever.</p>
+      </div>
+    </div>
+
+    <!-- ================= THE INSTRUMENT ================= -->
+    <section class="full" id="instrument">
+      <h2 class="section-head">The instrument</h2>
+
+      <div class="panel">
+        <div class="panel__bar">
+          <span class="dot"></span>
+          <span>Flotzy Flatodynamic Bench · Mk II</span>
+          <span class="muted" style="margin-left:auto;text-transform:none;letter-spacing:0;font-weight:400">
+            Domain 6.0 m · detector at 2.0 m
+          </span>
+        </div>
+
+        <div class="panel__body flow-md">
+
+          <canvas id="sim" aria-label="Simulation viewport showing gas parcel propagation"></canvas>
+          <p id="flash" class="flashmsg" hidden></p>
+
+          <!-- medium -->
+          <div>
+            <div class="ctrl-label">Medium <span class="muted">— sets density, viscosity and speed of sound</span></div>
+            <div class="chips" id="media"></div>
+          </div>
+
+          <!-- view -->
+          <div>
+            <div class="ctrl-label">Rendering mode</div>
+            <div class="chips" id="views"></div>
+            <p class="tiny muted" id="viewHint" style="margin-top:.5rem"></p>
+          </div>
+
+          <hr class="hr">
+
+          <div class="bench">
+            <!-- parameters -->
+            <div class="flow-md">
+              <div class="ctrl-label">Source parameters</div>
+
+              <div class="ctrl">
+                <label for="aperture">Aperture diameter <output data-unit=" mm">8</output></label>
+                <input type="range" id="aperture" min="2" max="20" step="0.5" value="8">
+              </div>
+              <div class="ctrl">
+                <label for="volume">Charge volume <output data-unit=" mL">180</output></label>
+                <input type="range" id="volume" min="20" max="500" step="10" value="180">
+              </div>
+              <div class="ctrl">
+                <label for="bodyT">Source temperature <output data-unit=" °C">37</output></label>
+                <input type="range" id="bodyT" min="30" max="42" step="0.5" value="37">
+              </div>
+              <div class="ctrl">
+                <label for="ambientT">Ambient temperature <output data-unit=" °C">21</output></label>
+                <input type="range" id="ambientT" min="-40" max="45" step="1" value="21">
+              </div>
+
+              <div class="ctrl">
+                <label for="fartClass">Acoustic class</label>
+                <select id="fartClass">
+                  <option value="trumpet">FL-003 · The Trumpet</option>
+                  <option value="sputterer">FL-001 · The Sputterer</option>
+                  <option value="silent">FL-002 · Silent But Deadly</option>
+                  <option value="squeaker">FL-004 · The Squeaker</option>
+                  <option value="ripper">FL-005 · The Ripper</option>
+                  <option value="machinegun">FL-006 · The Machine Gun</option>
+                  <option value="bubbler">FL-007 · The Bubbler</option>
+                  <option value="crescendo">FL-010 · The Crescendo</option>
+                  <option value="marathon">FL-013 · The Marathon</option>
+                  <option value="afterburner">FL-015 · The Afterburner</option>
+                </select>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn" id="fireBtn" type="button">⏻ Fire</button>
+                <button class="btn btn--ghost" id="resetBtn" type="button">Clear</button>
+              </div>
+              <p class="tiny muted" id="silentWarn" hidden>
+                ⚠ This medium does not propagate sound. The simulation will run; your speakers will not.
+              </p>
+            </div>
+
+            <!-- readouts -->
+            <div class="flow-md">
+              <div class="ctrl-label">Live readouts</div>
+              <div class="readouts">
+                <div class="readout"><b id="r-velocity">—</b><span>Exit velocity</span></div>
+                <div class="readout"><b id="r-reynolds">—</b><span>Reynolds no.</span></div>
+                <div class="readout"><b id="r-regime">—</b><span>Flow regime</span></div>
+                <div class="readout"><b id="r-density">—</b><span>Medium density</span></div>
+                <div class="readout"><b id="r-soundSpeed">—</b><span>Speed of sound</span></div>
+                <div class="readout"><b id="r-soundArrival">—</b><span>Sound at 2 m</span></div>
+                <div class="readout"><b id="r-front">—</b><span>Plume front</span></div>
+                <div class="readout"><b id="r-detect">—</b><span>Olfactory detection</span></div>
+              </div>
+
+              <div>
+                <div class="ctrl-label">Live spectrum <span class="muted">— FFT of the emitted signal</span></div>
+                <canvas id="spectrum" aria-label="Live frequency spectrum of the emitted sound"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="note note--data">
+            <span class="note__title" id="medLabel">Standard Air</span>
+            <p class="tiny mono muted" id="medSub" style="margin-bottom:.4rem"></p>
+            <span id="medNote"></span>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="tiny muted" style="margin-top:.75rem">
+        Model: Lagrangian parcel advection with linear (Stokes-regime) drag, buoyancy proportional to
+        parcel–ambient temperature difference, and Gaussian diffusion. Acoustic wavefronts are drawn at
+        1:60 slow motion so that media can be compared visually; true arrival times appear in the readouts.
+        Audio is synthesised from the selected class with the medium's resonance shift applied.
+      </p>
+    </section>
+
+    <!-- ================= HOW TO READ IT ================= -->
+    <section>
+      <h2 class="section-head">Reading the instrument</h2>
+
+      <div class="prose flow-md">
+        <p>Two readouts do most of the explanatory work.</p>
+        <p><b>Reynolds number</b> — the ratio of inertial to viscous forces,
+          <span class="mono">Re = ρvd/µ</span> — decides whether the emission behaves as a jet or as a
+          slow bleed. Below about 10 the flow is <i>creeping</i>: viscosity dominates completely and the
+          gas barely moves. Between 10 and 2300 it is <i>laminar</i>, holding together as a coherent
+          stream. Above 4000 it is <i>turbulent</i>, breaking into eddies that mix aggressively with the
+          surroundings. In air a typical emission sits around Re ≈ 1600 — laminar at the aperture,
+          turbulent within about 20 cm.</p>
+        <p><b>Olfactory detection</b> — the moment concentration at the two-metre mark crosses threshold.
+          Compare this to <b>sound at 2 m</b> and the central asymmetry of the field becomes obvious:
+          the acoustic warning arrives in about six <i>milliseconds</i>, the gas in several
+          <i>seconds</i>. That interval is the only thing standing between a bystander and the
+          consequences, and the classes that make no sound remove it entirely.</p>
+      </div>
+
+      <aside class="marginal">
+        <b>Try this.</b> Select <i>Vacuum</i> and the <i>Acoustic</i> view. The wavefront display goes
+        blank. There is no medium, so there is no wave. The particle plume, meanwhile, expands in every
+        direction and never slows down, because there is nothing to slow it.
+      </aside>
+    </section>
+
+    <!-- ================= MEDIUM LIBRARY ================= -->
+    <section class="full" id="media-library">
+      <h2 class="section-head" id="media">The medium library</h2>
+
+      <div class="prose" style="margin-bottom:1.5rem">
+        <p>Nine media, ordered by how badly they treat the emitter.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card mediacard" style="--mc:#8B5E34">
+          <span class="card__no">Medium 1 · Reference</span>
+          <h3>Standard Air</h3>
+          <p><span class="mono tiny">ρ 1.20 kg/m³ · µ 1.81×10⁻⁵ Pa·s · c 343 m/s</span></p>
+          <p>The baseline against which everything else is anomalous. A warm plume at 37 °C is roughly 5%
+            less dense than 21 °C room air, giving gentle buoyancy — the plume rises at around 15 cm/s
+            while turbulent diffusion broadens it into the familiar cone. Detection at 2 m follows in
+            three to eight seconds depending on ventilation.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#4E7E9B">
+          <span class="card__no">Medium 2 · The bath</span>
+          <h3>Fresh Water</h3>
+          <p><span class="mono tiny">ρ 998 kg/m³ · µ 1.00×10⁻³ Pa·s · c 1482 m/s</span></p>
+          <p>Density increases 830-fold, so buoyancy dominates absolutely — the gas cannot disperse and
+            instead pinches off into discrete bubbles that rise at 20–30 cm/s. Sound is produced at the
+            <i>surface</i>, on rupture, not at the aperture. Individual bubbles also ring at their
+            Minnaert frequency, <span class="mono">f ≈ 3.26/R</span> Hz·m, which puts a 5 mm bubble at
+            about 650 Hz.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#B8862B">
+          <span class="card__no">Medium 3 · Creeping flow</span>
+          <h3>Honey</h3>
+          <p><span class="mono tiny">ρ 1420 kg/m³ · µ ≈ 10 Pa·s · c 2030 m/s</span></p>
+          <p>Viscosity is roughly 550 000 times that of air. Reynolds number collapses to order 1, placing
+            the flow in the Stokes regime where inertia is irrelevant and motion is fully reversible. The
+            emission travels perhaps 30 cm and then simply stops. Acoustically it is almost entirely
+            absorbed within centimetres.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#9AA7B4">
+          <span class="card__no">Medium 4 · No medium</span>
+          <h3>Vacuum</h3>
+          <p><span class="mono tiny">ρ 0 · µ 0 · c — (no propagation)</span></p>
+          <p>Sound requires a medium; there isn't one. The gas undergoes free molecular expansion —
+            no drag, no buoyancy, no boundary — spreading spherically and forever. By conservation of
+            momentum the operator acquires a velocity change in the opposite direction: for a 180 mL
+            charge at 3 m/s from an 80 kg body, roughly <b>8 µm/s</b>. It is propulsion. It is
+            extraordinarily bad propulsion.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#7A5A3E">
+          <span class="card__no">Medium 5 · Porous solid</span>
+          <h3>Upholstery</h3>
+          <p><span class="mono tiny">Darcy flow · permeability ≪ 1 · absorptive</span></p>
+          <p>Flow through a porous solid obeys Darcy's law rather than Navier–Stokes at the macro scale:
+            volumetric flux is proportional to the pressure gradient and inversely proportional to
+            viscosity, scaled by a permeability that is very small. Fabric is simultaneously an acoustic
+            absorber (removing the high frequencies that make an emission identifiable) and a physical
+            reservoir that releases the retained fraction later. This is the entire scientific basis for
+            distrusting other people's sofas.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#8B5E34">
+          <span class="card__no">Medium 6 · Microgravity</span>
+          <h3>Zero-G Cabin</h3>
+          <p><span class="mono tiny">air · g ≈ 0 · no convection</span></p>
+          <p>Remove gravity and you remove buoyancy, and with it all natural convection. The plume expands
+            as a symmetric sphere and then remains precisely where it was created, mixing only by
+            diffusion. Crewed spacecraft handle this with continuous forced-air circulation, which is also
+            why astronauts sleep beside a fan: without one they would slowly accumulate a personal
+            atmosphere.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#7FA8C4">
+          <span class="card__no">Medium 7 · Cryogenic</span>
+          <h3>Liquid Nitrogen</h3>
+          <p><span class="mono tiny">77 K · ρ 807 kg/m³ · violently boiling</span></p>
+          <p>At 77 K the CO₂ fraction desublimates directly to solid and the water vapour flash-freezes,
+            physically removing them from the gas phase. The residual N₂ and H₂ drive vigorous film
+            boiling. The odour problem is solved completely, at a cost that no reasonable person would
+            accept.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#6E7F35">
+          <span class="card__no">Medium 8 · Anti-helium</span>
+          <h3>Sulfur Hexafluoride</h3>
+          <p><span class="mono tiny">ρ 6.16 kg/m³ · c 134 m/s</span></p>
+          <p>Five times denser than air, so the plume <b>sinks</b> and pools at floor level rather than
+            rising — an inversion of every intuition in the field. Sound travels at 39% of its speed in
+            air, dropping all cavity resonances by roughly an octave and a half. Select this medium and
+            fire: the same class you just heard in air returns an octave lower.</p>
+        </div>
+
+        <div class="card mediacard" style="--mc:#C08A4E">
+          <span class="card__no">Medium 9 · The good one</span>
+          <h3>Helium Atmosphere</h3>
+          <p><span class="mono tiny">ρ 0.166 kg/m³ · c 1007 m/s</span></p>
+          <p>Sound travels 2.9× faster than in air, raising every resonance by about an octave and a half
+            while the reed frequency itself barely shifts — exactly the mechanism behind the helium voice
+            effect, applied at the opposite end of the digestive tract. The plume also ascends roughly
+            four times faster. This is, by an enormous margin, the funniest entry in the library.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GOVERNING EQUATIONS ================= -->
+    <section>
+      <h2 class="section-head">Governing relations</h2>
+
+      <div class="full">
+        <div class="table-wrap">
+          <table>
+            <caption><b>Table 2.</b> Relations implemented in the model, with the physical question each answers.</caption>
+            <thead><tr><th>Relation</th><th>Form</th><th>What it decides</th></tr></thead>
+            <tbody>
+              <tr><td>Reynolds number</td><td class="mono">Re = ρvd / µ</td><td>Jet or bleed; laminar or turbulent</td></tr>
+              <tr><td>Continuity (exit velocity)</td><td class="mono">v = Q / A</td><td>How fast it leaves, given aperture and volume</td></tr>
+              <tr><td>Buoyancy (Archimedes)</td><td class="mono">a = g(ρ<sub>m</sub> − ρ<sub>g</sub>) / ρ<sub>g</sub></td><td>Whether the plume rises, hangs, or sinks</td></tr>
+              <tr><td>Stokes drag</td><td class="mono">F = 6πµRv</td><td>How quickly the medium arrests motion</td></tr>
+              <tr><td>Fickian diffusion</td><td class="mono">⟨x²⟩ = 2Dt</td><td>How fast the boundary blurs</td></tr>
+              <tr><td>Speed of sound</td><td class="mono">c = √(γRT / M)</td><td>Pitch shift; time before anyone knows</td></tr>
+              <tr><td>Minnaert resonance</td><td class="mono">f ≈ 3.26 / R</td><td>The ringing note of a single bubble</td></tr>
+              <tr><td>Darcy's law</td><td class="mono">q = −(k/µ)∇p</td><td>Transit through upholstery</td></tr>
+              <tr><td>Momentum conservation</td><td class="mono">m<sub>b</sub>Δv = m<sub>g</sub>v<sub>e</sub></td><td>Vacuum propulsion, such as it is</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="note note--tip full" style="margin-top:1.25rem">
+        <span class="note__title">Model limitations</span>
+        This is a two-dimensional particle model with linear drag and no ambient flow field. It does not
+        solve Navier–Stokes, does not resolve turbulence, and does not model the multi-component
+        thermodynamics of a gas mixture with six constituents at different partial pressures. It is
+        intended to be instructive and enjoyable rather than publishable, which — given the subject —
+        was never really in question.
+      </div>
+    </section>
+
+    <!-- ================= SUBPAGE ================= -->
+    <section class="full">
+      <h2 class="section-head">Subordinate report</h2>
+      <div class="cards">
+        <a class="card" href="amplification.html">
+          <span class="card__no">Part IV(a)</span>
+          <h3>Acoustic Amplification &amp; Resonance Engineering</h3>
+          <p>Having established how the emission propagates, the natural follow-up question is how to make
+            it propagate <i>much more</i>. Eleven stackable techniques with measured decibel gains, a
+            Helmholtz cavity calculator, and a live signal chain you can hear operate.</p>
+          <span class="card__go">Increase output →</span>
+        </a>
+        <a class="card" href="types.html">
+          <span class="card__no">Part II</span>
+          <h3>Typology</h3>
+          <p>The fifteen acoustic classes fed into the simulator's class selector, with full parameters
+            and a dichotomous field key.</p>
+          <span class="card__go">Back to the typology →</span>
+        </a>
+        <a class="card" href="foods.html">
+          <span class="card__no">Part III</span>
+          <h3>Substrates</h3>
+          <p>Where the charge volume in the simulator actually comes from. Forty-two foodstuffs ranked on
+            the Flatulence Index.</p>
+          <span class="card__go">Substrate rankings →</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="site-foot__grid">
+      <div><h4>Flotzy</h4><p class="tiny">The Journal of Applied Flatology. A serious treatment of an unserious gas.</p></div>
+      <div><h4>Parts</h4><ul>
+        <li><a href="index.html">I · Introduction</a></li>
+        <li><a href="types.html">II · Typology</a></li>
+        <li><a href="foods.html">III · Substrates</a></li>
+        <li><a href="science.html">IV · Simulation</a></li>
+        <li><a href="amplification.html">IV(a) · Amplification</a></li>
+      </ul></div>
+      <div><h4>This part</h4><ul>
+        <li><a href="#instrument">The instrument</a></li>
+        <li><a href="#media">Medium library</a></li>
+        <li><a href="amplification.html">Amplification →</a></li>
+      </ul></div>
+      <div><h4>Notice</h4><p class="tiny">Simulation runs entirely in your browser. Do not attempt the cryogenic, vacuum or sulfur hexafluoride conditions. Press <kbd>Esc</kbd> to stop audio.</p></div>
+    </div>
+    <div class="site-foot__base">
+      <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
+      <span class="mono">ISSN 0000-0000 · <span lang="he" dir="rtl">פלוץ</span></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  #sim, #spectrum {
+    width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--paper-2);
+  }
+  .ctrl-label {
+    font-family: var(--sans); font-size: .68rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2);
+    margin-bottom: .55rem;
+  }
+  .ctrl-label .muted { font-weight: 400; letter-spacing: .02em; text-transform: none; font-size: .8rem; }
+  .bench { display: grid; gap: clamp(1rem, 3vw, 2rem); }
+  @media (min-width: 860px) { .bench { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); } }
+  .flashmsg {
+    margin-top: .6rem; padding: .55rem .8rem;
+    background: color-mix(in srgb, var(--hazard) 14%, var(--card));
+    border: 1px solid var(--hazard); border-radius: var(--radius);
+    font-family: var(--sans); font-size: .78rem; font-weight: 650;
+    letter-spacing: .06em; color: var(--hazard);
+  }
+  .mediacard { border-top: 3px solid var(--mc); }
+  .mediacard .mono { color: var(--ink-3); }
+</style>
+
+<script src="assets/js/synth.js"></script>
+<script src="assets/js/sim.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/science.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Make sure the website is static.
