@@ -447,13 +447,17 @@
   }
 
   function playFile(id, url, fx) {
+    fx = fx || {};
     var c = audio();
-    var dest = buildFx(c, fx || {});
+    var dest = buildFx(c, fx);
     var handle = { stop: function () {}, promise: Promise.resolve() };
 
     function start(buf) {
       var src = c.createBufferSource();
       src.buffer = buf;
+      // A recording has no parametric pitch, so medium resonance shifts and
+      // amplification tension are applied as playback rate instead.
+      src.playbackRate.value = clamp(fx.rate || 1, 0.25, 4);
       src.connect(dest);
       src.start();
       handle.stop = function () { try { src.stop(); } catch (e) {} };
@@ -479,12 +483,16 @@
     analyser: function () { audio(); return analyserNode; },
     preview: preview,
     stopAll: stopAll,
+    /** True when this class is backed by a real recording rather than the synth. */
+    isReal: function (id) { return !!overrideUrl(id); },
     play: function (profileOrId, fx) {
       var p = typeof profileOrId === 'string'
         ? (PROFILES[profileOrId] || { id: profileOrId })
         : profileOrId;
-      var url = overrideUrl(p.id);
-      return url ? playFile(p.id, url, fx) : play(p, fx);
+      // A profile derived from a class (e.g. 'trumpet-helium') still resolves
+      // to that class's recording, with the medium applied as playback rate.
+      var url = overrideUrl(p.id) || overrideUrl(p.base || '');
+      return url ? playFile(p.base || p.id, url, fx) : play(p, fx);
     },
     /** Wire every [data-fart] play button on the page. */
     bindButtons: function (root) {

@@ -122,14 +122,16 @@
     var p = {};
     Object.keys(base).forEach(function (k) { p[k] = base[k]; });
     p.id = 'amp-stack';
+    p.base = 'sputterer';               // lets a real recording resolve through
 
     var fx = { gainDb: 0, room: 0, reflect: 0.5 };
+    var rate = 1;                       // recordings retune by playback rate
 
     keys.forEach(function (k) {
       var t = TECHNIQUES[k];
       var pr = t.prof;
       if (pr.gain)   p.gain   *= pr.gain;
-      if (pr.f0)     { p.f0 *= pr.f0; p.f1 *= pr.f0; }
+      if (pr.f0)     { p.f0 *= pr.f0; p.f1 *= pr.f0; rate *= 1 + (pr.f0 - 1) * 0.6; }
       if (pr.bright) p.bright *= pr.bright;
       if (pr.q)      p.q      *= pr.q;
       if (pr.dur)    p.dur    *= pr.dur;
@@ -153,6 +155,7 @@
     // The listener's ears are not part of the experiment. Convert some of the
     // modelled gain into audible character rather than raw output level.
     fx.gainDb = Math.min(fx.gainDb, 6);
+    fx.rate = Math.min(rate, 1.6);
 
     return { profile: p, fx: fx };
   }

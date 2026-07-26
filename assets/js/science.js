@@ -105,12 +105,16 @@
     var p = {};
     Object.keys(base).forEach(function (k) { p[k] = base[k]; });
     p.id = classKey + '-' + sim.medium;
+    p.base = classKey;                    // lets a real recording resolve through
     p.f0 = base.f0 * a.f0Mul;
     p.f1 = base.f1 * a.f0Mul;
     p.bright = base.bright * a.brightMul;
 
     window.Flotzy.stopAll();
-    window.Flotzy.play(p, { dampDb: a.dampDb, room: a.room, gainDb: 0 });
+    window.Flotzy.play(p, {
+      dampDb: a.dampDb, room: a.room, gainDb: 0,
+      rate: a.rate                        // recordings shift by playback rate instead
+    });
   }
 
   function flash(msg) {

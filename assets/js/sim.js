@@ -34,63 +34,63 @@
       label: 'Standard Air', sub: '1 atm · 21 °C · still',
       rho: 1.20, mu: 1.81e-5, c: 343, buoy: 0.55, drag: 1.6, diff: 0.30,
       grav: 0, absorb: 0, audible: true, tint: '#8B5E34',
-      audio: { brightMul: 1, f0Mul: 1, dampDb: 0, room: 0.18 },
+      audio: { brightMul: 1, f0Mul: 1, dampDb: 0, room: 0.18, rate: 1 },
       note: 'The reference case. A warm, low-density plume rises slowly while turbulent diffusion broadens it. Detection at 2 m typically follows within a few seconds.'
     },
     water: {
       label: 'Fresh Water', sub: '998 kg/m³ · 20 °C',
       rho: 998, mu: 1.00e-3, c: 1482, buoy: 7.8, drag: 5.5, diff: 0.04,
       grav: 0, absorb: 0, audible: true, tint: '#4E7E9B',
-      audio: { brightMul: 0.35, f0Mul: 0.85, dampDb: -14, room: 0.5 },
+      audio: { brightMul: 0.35, f0Mul: 0.85, dampDb: -14, room: 0.5, rate: 0.82 },
       note: 'Density rises by a factor of 830. The plume cannot disperse — it collapses into discrete buoyant bubbles that ascend at 20–30 cm/s and produce sound at the surface on rupture, not at the source.'
     },
     honey: {
       label: 'Honey', sub: '1420 kg/m³ · µ ≈ 10 Pa·s',
       rho: 1420, mu: 10, c: 2030, buoy: 1.1, drag: 22, diff: 0.004,
       grav: 0, absorb: 0, audible: true, tint: '#B8862B',
-      audio: { brightMul: 0.14, f0Mul: 0.7, dampDb: -22, room: 0.05 },
+      audio: { brightMul: 0.14, f0Mul: 0.7, dampDb: -22, room: 0.05, rate: 0.70 },
       note: 'Viscosity is 550 000 times that of air. Reynolds number collapses to order 1 — the flow is fully laminar, creeping, and reversible. The emission essentially does not go anywhere.'
     },
     vacuum: {
       label: 'Vacuum', sub: '0 Pa · hard vacuum',
       rho: 0, mu: 0, c: 0, buoy: 0, drag: 0, diff: 1.4,
       grav: 0, absorb: 0, audible: false, tint: '#9AA7B4',
-      audio: { brightMul: 1, f0Mul: 1, dampDb: -120, room: 0 },
+      audio: { brightMul: 1, f0Mul: 1, dampDb: -120, room: 0, rate: 1 },
       note: 'No medium, therefore no sound — pressure waves require something to be a wave in. The gas undergoes free molecular expansion in every direction at once and never stops. Newton\'s third law applies: the operator is now propulsion.'
     },
     upholstery: {
       label: 'Upholstery', sub: 'porous solid · Darcy flow',
       rho: 60, mu: 4e-4, c: 180, buoy: 0.1, drag: 30, diff: 0.02,
       grav: 0, absorb: 0.9, audible: true, tint: '#7A5A3E',
-      audio: { brightMul: 0.22, f0Mul: 0.92, dampDb: -19, room: 0 },
+      audio: { brightMul: 0.22, f0Mul: 0.92, dampDb: -19, room: 0, rate: 0.95 },
       note: 'Flow through a porous medium follows Darcy\'s law: velocity is proportional to pressure gradient and inversely proportional to viscosity, with a permeability term that is brutally small. The fabric acts as both an acoustic absorber and a physical filter. It also retains the gas and releases it later, which is the entire problem with sofas.'
     },
     zerog: {
       label: 'Zero-G Cabin', sub: 'air · microgravity',
       rho: 1.20, mu: 1.81e-5, c: 343, buoy: 0, drag: 1.6, diff: 0.34,
       grav: 0, absorb: 0, audible: true, tint: '#8B5E34',
-      audio: { brightMul: 1, f0Mul: 1, dampDb: 0, room: 0.35 },
+      audio: { brightMul: 1, f0Mul: 1, dampDb: 0, room: 0.35, rate: 1 },
       note: 'Without buoyancy there is no convection, so the plume expands as a symmetric sphere and stays exactly where it was made. Aboard crewed spacecraft this is managed by continuous forced ventilation. It is managed very deliberately.'
     },
     ln2: {
       label: 'Liquid Nitrogen', sub: '77 K · cryogenic bath',
       rho: 807, mu: 1.6e-4, c: 850, buoy: 9.5, drag: 4.0, diff: 0.02,
       grav: 0, absorb: 0.35, audible: true, tint: '#7FA8C4',
-      audio: { brightMul: 2.1, f0Mul: 1.25, dampDb: -8, room: 0.4 },
+      audio: { brightMul: 2.1, f0Mul: 1.25, dampDb: -8, room: 0.4, rate: 1.15 },
       note: 'At 77 K the CO₂ fraction desublimates immediately and the water vapour flash-freezes. Parcels crystallise and are removed from the gas phase. The remaining N₂ and H₂ boil the bath violently. Do not do this.'
     },
     sf6: {
       label: 'Sulfur Hexafluoride', sub: '6.16 kg/m³ · dense gas',
       rho: 6.16, mu: 1.53e-5, c: 134, buoy: -2.6, drag: 2.2, diff: 0.18,
       grav: 0, absorb: 0, audible: true, tint: '#6E7F35',
-      audio: { brightMul: 0.39, f0Mul: 0.62, dampDb: -2, room: 0.22 },
+      audio: { brightMul: 0.39, f0Mul: 0.62, dampDb: -2, room: 0.22, rate: 0.62 },
       note: 'Five times denser than air, so the plume sinks and pools at floor level instead of rising. Sound travels at 134 m/s — 39% of the speed in air — which drops every resonance by roughly an octave and a half. This is the anti-helium.'
     },
     helium: {
       label: 'Helium Atmosphere', sub: '0.166 kg/m³ · 100% He',
       rho: 0.166, mu: 1.99e-5, c: 1007, buoy: 4.2, drag: 1.1, diff: 0.62,
       grav: 0, absorb: 0, audible: true, tint: '#C08A4E',
-      audio: { brightMul: 2.94, f0Mul: 1.08, dampDb: 0, room: 0.25 },
+      audio: { brightMul: 2.94, f0Mul: 1.08, dampDb: 0, room: 0.25, rate: 1.71 },
       note: 'Sound travels at 1007 m/s — 2.9× the speed in air — raising every cavity resonance by about an octave and a half while the reed frequency barely moves. The result is the same effect helium has on speech, applied to the other end. Note also that the plume ascends four times faster.'
     }
   };
