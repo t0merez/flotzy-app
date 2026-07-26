@@ -152,7 +152,7 @@
     var c = audio();
     var handle = { stopped: false, stop: function () {}, promise: Promise.resolve() };
     var pick = url(id);
-    if (!c || !pick) return handle;
+    if (!c || !pick || muted) return handle;
 
     var resolveDone;
     handle.promise = new Promise(function (r) { resolveDone = r; });
@@ -183,6 +183,31 @@
   function stopAll() {
     live.slice().forEach(function (h) { h.stop(); });
     live.length = 0;
+  }
+
+  /* ---------- button blips ----------
+     Every button on the site farts when you press it. Short clips only,
+     played quietly and without interrupting anything already going, so
+     it reads as a click sound rather than a whole event.               */
+
+  var BLIPS = ['pop', 'sneezefart', 'pop', 'chaircreak', 'squeaker'];
+  var muted = false;
+  try { muted = localStorage.getItem('flotzy-mute') === '1'; } catch (e) {}
+
+  function setMuted(v) {
+    muted = !!v;
+    try { localStorage.setItem('flotzy-mute', muted ? '1' : '0'); } catch (e) {}
+    if (muted) stopAll();
+  }
+
+  function blip() {
+    if (muted) return;
+    var pool = BLIPS.filter(function (id) { return variants(id); });
+    if (!pool.length) return;
+    var id = pool[(Math.random() * pool.length) | 0];
+    // quieter than a real one, and slightly retuned each press so a run of
+    // clicks doesn't sound like a stuck loop
+    play(id, { gainDb: -11, rate: 0.9 + Math.random() * 0.35 });
   }
 
   /* ---------- waveform ----------
@@ -237,6 +262,9 @@
     waveform: waveform,
     play: play,
     stopAll: stopAll,
+    blip: blip,
+    setMuted: setMuted,
+    isMuted: function () { return muted; },
 
     /** Wire every [data-fart] control. Controls without a recording are disabled. */
     bindButtons: function (root) {

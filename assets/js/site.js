@@ -152,6 +152,52 @@
     });
   }
 
+  /* ---------- every button farts ----------
+     Any control that doesn't already play something of its own gets a
+     short quiet one on press. Controls that DO play something are left
+     alone, so you never hear two at once.                             */
+
+  var ALREADY_LOUD = '[data-fart], [data-noblip], #fireBtn, #ampFire, #ampBaseline, #hHear';
+
+  function bindBlips() {
+    if (!window.Flotzy || !window.Flotzy.blip) return;
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var el = t.closest('button, a[href], .chip, label.switch, summary');
+      if (!el) return;
+      if (el.closest(ALREADY_LOUD)) return;      // it makes its own noise
+      if (el.disabled || el.id === 'muteBtn') return;
+      window.Flotzy.blip();
+    }, true);
+  }
+
+  /* A way out, for anyone who has had enough. */
+  function buildMuteButton() {
+    var bar = document.querySelector('.topbar__in');
+    if (!bar || !window.Flotzy || document.getElementById('muteBtn')) return;
+
+    var b = document.createElement('button');
+    b.id = 'muteBtn';
+    b.type = 'button';
+    b.className = 'mutebtn';
+    bar.appendChild(b);
+
+    function paint() {
+      var m = window.Flotzy.isMuted();
+      b.textContent = m ? '🔇' : '🔊';
+      b.setAttribute('aria-pressed', String(m));
+      b.title = m ? 'Sound is off — click to turn it back on'
+                  : 'Sound is on — click to silence the whole site';
+      b.setAttribute('aria-label', b.title);
+    }
+    b.addEventListener('click', function () {
+      window.Flotzy.setMuted(!window.Flotzy.isMuted());
+      paint();
+    });
+    paint();
+  }
+
   /* ---------- boot ---------- */
 
   function init() {
@@ -163,6 +209,8 @@
     markProvenance();
     drawPreviews();
     if (window.Flotzy) window.Flotzy.bindButtons(document);
+    buildMuteButton();
+    bindBlips();
 
     var t;
     window.addEventListener('resize', function () {

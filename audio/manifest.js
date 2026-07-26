@@ -15,7 +15,7 @@ window.FLOTZY_AUDIO = {
   machinegun:   ['audio/machinegun.mp3', 'audio/machinegun-2.mp3', 'audio/machinegun-3.mp3'],
   marathon:     ['audio/marathon.mp3', 'audio/marathon-2.mp3', 'audio/marathon-3.mp3'],
   pop:          ['audio/pop.mp3', 'audio/pop-2.mp3', 'audio/pop-3.mp3'],
-  ripper:       ['audio/ripper.mp3', 'audio/ripper-2.mp3', 'audio/ripper-3.mp3'],
+  ripper:       ['audio/ripper.mp3', 'audio/ripper-2.mp3', 'audio/ripper-3.mp3', 'audio/ripper-4.mp3'],
   sneezefart:   ['audio/sneezefart.mp3', 'audio/sneezefart-2.mp3', 'audio/sneezefart-3.mp3'],
   sputterer:    ['audio/sputterer.mp3', 'audio/sputterer-2.mp3', 'audio/sputterer-3.mp3'],
   squeaker:     ['audio/squeaker.mp3', 'audio/squeaker-2.mp3', 'audio/squeaker-3.mp3'],
