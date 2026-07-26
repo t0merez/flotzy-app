@@ -73,7 +73,14 @@
 
         <div class="panel__body flow-md">
 
-          <canvas id="sim" aria-label="Simulation viewport showing gas parcel propagation"></canvas>
+          <div class="simwrap">
+            <canvas id="sim" aria-label="Simulation viewport showing gas parcel propagation"></canvas>
+            <div class="simbar">
+              <button class="btn btn--fire" id="fireBtn" type="button">⏻ Fire</button>
+              <button class="btn btn--ghost btn--sm" id="resetBtn" type="button">Clear</button>
+              <span class="simbar__hint">drag the source or the bystander</span>
+            </div>
+          </div>
           <p id="flash" class="flashmsg" hidden></p>
 
           <!-- medium -->
@@ -112,6 +119,10 @@
                 <label for="ambientT">Ambient temperature <output data-unit=" °C">21</output></label>
                 <input type="range" id="ambientT" min="-40" max="45" step="1" value="21">
               </div>
+              <div class="ctrl">
+                <label for="timeScale">Clock speed <output data-unit="× real time">8</output></label>
+                <input type="range" id="timeScale" min="1" max="30" step="1" value="8">
+              </div>
 
               <div class="ctrl">
                 <label for="fartClass">Acoustic class</label>
@@ -127,10 +138,6 @@
                 </select>
               </div>
 
-              <div class="btn-row">
-                <button class="btn" id="fireBtn" type="button">⏻ Fire</button>
-                <button class="btn btn--ghost" id="resetBtn" type="button">Clear</button>
-              </div>
               <p class="tiny muted" id="silentWarn" hidden>
                 ⚠ This medium does not propagate sound. The simulation will run; your speakers will not.
               </p>
@@ -143,6 +150,7 @@
                 <div class="readout"><b id="r-velocity">—</b><span>Exit velocity</span></div>
                 <div class="readout"><b id="r-reynolds">—</b><span>Reynolds no.</span></div>
                 <div class="readout"><b id="r-regime">—</b><span>Flow regime</span></div>
+                <div class="readout"><b id="r-terminal">—</b><span>Terminal rise speed</span></div>
                 <div class="readout"><b id="r-density">—</b><span>Medium density</span></div>
                 <div class="readout"><b id="r-soundSpeed">—</b><span>Speed of sound</span></div>
                 <div class="readout"><b id="r-soundArrival">—</b><span>Sound at 2 m</span></div>
@@ -345,6 +353,12 @@
     <!-- ================= SUBPAGE ================= -->
     <section class="full">
       <h2 class="section-head">Subordinate report</h2>
+
+      <div class="cta" style="margin-top:0;margin-bottom:1.5rem">
+        <p class="cta__text"><b>Now make it louder.</b> Eleven things that raise the volume, each with a
+          real decibel figure, stackable, and you can hear the difference.</p>
+        <a class="btn btn--lg" href="amplification.html">Open the amplifier <span class="arrow">→</span></a>
+      </div>
       <div class="cards">
         <a class="card" href="amplification.html">
           <span class="card__no">Part IV(a)</span>
@@ -400,6 +414,21 @@
 </footer>
 
 <style>
+  .simwrap { position: relative; }
+  .simbar {
+    position: absolute; left: .6rem; bottom: .6rem;
+    display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    padding: .4rem; border-radius: calc(var(--radius) + 3px);
+    background: color-mix(in srgb, var(--paper) 82%, transparent);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--rule);
+  }
+  .simbar__hint {
+    font-family: var(--sans); font-size: .68rem; color: var(--ink-3);
+    padding-right: .4rem;
+  }
+  @media (max-width: 560px) { .simbar__hint { display: none; } }
+  .btn--fire { font-size: .82rem; padding: .55rem 1.1rem; }
   #sim, #spectrum {
     width: 100%;
     border: 1px solid var(--rule);

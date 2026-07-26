@@ -71,11 +71,12 @@
   bindSlider('volume', 'volume');
   bindSlider('bodyT', 'bodyT');
   bindSlider('ambientT', 'ambientT');
+  bindSlider('timeScale', 'timeScale');
 
   /* ---------- readouts ---------- */
 
   var fields = ['velocity', 'reynolds', 'regime', 'soundSpeed', 'soundArrival',
-                'front', 'density', 'detect', 'distance'];
+                'front', 'density', 'detect', 'distance', 'terminal'];
   sim.onReadout = function (r) {
     fields.forEach(function (f) {
       var el = $('r-' + f);

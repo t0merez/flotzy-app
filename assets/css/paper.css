@@ -695,6 +695,38 @@ a.card:hover .card__go { color: var(--ochre); }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
 
+/* Big section call-to-action — the plain-language route to each part */
+.btn--lg {
+  font-size: .92rem;
+  letter-spacing: .04em;
+  padding: .95rem 1.5rem;
+  border-radius: calc(var(--radius) + 3px);
+  gap: .7em;
+}
+.btn--lg .arrow { font-size: 1.15em; line-height: 1; transition: transform .2s ease; }
+.btn--lg:hover .arrow { transform: translateX(4px); }
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem 1.2rem;
+  margin-top: 1.6rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--ochre);
+  border-radius: var(--radius);
+}
+.cta__text {
+  flex: 1 1 15rem;
+  font-family: var(--sans);
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.cta__text b { color: var(--ink); font-weight: 650; }
+
 /* Play button */
 .play {
   --size: 2.6rem;

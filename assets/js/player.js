@@ -48,9 +48,16 @@
     return ctx;
   }
 
+  /* A class may list several real recordings. Pick one at random so
+     repeated presses give genuinely different farts of the same type. */
+  function variants(id) {
+    var m = global.FLOTZY_AUDIO, v = m && m[id];
+    if (!v) return null;
+    return typeof v === 'string' ? [v] : (v.length ? v : null);
+  }
   function url(id) {
-    var m = global.FLOTZY_AUDIO;
-    return (m && m[id]) ? m[id] : null;
+    var v = variants(id);
+    return v ? v[(Math.random() * v.length) | 0] : null;
   }
 
   /* ---------- effects chain ---------- */
@@ -120,13 +127,11 @@
 
   /* ---------- loading ---------- */
 
-  function load(id) {
-    if (buffers[id]) return Promise.resolve(buffers[id]);
-    if (pending[id]) return pending[id];
-    var u = url(id);
-    if (!u) return Promise.reject(new Error('no recording for ' + id));
+  function load(u) {
+    if (buffers[u]) return Promise.resolve(buffers[u]);
+    if (pending[u]) return pending[u];
     var c = audio();
-    pending[id] = fetch(u)
+    pending[u] = fetch(u)
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
       .then(function (ab) {
         return new Promise(function (res, rej) {
@@ -135,9 +140,9 @@
           if (p && p.then) p.then(res, rej);
         });
       })
-      .then(function (buf) { buffers[id] = buf; delete pending[id]; return buf; })
-      .catch(function (e) { delete pending[id]; throw e; });
-    return pending[id];
+      .then(function (buf) { buffers[u] = buf; delete pending[u]; return buf; })
+      .catch(function (e) { delete pending[u]; throw e; });
+    return pending[u];
   }
 
   /* ---------- playback ---------- */
@@ -146,7 +151,8 @@
     fx = fx || {};
     var c = audio();
     var handle = { stopped: false, stop: function () {}, promise: Promise.resolve() };
-    if (!c || !url(id)) return handle;
+    var pick = url(id);
+    if (!c || !pick) return handle;
 
     var resolveDone;
     handle.promise = new Promise(function (r) { resolveDone = r; });
@@ -160,7 +166,7 @@
       resolveDone();
     }
 
-    load(id).then(function (buf) {
+    load(pick).then(function (buf) {
       if (handle.stopped) return;
       var src = c.createBufferSource();
       src.buffer = buf;
@@ -224,9 +230,10 @@
   var Flotzy = {
     ctx: audio,
     analyser: function () { audio(); return analyserNode; },
-    has: function (id) { return !!url(id); },
-    isReal: function (id) { return !!url(id); },
-    preload: function (id) { return url(id) ? load(id) : Promise.resolve(null); },
+    has: function (id) { return !!variants(id); },
+    isReal: function (id) { return !!variants(id); },
+    variantCount: function (id) { var v = variants(id); return v ? v.length : 0; },
+    preload: function (id) { var u = url(id); return u ? load(u) : Promise.resolve(null); },
     waveform: waveform,
     play: play,
     stopAll: stopAll,
