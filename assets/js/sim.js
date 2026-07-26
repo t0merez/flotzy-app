@@ -124,17 +124,19 @@
     return [255, 255, 238];
   }
 
-  /* Cheap divergence-free turbulence: curl of a scalar noise field.
-     Gives plumes that wander and curl instead of drifting in straight lines. */
+  /* Divergence-free turbulence: curl of a scalar noise field. Because the
+     field is stirred rather than pushed, gas is neither created nor
+     destroyed and the plume wanders as a body instead of atomising.
+     Output is normalised to roughly unit magnitude so the caller can set
+     turbulence in physical units (m/s) rather than arbitrary ones. */
   function sNoise(x, y, t) {
     return Math.sin(x * 1.7 + t * 0.7) * Math.cos(y * 2.1 - t * 0.5)
-         + 0.5 * Math.sin(x * 3.3 - y * 2.7 + t * 0.9)
-         + 0.25 * Math.cos(x * 6.1 + y * 5.3 - t * 1.3);
+         + 0.5 * Math.sin(x * 0.9 - y * 1.3 + t * 0.45);
   }
   function curl(x, y, t, out) {
-    var e = 0.12;
-    out[0] = (sNoise(x, y + e, t) - sNoise(x, y - e, t)) / (2 * e);
-    out[1] = -(sNoise(x + e, y, t) - sNoise(x - e, y, t)) / (2 * e);
+    var e = 0.35, k = 0.28;   // k normalises the finite difference to ~±1
+    out[0] = k * (sNoise(x, y + e, t) - sNoise(x, y - e, t)) / (2 * e);
+    out[1] = -k * (sNoise(x + e, y, t) - sNoise(x - e, y, t)) / (2 * e);
   }
 
   /* ---------- the simulator ---------- */
@@ -302,7 +304,7 @@
     var m = MEDIA[this.medium];
     var v = this.exitVelocity();
     var s = this.srcPx();
-    var n = Math.round(clamp(this.volume * 1.5, 80, 520));
+    var n = Math.round(clamp(this.volume * 3.2, 220, 900));
 
     this.detected = null;
     this.firedAt = this.t;
@@ -322,9 +324,9 @@
         y: s.y + (Math.random() - 0.5) * 3,
         vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
         life: 0, max: 8 + Math.random() * 10,
-        r: 2.5 + Math.random() * 4,
+        r: 1.6 + Math.random() * 2.4,
         T: this.bodyT - Math.random() * 1.5,
-        m: 0.6 + Math.random() * 0.8,      // parcel mass, for entrainment
+        m: 0.5 + Math.random() * 0.5,      // parcel mass, for entrainment
         alive: true,
         delay: Math.random() * 1.1         // release is not instantaneous
       });
@@ -352,26 +354,26 @@
       // Buoyancy from the actual parcel/medium density difference
       p.vy -= this.buoyancy(p.T) * dt;
 
-      // Curl-noise turbulence — divergence free, so it stirs without
-      // creating or destroying gas.
+      // Curl-noise turbulence, in m/s. Eddies grow as the plume ages, so
+      // the far field meanders more than the jet core.
       if (m.turb > 0) {
-        curl(p.x / 90, p.y / 90, this.t * 0.6, cv);
-        var s2 = m.turb * (0.6 + p.life * 0.25);
-        p.vx += cv[0] * s2 * dt * 3.2;
-        p.vy += cv[1] * s2 * dt * 3.2;
+        curl(p.x / 260, p.y / 260, this.t * 0.35, cv);
+        var s2 = m.turb * 0.30 * (0.35 + p.life * 0.10);
+        p.vx += cv[0] * s2;
+        p.vy += cv[1] * s2;
       }
 
-      // Molecular / eddy diffusion
-      var d = m.diff * (1 + p.life * 0.12);
-      p.vx += (Math.random() - 0.5) * d * dt * 7;
-      p.vy += (Math.random() - 0.5) * d * dt * 7;
+      // Molecular / eddy diffusion — small next to advection, as it is in air
+      var d = m.diff * (1 + p.life * 0.10);
+      p.vx += (Math.random() - 0.5) * d * dt * 1.4;
+      p.vy += (Math.random() - 0.5) * d * dt * 1.4;
 
       // Entrainment: the plume drags ambient fluid in, gaining mass and
       // losing velocity while widening. Momentum is conserved.
       var ent = 1 + 0.55 * dt * m.turb;
       p.m *= ent;
       p.vx /= ent; p.vy /= ent;
-      p.r += dt * 5.5 * (m.diff + 0.12) * (1 + m.turb * 0.5);
+      p.r += dt * 2.6 * (m.diff + 0.10) * (1 + m.turb * 0.4);
 
       if (m.absorb > 0 && Math.random() < m.absorb * dt) { p.alive = false; continue; }
 
@@ -407,8 +409,8 @@
       var p = this.parts[i];
       if (!p.alive || p.delay > 0) continue;
       var gx = p.x * sx, gy = p.y * sy;
-      var rad = Math.max(1, p.r * sx * 1.5);
-      var amp = (1 - p.life / p.max) * p.m * 0.55;
+      var rad = Math.max(1.6, p.r * sx * 2.2);
+      var amp = (1 - p.life / p.max) * p.m * 0.42;
       var Texc = (p.T - this.ambientT);
 
       var x0 = Math.max(0, (gx - rad) | 0), x1 = Math.min(GW - 1, (gx + rad) | 0);
@@ -428,8 +430,8 @@
 
     // Normalise temperature by concentration -> actual parcel temperature
     for (var j = 0; j < C.length; j++) if (C[j] > 1e-4) T[j] /= C[j];
-    this.blur(C, 1);
-    this.blur(T, 1);
+    this.blur(C, 3);
+    this.blur(T, 3);
   };
 
   /** Separable box blur — turns splats into one continuous body of gas. */
@@ -466,43 +468,58 @@
     if (m.c <= 0) { this.p.fill(0); this.pPrev.fill(0); return; }
 
     // Courant number. Compressed via a square root so that media spanning
-    // 134–2030 m/s all stay both stable (CFL < 0.707) and visible.
-    var C = clamp(0.52 * Math.sqrt(m.c / 343), 0.06, 0.66);
+    // 134–2030 m/s all stay both stable (CFL < 0.707) and watchable — at
+    // true scale a wavefront crosses this domain in 17 ms.
+    var C = clamp(0.30 * Math.sqrt(m.c / 343), 0.04, 0.62);
     var C2 = C * C;
     var damp = 1 - m.aAbs;
 
     var p = this.p, pv = this.pPrev, pn = this.pNext;
-    var substeps = 2;
+    var substeps = 1;
 
     for (var s = 0; s < substeps; s++) {
       for (var y = 1; y < GH - 1; y++) {
         var r = y * GW;
         for (var x = 1; x < GW - 1; x++) {
           var i = r + x;
-          var lap = p[i - 1] + p[i + 1] + p[i - GW] + p[i + GW] - 4 * p[i];
+          // 9-point isotropic stencil: ⅔·orthogonal + ⅙·diagonal − 10/3·centre.
+          // The 5-point form is anisotropic and renders a circular front as a diamond.
+          var lap = (p[i - 1] + p[i + 1] + p[i - GW] + p[i + GW]) * 0.6666667
+                  + (p[i - GW - 1] + p[i - GW + 1] + p[i + GW - 1] + p[i + GW + 1]) * 0.1666667
+                  - p[i] * 3.3333333;
           pn[i] = (2 * p[i] - pv[i] + C2 * lap) * damp;
         }
       }
-      // Reflective (Neumann) walls, with a little loss on each bounce
+      // Walls: partially reflective. Full reflection turns the domain into
+      // a resonator and the wavefront is quickly lost in its own echoes.
+      var WALL = 0.55;
       for (var xx = 0; xx < GW; xx++) {
-        pn[xx] = pn[GW + xx] * 0.94;
-        pn[(GH - 1) * GW + xx] = pn[(GH - 2) * GW + xx] * 0.94;
+        pn[xx] = pn[GW + xx] * WALL;
+        pn[(GH - 1) * GW + xx] = pn[(GH - 2) * GW + xx] * WALL;
       }
       for (var yy = 0; yy < GH; yy++) {
-        pn[yy * GW] = pn[yy * GW + 1] * 0.94;
-        pn[yy * GW + GW - 1] = pn[yy * GW + GW - 2] * 0.94;
+        pn[yy * GW] = pn[yy * GW + 1] * WALL;
+        pn[yy * GW + GW - 1] = pn[yy * GW + GW - 2] * WALL;
       }
 
-      // Source term: a short windowed tone burst at the emission
+      // Source: a Gaussian-windowed tone burst — a few cycles, so the front
+      // reads as one clean travelling ring rather than a continuous drone.
       if (this.emitT >= 0) {
-        var age = (this.t - this.emitT) + s * dt / substeps;
-        var BURST = 0.55;
+        var age = this.t - this.emitT;
+        var BURST = 0.30;
         if (age >= 0 && age < BURST) {
           var sp = this.srcPx();
           var gx = clamp((sp.x * GW / this.w) | 0, 1, GW - 2);
           var gy = clamp((sp.y * GH / this.h) | 0, 1, GH - 2);
-          var env = Math.sin(Math.PI * age / BURST);
-          pn[gy * GW + gx] += Math.sin(age * 2 * Math.PI * 34) * env * 1.7;
+          var u = age / BURST - 0.5;
+          var env = Math.exp(-9 * u * u);
+          var amp = Math.sin(age * 2 * Math.PI * 5.5) * env * 3.2;
+          // Inject over a small disc so the ring starts smooth, not pixellated
+          for (var oy = -1; oy <= 1; oy++) {
+            for (var ox = -1; ox <= 1; ox++) {
+              pn[(gy + oy) * GW + gx + ox] += amp * (ox || oy ? 0.45 : 1);
+            }
+          }
         } else if (age >= BURST) {
           this.emitT = -1;
         }
@@ -511,6 +528,12 @@
       var t0 = this.pPrev; this.pPrev = this.p; this.p = pn; this.pNext = t0;
       p = this.p; pv = this.pPrev; pn = this.pNext;
     }
+
+    // Track the field maximum so the display can auto-gain: a wave spreading
+    // in 2D loses amplitude as 1/√r and would otherwise fade to nothing.
+    var mx = 0, cur = this.p;
+    for (var i = 0; i < cur.length; i++) { var a2 = cur[i] < 0 ? -cur[i] : cur[i]; if (a2 > mx) mx = a2; }
+    this.pMax = Math.max(mx, (this.pMax || 0) * 0.985, 0.004);
   };
 
   /* ---------- rendering ---------- */
@@ -589,13 +612,15 @@
     var i, px, v, col;
 
     if (view === 'acoustic') {
+      var gain = 1 / (this.pMax || 1);
       for (i = 0; i < GW * GH; i++) {
         px = i * 4;
-        v = clamp(P[i] * 2.6, -1, 1);
+        v = clamp(P[i] * gain, -1, 1);
         var a = Math.abs(v);
-        if (v >= 0) { d[px] = 235; d[px + 1] = 168 + 60 * a; d[px + 2] = 86; }
-        else        { d[px] = 96;  d[px + 1] = 150;          d[px + 2] = 205; }
-        d[px + 3] = Math.pow(a, 0.62) * 235;
+        // Diverging: compression warm, rarefaction cool
+        if (v >= 0) { d[px] = 240; d[px + 1] = 160 + 70 * a; d[px + 2] = 80; }
+        else        { d[px] = 90;  d[px + 1] = 150;          d[px + 2] = 210; }
+        d[px + 3] = Math.pow(a, 0.45) * 255;
       }
     } else if (view === 'thermal') {
       var span = Math.max(4, this.bodyT - this.ambientT);

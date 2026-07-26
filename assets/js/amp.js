@@ -204,7 +204,7 @@
       var f = helmholtz();
       if (!window.Flotzy || f === null) return;
       window.Flotzy.stopAll();
-      window.Flotzy.play('trumpet', { cavityHz: f, cavityQ: 11, cavityDb: 15, room: 0.5, reflect: 0.85 });
+      window.Flotzy.play('ripper', { cavityHz: f, cavityQ: 11, cavityDb: 15, room: 0.5, reflect: 0.85 });
     });
   }
 

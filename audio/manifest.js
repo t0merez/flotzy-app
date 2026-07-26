@@ -8,7 +8,6 @@
 
 window.FLOTZY_AUDIO = {
   afterburner:   'audio/afterburner.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
-  bubbler:       'audio/bubbler.mp3',   // Wet fart tummy rumbles.ogg — natalie (Public domain)
   chaircreak:    'audio/chaircreak.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
   crescendo:     'audio/crescendo.mp3',   // Frt755 1.ogg — Horst Frank (CC BY-SA 3.0)
   machinegun:    'audio/machinegun.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
@@ -18,6 +17,5 @@ window.FLOTZY_AUDIO = {
   sneezefart:    'audio/sneezefart.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
   sputterer:     'audio/sputterer.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
   squeaker:      'audio/squeaker.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
-  trumpet:       'audio/trumpet.mp3',   // Flatulences 03°2° JJZh.ogg — Prononcateur (CC BY-SA 4.0)
   wet:           'audio/wet.mp3',   // 425594 ylearkisto farts-pieruja.wav — Zache (CC BY 3.0)
 };
