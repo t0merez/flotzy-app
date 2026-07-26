@@ -1,54 +1,74 @@
 # audio/
 
-**This folder is empty on purpose.** Every sound on the site is *synthesised in the
-browser* by [`assets/js/synth.js`](../assets/js/synth.js) from the physical parameters
-printed next to each specimen — a lip-reed valve model built out of Web Audio nodes.
-No recordings ship with the site, nothing is fetched from a CDN, and nothing is uploaded.
+**Real recordings.** Thirteen `.mp3` files, one per taxonomic class, ~285 KB total.
+Nothing here is synthesised.
 
-## Why synthesis rather than files
+## Where they came from
 
-- **Every specimen already sounds different**, because the parameters that describe it
-  in the typology (`f0`, jitter, flutter, brightness, burst count, envelope shape) are
-  literally the parameters that drive the synth. Change the table, change the sound.
-- **Zero payload.** Fifteen specimens cost nothing to download.
-- **Licensing.** Freely licensed recordings of this particular subject are scarce and
-  usually of unclear provenance. Synthesis sidesteps it entirely.
-- **The simulator needs it.** `science.html` shifts the resonances of each class by the
-  speed of sound in the selected medium — helium up, sulfur hexafluoride down. That is
-  only possible with a parametric source.
+All sources are freely licensed audio from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Flatulence).
+The largest contributor is a 4 min 50 s archive compilation released by the Finnish
+public broadcaster YLE ([`425594 ylearkisto farts-pieruja.wav`](https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav),
+CC BY 3.0, uploader *Zache*), described simply as *"different kind of real farts"*.
 
-## Dropping in real recordings
+Seven files that turned up in the same searches were **excluded** — they are dictionary
+pronunciations of the *word* rather than recordings of the act. `Sv-fart.ogg`, for instance,
+is a Swedish speaker saying *fart*, which in Swedish means **speed**.
 
-If you find or record something better, you can override any specimen without touching
-the synth:
+## How each class got its recording
 
-1. Put the file here, e.g. `audio/fl-003-trumpet.mp3` (`.mp3`, `.ogg` and `.wav` all work).
-2. Map it in [`manifest.js`](manifest.js):
+1. Every source was decoded to mono 48 kHz. Files over 5.5 s were split into discrete
+   events by energy gating (−30 dB threshold, 0.22 s minimum gap), yielding **83 candidate
+   specimens** from 13 source files.
+2. Each candidate was measured: duration, fundamental frequency (autocorrelation with
+   interior peak-picking after a 1.2 kHz low-pass), spectral centroid, spectral flatness,
+   burst count and regularity, attack time, crest factor, voiced fraction and pitch contour.
+3. Candidates were scored against the criteria in the site's own
+   [dichotomous key](../types.html#key), and a **global one-to-one assignment**
+   (Hungarian algorithm) picked the best overall mapping — so the taxonomy did the
+   classifying, not anyone's ears.
+4. Winners were peak-normalised to −1.5 dBFS, de-clicked with 8 ms fades, and encoded to
+   112 kbps mono MP3.
 
-   ```js
-   window.FLOTZY_AUDIO = {
-     trumpet: 'audio/fl-003-trumpet.mp3',
-   };
-   ```
+**Thirteen of fifteen classes found a credible match.** Two did not:
 
-3. Load the manifest **before** the synth on any page that plays audio
-   (`index.html`, `types.html`, `science.html`, `amplification.html`):
+| Class | Why there is no file |
+| --- | --- |
+| `silent` — FL-002 Silent But Deadly | A silent emission produces no acoustic signal. There is nothing to record. |
+| `ghost` — FL-008 The Ghost | Defined by operator kinematics and odour; a microphone detects neither. |
 
-   ```html
-   <script src="audio/manifest.js"></script>
-   <script src="assets/js/synth.js"></script>
-   ```
+Their play controls are inert and their waveforms render as `NO SIGNAL`. This is deliberate —
+faking them would undercut the one thing the site is careful about.
 
-Listed ids play the file; unlisted ids fall through to synthesis. If a file 404s or fails
-to decode, playback **falls back to the synth automatically** — a broken entry will not
-break the page.
+## Files
 
-### Valid specimen ids
+- `*.mp3` — the specimen library, keyed by class id
+- `manifest.js` — maps class id → file path, with per-file attribution in comments
+- `waveforms.js` — peak envelopes (150 points, 0–100) measured at export time, drawn on the
+  typology page so the on-screen waveform is the shape of the actual recording
 
-`sputterer` · `silent` · `trumpet` · `squeaker` · `ripper` · `machinegun` · `bubbler` ·
-`ghost` · `wet` · `crescendo` · `sneezefart` · `chaircreak` · `marathon` · `pop` ·
-`afterburner`
+Both `.js` files are plain globals, loaded before [`../assets/js/player.js`](../assets/js/player.js).
+No fetch of JSON, so the site works from `file://` as well as over HTTP.
 
-> **Note.** The amplification stack and the medium simulator apply their filters, cavity
-> resonance and reverb to whatever the source is — so real recordings still route through
-> the full effects chain and still respond to the bucket.
+## Licensing
+
+Each recording keeps its original licence — chiefly **CC BY 3.0/4.0** and **CC BY-SA 3.0/4.0**,
+plus one public-domain item. Trimming, normalising and re-encoding make these derivative works,
+so if you reuse them: carry the attribution and honour ShareAlike where it applies.
+Full per-class attribution is on the site at [types.html#provenance](../types.html#provenance)
+and in the comments of `manifest.js`.
+
+Everything else in this repository is public domain.
+
+## Replacing a recording
+
+Drop a file in this folder and point the class at it in `manifest.js`:
+
+```js
+window.FLOTZY_AUDIO = {
+  trumpet: 'audio/my-better-trumpet.mp3',
+};
+```
+
+Any class listed plays its file; any class omitted is silent. If a file 404s or fails to
+decode, that class simply goes quiet rather than breaking the page. If you change a file,
+regenerate its entry in `waveforms.js` too, or the drawn waveform will describe the old one.

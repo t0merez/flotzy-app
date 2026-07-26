@@ -37,9 +37,7 @@
 
   buildChips($('media'), MEDIA, sim.medium, function (k) {
     sim.medium = k;
-    sim.parts.length = 0;
-    sim.waves.length = 0;
-    sim.detected = null;
+    sim.clear();
     describeMedium();
   });
 
@@ -76,7 +74,8 @@
 
   /* ---------- readouts ---------- */
 
-  var fields = ['velocity', 'reynolds', 'regime', 'soundSpeed', 'soundArrival', 'front', 'density', 'detect'];
+  var fields = ['velocity', 'reynolds', 'regime', 'soundSpeed', 'soundArrival',
+                'front', 'density', 'detect', 'distance'];
   sim.onReadout = function (r) {
     fields.forEach(function (f) {
       var el = $('r-' + f);
@@ -91,29 +90,24 @@
 
     var m = MEDIA[sim.medium];
     var classKey = $('fartClass').value;
-    var base = window.Flotzy && window.Flotzy.PROFILES[classKey];
-
-    if (!base || !window.Flotzy) return;
+    if (!window.Flotzy) return;
 
     if (m.c === 0) {
       // Vacuum: the simulation runs, the speakers do not.
       flash('NO SOUND — vacuum carries no pressure wave');
       return;
     }
+    if (!window.Flotzy.has(classKey)) {
+      flash('NO RECORDING — this class is silent by definition');
+      return;
+    }
 
+    // The medium acts on the recording: resonances shift with the speed of
+    // sound, and the surroundings damp and reverberate it.
     var a = m.audio;
-    var p = {};
-    Object.keys(base).forEach(function (k) { p[k] = base[k]; });
-    p.id = classKey + '-' + sim.medium;
-    p.base = classKey;                    // lets a real recording resolve through
-    p.f0 = base.f0 * a.f0Mul;
-    p.f1 = base.f1 * a.f0Mul;
-    p.bright = base.bright * a.brightMul;
-
     window.Flotzy.stopAll();
-    window.Flotzy.play(p, {
-      dampDb: a.dampDb, room: a.room, gainDb: 0,
-      rate: a.rate                        // recordings shift by playback rate instead
+    window.Flotzy.play(classKey, {
+      dampDb: a.dampDb, room: a.room, reflect: 0.6, gainDb: 0, rate: a.rate
     });
   }
 
@@ -127,9 +121,7 @@
 
   $('fireBtn').addEventListener('click', fire);
   $('resetBtn').addEventListener('click', function () {
-    sim.parts.length = 0;
-    sim.waves.length = 0;
-    sim.detected = null;
+    sim.clear();
     if (window.Flotzy) window.Flotzy.stopAll();
   });
 

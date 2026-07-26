@@ -12,67 +12,24 @@
 (function () {
   'use strict';
 
-  var BASELINE_SPL = 62;     // dB @ 1 m, untreated FL-001 on a soft chair
+  var BASELINE_SPL = 62;         // dB @ 1 m, untreated FL-001 on a soft chair
+  var BASELINE_CLASS = 'sputterer';
   var FALLOFF = 0.72;
 
   /* ---------- technique library ---------- */
 
   var TECHNIQUES = {
-    retention: {
-      db: 6, group: 'Source',
-      prof: { gain: 1.25, thump: 0.25, f0: 1.12, dur: 1.15 },
-      fx: {}
-    },
-    tensioning: {
-      db: 3, group: 'Source',
-      prof: { f0: 1.35, q: 1.5, rasp: 0.12 },
-      fx: {}
-    },
-    lean: {
-      db: 4, group: 'Source',
-      prof: { gain: 1.1 },
-      fx: { presenceDb: 3 }
-    },
-    carbonation: {
-      db: 4, group: 'Source',
-      prof: { dur: 1.4, bursts: 2, gain: 1.08 },
-      fx: {}
-    },
-    hardSubstrate: {
-      db: 5, group: 'Substrate',
-      prof: {},
-      fx: { presenceDb: 4, reflect: 0.8 }
-    },
-    skinLeather: {
-      db: 3, group: 'Substrate',
-      prof: { thump: 0.3, rasp: 0.1 },
-      fx: { presenceDb: 2 }
-    },
-    nylon: {
-      db: 2, group: 'Substrate',
-      prof: { bright: 1.5 },
-      fx: {}
-    },
-    cavity: {
-      db: 9, group: 'Coupling',
-      prof: {},
-      fx: { cavityHz: 118, cavityQ: 9, cavityDb: 13 }
-    },
-    megaphone: {
-      db: 6, group: 'Coupling',
-      prof: {},
-      fx: { presenceDb: 8 }
-    },
-    corner: {
-      db: 6, group: 'Environment',
-      prof: {},
-      fx: { gainDb: 3 }
-    },
-    tiled: {
-      db: 7, group: 'Environment',
-      prof: {},
-      fx: { room: 0.8, reflect: 0.9 }
-    }
+    retention:     { db: 6, group: 'Source',      rate: 1.10, fx: { gainDb: 2 } },
+    tensioning:    { db: 3, group: 'Source',      rate: 1.22, fx: { presenceDb: 2 } },
+    lean:          { db: 4, group: 'Source',      fx: { presenceDb: 3, gainDb: 1 } },
+    carbonation:   { db: 4, group: 'Source',      rate: 0.94, fx: { gainDb: 1 } },
+    hardSubstrate: { db: 5, group: 'Substrate',   fx: { presenceDb: 4, reflect: 0.8 } },
+    skinLeather:   { db: 3, group: 'Substrate',   fx: { presenceDb: 2, gainDb: 1 } },
+    nylon:         { db: 2, group: 'Substrate',   fx: { presenceDb: 2 } },
+    cavity:        { db: 9, group: 'Coupling',    fx: { cavityHz: 118, cavityQ: 9, cavityDb: 13 } },
+    megaphone:     { db: 6, group: 'Coupling',    fx: { presenceDb: 8 } },
+    corner:        { db: 6, group: 'Environment', fx: { gainDb: 3 } },
+    tiled:         { db: 7, group: 'Environment', fx: { room: 0.8, reflect: 0.9 } }
   };
 
   /* ---------- SPL reference ladder ---------- */
@@ -118,46 +75,29 @@
   }
 
   function buildSignal(keys) {
-    var base = window.Flotzy.PROFILES.sputterer;
-    var p = {};
-    Object.keys(base).forEach(function (k) { p[k] = base[k]; });
-    p.id = 'amp-stack';
-    p.base = 'sputterer';               // lets a real recording resolve through
-
+    // Techniques act on the recording, not on a synthesised source: tension
+    // and pressure retune it (playback rate), everything else is filtering,
+    // cavity resonance and room.
     var fx = { gainDb: 0, room: 0, reflect: 0.5 };
-    var rate = 1;                       // recordings retune by playback rate
+    var rate = 1;
 
     keys.forEach(function (k) {
       var t = TECHNIQUES[k];
-      var pr = t.prof;
-      if (pr.gain)   p.gain   *= pr.gain;
-      if (pr.f0)     { p.f0 *= pr.f0; p.f1 *= pr.f0; rate *= 1 + (pr.f0 - 1) * 0.6; }
-      if (pr.bright) p.bright *= pr.bright;
-      if (pr.q)      p.q      *= pr.q;
-      if (pr.dur)    p.dur    *= pr.dur;
-      if (pr.thump)  p.thump  += pr.thump;
-      if (pr.rasp)   p.rasp   += pr.rasp;
-      if (pr.bursts) p.bursts += pr.bursts;
-
+      if (t.rate) rate *= t.rate;
       var f = t.fx;
       if (f.gainDb)     fx.gainDb += f.gainDb;
       if (f.presenceDb) fx.presenceDb = (fx.presenceDb || 0) + f.presenceDb;
+      if (f.dampDb)     fx.dampDb = (fx.dampDb || 0) + f.dampDb;
       if (f.cavityHz)   { fx.cavityHz = f.cavityHz; fx.cavityQ = f.cavityQ; fx.cavityDb = f.cavityDb; }
       if (f.room)       fx.room = Math.max(fx.room, f.room);
       if (f.reflect)    fx.reflect = Math.max(fx.reflect, f.reflect);
     });
 
-    p.gain = Math.min(p.gain, 1.6);
-    p.rasp = Math.min(p.rasp, 0.98);
-    p.thump = Math.min(p.thump, 0.9);
-    p.dur = Math.min(p.dur, 4);
-
-    // The listener's ears are not part of the experiment. Convert some of the
-    // modelled gain into audible character rather than raw output level.
+    // The listener's ears are not part of the experiment: modelled gain
+    // becomes audible character rather than raw output level.
     fx.gainDb = Math.min(fx.gainDb, 6);
-    fx.rate = Math.min(rate, 1.6);
-
-    return { profile: p, fx: fx };
+    fx.rate = Math.min(rate, 1.5);
+    return fx;
   }
 
   /* ---------- UI ---------- */
@@ -189,9 +129,8 @@
   if (fireBtn) {
     fireBtn.addEventListener('click', function () {
       if (!window.Flotzy) return;
-      var sig = buildSignal(activeKeys());
       window.Flotzy.stopAll();
-      window.Flotzy.play(sig.profile, sig.fx);
+      window.Flotzy.play(BASELINE_CLASS, buildSignal(activeKeys()));
     });
   }
 
@@ -200,7 +139,7 @@
     baseBtn.addEventListener('click', function () {
       if (!window.Flotzy) return;
       window.Flotzy.stopAll();
-      window.Flotzy.play('sputterer', { dampDb: -6 });
+      window.Flotzy.play(BASELINE_CLASS, { dampDb: -8 });
     });
   }
 

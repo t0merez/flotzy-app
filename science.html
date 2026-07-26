@@ -149,6 +149,7 @@
                 <div class="readout"><b id="r-soundSpeed">—</b><span>Speed of sound</span></div>
                 <div class="readout"><b id="r-soundArrival">—</b><span>Sound at 2 m</span></div>
                 <div class="readout"><b id="r-front">—</b><span>Plume front</span></div>
+                <div class="readout"><b id="r-distance">—</b><span>Source → bystander</span></div>
                 <div class="readout"><b id="r-detect">—</b><span>Olfactory detection</span></div>
               </div>
 
@@ -171,8 +172,8 @@
       <p class="tiny muted" style="margin-top:.75rem">
         Model: Lagrangian parcel advection with linear (Stokes-regime) drag, buoyancy proportional to
         parcel–ambient temperature difference, and Gaussian diffusion. Acoustic wavefronts are drawn at
-        1:60 slow motion so that media can be compared visually; true arrival times appear in the readouts.
-        Audio is synthesised from the selected class with the medium's resonance shift applied.
+        slow motion so that media can be compared visually; true arrival times appear in the readouts.
+        Audio is the real recording for the selected class, retuned and filtered by the medium.
       </p>
     </section>
 
@@ -391,7 +392,7 @@
         <li><a href="#media">Medium library</a></li>
         <li><a href="amplification.html">Amplification →</a></li>
       </ul></div>
-      <div><h4>Notice</h4><p class="tiny">Simulation runs entirely in your browser. Do not attempt the cryogenic, vacuum or sulfur hexafluoride conditions. Press <kbd>Esc</kbd> to stop audio.</p></div>
+      <div><h4>Notice</h4><p class="tiny">Simulation runs entirely in your browser. Audio is real recordings — see <a href="types.html#provenance">provenance</a>. Do not attempt the cryogenic, vacuum or sulfur hexafluoride conditions.</p></div>
     </div>
     <div class="site-foot__base">
       <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
@@ -427,7 +428,8 @@
 </style>
 
 <script src="audio/manifest.js"></script>
-<script src="assets/js/synth.js"></script>
+<script src="audio/waveforms.js"></script>
+<script src="assets/js/player.js"></script>
 <script src="assets/js/sim.js"></script>
 <script src="assets/js/site.js"></script>
 <script src="assets/js/science.js"></script>

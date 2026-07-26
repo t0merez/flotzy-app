@@ -49,9 +49,12 @@
         <p>Prior classification of flatus has been informal, regional and unrigorous. We propose the first
           systematic taxonomy, organised on <b>acoustic morphology</b> rather than on odour, since odour
           varies independently of every audible parameter (see <a href="index.html#refs">Part I, § 2</a>).
-          Fifteen classes are described. Each is given a binomial name, a set of measured parameters, and
-          a synthesised exemplar generated live in your browser from a lip-reed valve model.</p>
-        <p class="tiny muted"><b>Playback notice.</b> Every specimen plays through your speakers. Consider
+          Fifteen classes are described. Each is given a binomial name and a set of measured parameters.
+          <b>Thirteen are illustrated with a real recording</b>, drawn from freely licensed archives and
+          matched to its class by measured acoustics — duration, fundamental frequency, spectral centroid,
+          burst structure and pitch contour — rather than by ear. The remaining two are silent by
+          definition, and are presented without audio for that reason.</p>
+        <p class="tiny muted"><b>Playback notice.</b> Every recording plays through your speakers. Consider
           headphones if your surroundings include colleagues, a library, or anyone who has already asked
           you to stop. Press <kbd>Esc</kbd> to silence everything at once.</p>
       </div>
@@ -74,8 +77,10 @@
             attributed to a chair, a door, a pipe, or a nearby dog.</p>
           <p><b>Moisture risk.</b> The likelihood of an accompanying material component. Values above 6
             constitute a tactical emergency and should abort any planned emission immediately.</p>
-          <p><b>Waveform.</b> Rendered from the same parameters that drive the audio. Envelope hull shown
-            in outline.</p>
+          <p><b>Waveform.</b> The peak envelope of the actual recording, measured at 150 points.</p>
+          <p><b>Measured vs estimated.</b> Duration, F₀ and spectral centroid are <i>measured</i> from the
+            recording. SPL, odour, deniability and moisture cannot be recovered from an uncalibrated
+            archive clip and remain <i>estimates</i>.</p>
         </div>
       </div>
     </section>
@@ -107,12 +112,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="sputterer" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="35" style="--c:var(--brown)"></div><span class="val">1.4 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="22" style="--c:var(--brown)"></div><span class="val">88 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="13" style="--c:var(--brown)"></div><span class="val">0.85 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="42" style="--c:var(--brown)"></div><span class="val">167 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="58" style="--c:var(--ochre)"></div><span class="val">62 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="45" style="--c:var(--hazard)"></div><span class="val">4.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="25" style="--c:var(--methane)"></div><span class="val">2.5</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="30" style="--c:var(--steam)"></div><span class="val">3.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 2042 Hz, 3 bursts</p>
           </div>
         </article>
 
@@ -135,6 +141,12 @@
               This is the central tragedy of human physiology.</p>
             <p class="tiny muted"><b>Field note:</b> the audio exemplar is near-inaudible by design. This
               is not a bug. Raise your volume at your own considerable risk.</p>
+          <div class="note note--warn tiny" style="margin-top:.8rem">
+              <span class="note__title">No recording</span>
+              Every other class on this page is illustrated with a real recording. This one cannot be.
+              A silent emission produces no acoustic signal to record, so the play control is inert and
+              the waveform is flat. <b>The absence is the specimen.</b>
+            </div>
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="silent" aria-hidden="true"></canvas>
@@ -168,12 +180,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="trumpet" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="38" style="--c:var(--brown)"></div><span class="val">1.5 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="33" style="--c:var(--brown)"></div><span class="val">132 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="18" style="--c:var(--brown)"></div><span class="val">1.20 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="31" style="--c:var(--brown)"></div><span class="val">123 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="80" style="--c:var(--ochre)"></div><span class="val">74 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="30" style="--c:var(--hazard)"></div><span class="val">3.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="3" style="--c:var(--methane)"></div><span class="val">0.3</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="20" style="--c:var(--steam)"></div><span class="val">2.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:Flatulences_03Â°2Â°_JJZh.ogg">Flatulences 03Â°2Â° JJZh.ogg</a> · Prononcateur · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · measured centroid 1341 Hz, 2 bursts</p>
           </div>
         </article>
 
@@ -198,12 +211,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="squeaker" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="18" style="--c:var(--brown)"></div><span class="val">0.7 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="85" style="--c:var(--brown)"></div><span class="val">340 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="13" style="--c:var(--brown)"></div><span class="val">0.85 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="70" style="--c:var(--brown)"></div><span class="val">279 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="52" style="--c:var(--ochre)"></div><span class="val">58 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="25" style="--c:var(--hazard)"></div><span class="val">2.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="40" style="--c:var(--methane)"></div><span class="val">4.0</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="10" style="--c:var(--steam)"></div><span class="val">1.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1742 Hz, 3 bursts</p>
           </div>
         </article>
 
@@ -228,12 +242,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="ripper" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="28" style="--c:var(--brown)"></div><span class="val">1.1 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="26" style="--c:var(--brown)"></div><span class="val">105 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="22" style="--c:var(--brown)"></div><span class="val">1.45 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="36" style="--c:var(--brown)"></div><span class="val">143 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="88" style="--c:var(--ochre)"></div><span class="val">78 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="55" style="--c:var(--hazard)"></div><span class="val">5.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="1" style="--c:var(--methane)"></div><span class="val">0.1</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="45" style="--c:var(--steam)"></div><span class="val">4.5</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1810 Hz, 10 bursts</p>
           </div>
         </article>
 
@@ -258,12 +273,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="machinegun" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="48" style="--c:var(--brown)"></div><span class="val">1.9 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="30" style="--c:var(--brown)"></div><span class="val">118 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="16" style="--c:var(--brown)"></div><span class="val">1.06 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="37" style="--c:var(--brown)"></div><span class="val">149 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="72" style="--c:var(--ochre)"></div><span class="val">70 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="40" style="--c:var(--hazard)"></div><span class="val">4.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="2" style="--c:var(--methane)"></div><span class="val">0.2</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="25" style="--c:var(--steam)"></div><span class="val">2.5</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1671 Hz, 10 bursts</p>
           </div>
         </article>
 
@@ -288,12 +304,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="bubbler" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="55" style="--c:var(--brown)"></div><span class="val">2.2 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="15" style="--c:var(--brown)"></div><span class="val">62 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="29" style="--c:var(--brown)"></div><span class="val">1.86 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="15" style="--c:var(--brown)"></div><span class="val">60 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="45" style="--c:var(--ochre)"></div><span class="val">54 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="60" style="--c:var(--hazard)"></div><span class="val">6.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="5" style="--c:var(--methane)"></div><span class="val">0.5</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="100" style="--c:var(--steam)"></div><span class="val">10</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:Wet_fart_tummy_rumbles.ogg">Wet fart tummy rumbles.ogg</a> · natalie · <a href="https://en.wikipedia.org/wiki/Public_domain">Public domain</a> · measured centroid 1172 Hz, 8 bursts</p>
           </div>
         </article>
 
@@ -315,6 +332,12 @@
               The only class defined by <b>operator kinematics</b> rather than by acoustic morphology.</p>
             <p class="tiny muted"><b>Field note:</b> optimal walking speed is 1.2 m/s. Faster produces
               turbulent mixing and dilution; slower risks self-contamination.</p>
+          <div class="note note--warn tiny" style="margin-top:.8rem">
+              <span class="note__title">No recording</span>
+              As with <a href="#silent">FL-002</a>, there is nothing to capture. The Ghost is defined by
+              operator kinematics and by odour, neither of which a microphone detects. The play control
+              is inert by necessity.
+            </div>
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="ghost" aria-hidden="true"></canvas>
@@ -351,12 +374,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="wet" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="24" style="--c:var(--brown)"></div><span class="val">0.95 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="18" style="--c:var(--brown)"></div><span class="val">74 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="13" style="--c:var(--brown)"></div><span class="val">0.84 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="42" style="--c:var(--brown)"></div><span class="val">169 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="60" style="--c:var(--ochre)"></div><span class="val">64 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="75" style="--c:var(--hazard)"></div><span class="val">7.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="0" style="--c:var(--methane)"></div><span class="val">0.0</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="92" style="--c:var(--steam)"></div><span class="val">9.2</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1090 Hz, 1 burst</p>
           </div>
         </article>
 
@@ -381,12 +405,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="crescendo" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="70" style="--c:var(--brown)"></div><span class="val">3.0 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="42" style="--c:var(--brown)"></div><span class="val">58→168 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="40" style="--c:var(--brown)"></div><span class="val">2.60 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="70" style="--c:var(--brown)"></div><span class="val">280 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="82" style="--c:var(--ochre)"></div><span class="val">75 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="50" style="--c:var(--hazard)"></div><span class="val">5.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="1" style="--c:var(--methane)"></div><span class="val">0.1</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="20" style="--c:var(--steam)"></div><span class="val">2.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:Frt755_1.ogg">Frt755 1.ogg</a> · Horst Frank · <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> · measured centroid 2097 Hz, 36 bursts</p>
           </div>
         </article>
 
@@ -412,12 +437,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="sneezefart" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="14" style="--c:var(--brown)"></div><span class="val">0.55 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="38" style="--c:var(--brown)"></div><span class="val">150 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="5" style="--c:var(--brown)"></div><span class="val">0.33 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="32" style="--c:var(--brown)"></div><span class="val">128 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="76" style="--c:var(--ochre)"></div><span class="val">72 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="35" style="--c:var(--hazard)"></div><span class="val">3.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="55" style="--c:var(--methane)"></div><span class="val">5.5</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="35" style="--c:var(--steam)"></div><span class="val">3.5</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 2107 Hz, 1 burst</p>
           </div>
         </article>
 
@@ -442,12 +468,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="chaircreak" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="20" style="--c:var(--brown)"></div><span class="val">0.8 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="53" style="--c:var(--brown)"></div><span class="val">210 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="10" style="--c:var(--brown)"></div><span class="val">0.65 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="52" style="--c:var(--brown)"></div><span class="val">208 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="44" style="--c:var(--ochre)"></div><span class="val">53 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="20" style="--c:var(--hazard)"></div><span class="val">2.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="95" style="--c:var(--methane)"></div><span class="val">9.5</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="8" style="--c:var(--steam)"></div><span class="val">0.8</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1436 Hz, 3 bursts</p>
           </div>
         </article>
 
@@ -472,12 +499,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="marathon" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="100" style="--c:var(--brown)"></div><span class="val">6.5 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="20" style="--c:var(--brown)"></div><span class="val">78 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="90" style="--c:var(--brown)"></div><span class="val">5.82 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="22" style="--c:var(--brown)"></div><span class="val">90 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="66" style="--c:var(--ochre)"></div><span class="val">68 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="60" style="--c:var(--hazard)"></div><span class="val">6.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="0" style="--c:var(--methane)"></div><span class="val">0.0</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="30" style="--c:var(--steam)"></div><span class="val">3.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1630 Hz, 34 bursts</p>
           </div>
         </article>
 
@@ -502,12 +530,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="pop" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="4" style="--c:var(--brown)"></div><span class="val">0.16 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="40" style="--c:var(--brown)"></div><span class="val">160 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="4" style="--c:var(--brown)"></div><span class="val">0.23 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="24" style="--c:var(--brown)"></div><span class="val">96 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="55" style="--c:var(--ochre)"></div><span class="val">60 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="45" style="--c:var(--hazard)"></div><span class="val">4.5</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="70" style="--c:var(--methane)"></div><span class="val">7.0</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="15" style="--c:var(--steam)"></div><span class="val">1.5</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1670 Hz, 1 burst</p>
           </div>
         </article>
 
@@ -537,12 +566,13 @@
           </div>
           <div class="specimen__data">
             <canvas class="specimen__wave" data-wave="afterburner" aria-hidden="true"></canvas>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="60" style="--c:var(--brown)"></div><span class="val">2.4 s</span></div>
-            <div class="meter-row"><span>F₀</span><div class="meter" data-v="24" style="--c:var(--brown)"></div><span class="val">96 Hz</span></div>
+            <div class="meter-row"><span>Duration</span><div class="meter" data-v="35" style="--c:var(--brown)"></div><span class="val">2.28 s</span></div>
+            <div class="meter-row"><span>F₀</span><div class="meter" data-v="22" style="--c:var(--brown)"></div><span class="val">88 Hz</span></div>
             <div class="meter-row"><span>SPL</span><div class="meter" data-v="100" style="--c:var(--ochre)"></div><span class="val">83 dB</span></div>
             <div class="meter-row"><span>Odour</span><div class="meter" data-v="90" style="--c:var(--hazard)"></div><span class="val">9.0</span></div>
             <div class="meter-row"><span>Deniability</span><div class="meter" data-v="0" style="--c:var(--methane)"></div><span class="val">0.0</span></div>
             <div class="meter-row"><span>Moisture</span><div class="meter" data-v="40" style="--c:var(--steam)"></div><span class="val">4.0</span></div>
+            <p class="tiny muted prov">Recording: <a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a> · Zache · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · measured centroid 1777 Hz, 10 bursts</p>
           </div>
         </article>
 
@@ -613,21 +643,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td><a href="#sputterer">FL-001 Sputterer</a></td><td class="binomial">Flatus staccato</td><td class="num">1.4</td><td class="num">88</td><td class="num">62</td><td class="num">4.5</td><td class="num">2.5</td><td class="num">3.0</td><td><button class="btn btn--sm btn--ghost" data-fart="sputterer" type="button">▶</button></td></tr>
+            <tr><td><a href="#sputterer">FL-001 Sputterer</a></td><td class="binomial">Flatus staccato</td><td class="num">0.85</td><td class="num">167</td><td class="num">62</td><td class="num">4.5</td><td class="num">2.5</td><td class="num">3.0</td><td><button class="btn btn--sm btn--ghost" data-fart="sputterer" type="button">▶</button></td></tr>
             <tr><td><a href="#silent">FL-002 Silent But Deadly</a></td><td class="binomial">Silentium letale</td><td class="num">2.6</td><td class="num">40</td><td class="num">18</td><td class="num">9.7</td><td class="num">9.0</td><td class="num">1.5</td><td><button class="btn btn--sm btn--ghost" data-fart="silent" type="button">▶</button></td></tr>
-            <tr><td><a href="#trumpet">FL-003 Trumpet</a></td><td class="binomial">Buccina majestatis</td><td class="num">1.5</td><td class="num">132</td><td class="num">74</td><td class="num">3.0</td><td class="num">0.3</td><td class="num">2.0</td><td><button class="btn btn--sm btn--ghost" data-fart="trumpet" type="button">▶</button></td></tr>
-            <tr><td><a href="#squeaker">FL-004 Squeaker</a></td><td class="binomial">Stridor angustus</td><td class="num">0.7</td><td class="num">340</td><td class="num">58</td><td class="num">2.5</td><td class="num">4.0</td><td class="num">1.0</td><td><button class="btn btn--sm btn--ghost" data-fart="squeaker" type="button">▶</button></td></tr>
-            <tr><td><a href="#ripper">FL-005 Ripper</a></td><td class="binomial">Lacerator textilis</td><td class="num">1.1</td><td class="num">105</td><td class="num">78</td><td class="num">5.5</td><td class="num">0.1</td><td class="num">4.5</td><td><button class="btn btn--sm btn--ghost" data-fart="ripper" type="button">▶</button></td></tr>
-            <tr><td><a href="#machinegun">FL-006 Machine Gun</a></td><td class="binomial">Rapidus multiplex</td><td class="num">1.9</td><td class="num">118</td><td class="num">70</td><td class="num">4.0</td><td class="num">0.2</td><td class="num">2.5</td><td><button class="btn btn--sm btn--ghost" data-fart="machinegun" type="button">▶</button></td></tr>
-            <tr><td><a href="#bubbler">FL-007 Bubbler</a></td><td class="binomial">Bulla aquatica</td><td class="num">2.2</td><td class="num">62</td><td class="num">54</td><td class="num">6.0</td><td class="num">0.5</td><td class="num">10</td><td><button class="btn btn--sm btn--ghost" data-fart="bubbler" type="button">▶</button></td></tr>
+            <tr><td><a href="#trumpet">FL-003 Trumpet</a></td><td class="binomial">Buccina majestatis</td><td class="num">1.20</td><td class="num">123</td><td class="num">74</td><td class="num">3.0</td><td class="num">0.3</td><td class="num">2.0</td><td><button class="btn btn--sm btn--ghost" data-fart="trumpet" type="button">▶</button></td></tr>
+            <tr><td><a href="#squeaker">FL-004 Squeaker</a></td><td class="binomial">Stridor angustus</td><td class="num">0.85</td><td class="num">279</td><td class="num">58</td><td class="num">2.5</td><td class="num">4.0</td><td class="num">1.0</td><td><button class="btn btn--sm btn--ghost" data-fart="squeaker" type="button">▶</button></td></tr>
+            <tr><td><a href="#ripper">FL-005 Ripper</a></td><td class="binomial">Lacerator textilis</td><td class="num">1.45</td><td class="num">143</td><td class="num">78</td><td class="num">5.5</td><td class="num">0.1</td><td class="num">4.5</td><td><button class="btn btn--sm btn--ghost" data-fart="ripper" type="button">▶</button></td></tr>
+            <tr><td><a href="#machinegun">FL-006 Machine Gun</a></td><td class="binomial">Rapidus multiplex</td><td class="num">1.06</td><td class="num">149</td><td class="num">70</td><td class="num">4.0</td><td class="num">0.2</td><td class="num">2.5</td><td><button class="btn btn--sm btn--ghost" data-fart="machinegun" type="button">▶</button></td></tr>
+            <tr><td><a href="#bubbler">FL-007 Bubbler</a></td><td class="binomial">Bulla aquatica</td><td class="num">1.86</td><td class="num">60</td><td class="num">54</td><td class="num">6.0</td><td class="num">0.5</td><td class="num">10</td><td><button class="btn btn--sm btn--ghost" data-fart="bubbler" type="button">▶</button></td></tr>
             <tr><td><a href="#ghost">FL-008 Ghost</a></td><td class="binomial">Spectrum ambulans</td><td class="num">3.4</td><td class="num">46</td><td class="num">22</td><td class="num">8.5</td><td class="num">9.9</td><td class="num">1.2</td><td><button class="btn btn--sm btn--ghost" data-fart="ghost" type="button">▶</button></td></tr>
-            <tr><td><a href="#wet">FL-009 Wet One</a></td><td class="binomial">Periculum humidum</td><td class="num">0.95</td><td class="num">74</td><td class="num">64</td><td class="num">7.5</td><td class="num">0.0</td><td class="num">9.2</td><td><button class="btn btn--sm btn--ghost" data-fart="wet" type="button">▶</button></td></tr>
-            <tr><td><a href="#crescendo">FL-010 Crescendo</a></td><td class="binomial">Crescendo terribilis</td><td class="num">3.0</td><td class="num">113</td><td class="num">75</td><td class="num">5.0</td><td class="num">0.1</td><td class="num">2.0</td><td><button class="btn btn--sm btn--ghost" data-fart="crescendo" type="button">▶</button></td></tr>
-            <tr><td><a href="#sneezefart">FL-011 Sneeze-Fart</a></td><td class="binomial">Sternuto-flatus</td><td class="num">0.55</td><td class="num">150</td><td class="num">72</td><td class="num">3.5</td><td class="num">5.5</td><td class="num">3.5</td><td><button class="btn btn--sm btn--ghost" data-fart="sneezefart" type="button">▶</button></td></tr>
-            <tr><td><a href="#chaircreak">FL-012 Chair Creak</a></td><td class="binomial">Ambiguitas sellae</td><td class="num">0.8</td><td class="num">210</td><td class="num">53</td><td class="num">2.0</td><td class="num">9.5</td><td class="num">0.8</td><td><button class="btn btn--sm btn--ghost" data-fart="chaircreak" type="button">▶</button></td></tr>
-            <tr><td><a href="#marathon">FL-013 Marathon</a></td><td class="binomial">Longitudo aeterna</td><td class="num">6.5</td><td class="num">78</td><td class="num">68</td><td class="num">6.0</td><td class="num">0.0</td><td class="num">3.0</td><td><button class="btn btn--sm btn--ghost" data-fart="marathon" type="button">▶</button></td></tr>
-            <tr><td><a href="#pop">FL-014 Pop</a></td><td class="binomial">Punctum breve</td><td class="num">0.16</td><td class="num">160</td><td class="num">60</td><td class="num">4.5</td><td class="num">7.0</td><td class="num">1.5</td><td><button class="btn btn--sm btn--ghost" data-fart="pop" type="button">▶</button></td></tr>
-            <tr><td><a href="#afterburner">FL-015 Afterburner</a></td><td class="binomial">Ignis posterior</td><td class="num">2.4</td><td class="num">96</td><td class="num">83</td><td class="num">9.0</td><td class="num">0.0</td><td class="num">4.0</td><td><button class="btn btn--sm btn--ghost" data-fart="afterburner" type="button">▶</button></td></tr>
+            <tr><td><a href="#wet">FL-009 Wet One</a></td><td class="binomial">Periculum humidum</td><td class="num">0.84</td><td class="num">169</td><td class="num">64</td><td class="num">7.5</td><td class="num">0.0</td><td class="num">9.2</td><td><button class="btn btn--sm btn--ghost" data-fart="wet" type="button">▶</button></td></tr>
+            <tr><td><a href="#crescendo">FL-010 Crescendo</a></td><td class="binomial">Crescendo terribilis</td><td class="num">2.60</td><td class="num">280</td><td class="num">75</td><td class="num">5.0</td><td class="num">0.1</td><td class="num">2.0</td><td><button class="btn btn--sm btn--ghost" data-fart="crescendo" type="button">▶</button></td></tr>
+            <tr><td><a href="#sneezefart">FL-011 Sneeze-Fart</a></td><td class="binomial">Sternuto-flatus</td><td class="num">0.33</td><td class="num">128</td><td class="num">72</td><td class="num">3.5</td><td class="num">5.5</td><td class="num">3.5</td><td><button class="btn btn--sm btn--ghost" data-fart="sneezefart" type="button">▶</button></td></tr>
+            <tr><td><a href="#chaircreak">FL-012 Chair Creak</a></td><td class="binomial">Ambiguitas sellae</td><td class="num">0.65</td><td class="num">208</td><td class="num">53</td><td class="num">2.0</td><td class="num">9.5</td><td class="num">0.8</td><td><button class="btn btn--sm btn--ghost" data-fart="chaircreak" type="button">▶</button></td></tr>
+            <tr><td><a href="#marathon">FL-013 Marathon</a></td><td class="binomial">Longitudo aeterna</td><td class="num">5.82</td><td class="num">90</td><td class="num">68</td><td class="num">6.0</td><td class="num">0.0</td><td class="num">3.0</td><td><button class="btn btn--sm btn--ghost" data-fart="marathon" type="button">▶</button></td></tr>
+            <tr><td><a href="#pop">FL-014 Pop</a></td><td class="binomial">Punctum breve</td><td class="num">0.23</td><td class="num">96</td><td class="num">60</td><td class="num">4.5</td><td class="num">7.0</td><td class="num">1.5</td><td><button class="btn btn--sm btn--ghost" data-fart="pop" type="button">▶</button></td></tr>
+            <tr><td><a href="#afterburner">FL-015 Afterburner</a></td><td class="binomial">Ignis posterior</td><td class="num">2.28</td><td class="num">88</td><td class="num">83</td><td class="num">9.0</td><td class="num">0.0</td><td class="num">4.0</td><td><button class="btn btn--sm btn--ghost" data-fart="afterburner" type="button">▶</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -637,6 +667,69 @@
         Across all fifteen classes, <b>odour index and sound pressure level are inversely correlated</b>
         (r ≈ −0.62). The quietest specimens are the most dangerous. Loudness is, in effect, an early
         warning system that fires reliably in exactly the cases where no warning is needed.
+      </div>
+    </section>
+
+
+    <!-- ================= PROVENANCE ================= -->
+    <section class="full" id="provenance">
+      <h2 class="section-head">Provenance, method and licences</h2>
+
+      <div class="grid-2" style="margin-bottom:1.5rem">
+        <div class="prose flow-sm">
+          <p>Every audible specimen on this site is a <b>real recording</b>. Nothing is synthesised.
+            Candidate audio was gathered from Wikimedia Commons — including a 4 min 50 s archive
+            compilation released by the Finnish public broadcaster YLE, which we segmented into
+            62 discrete events by energy gating.</p>
+          <p>Each of the 83 resulting candidates was then measured for duration, fundamental frequency
+            (autocorrelation with interior peak-picking after a 1.2 kHz low-pass), spectral centroid,
+            spectral flatness, burst count and regularity, attack time, crest factor and pitch contour.</p>
+        </div>
+        <div class="prose flow-sm">
+          <p>Classes were assigned by scoring every candidate against the criteria in the
+            <a href="#key">dichotomous key</a> and solving a global one-to-one assignment, so the
+            taxonomy did the classifying rather than our ears. <b>Thirteen of fifteen classes found a
+            credible match.</b></p>
+          <p>Two did not, and are presented <b>without audio</b>:
+            <a href="#silent">FL-002 Silent But Deadly</a> and <a href="#ghost">FL-008 The Ghost</a>.
+            No recording of a silent fart can exist. That is, after all, the entire point of them.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table data-sortable>
+          <caption><b>Table 2.</b> Source recording for each class, with author, licence and the two
+            measured quantities used for matching. All sources are freely licensed; follow any licence
+            link for its terms.</caption>
+          <thead>
+            <tr><th data-sort="text">Class</th><th data-sort="text">Source file</th>
+                <th data-sort="text">Author</th><th data-sort="text">Licence</th>
+                <th class="num" data-sort="num">Dur (s)</th><th class="num" data-sort="num">F₀ (Hz)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="#sputterer">FL-001 The Sputterer</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.85</td><td class="num">167</td></tr>
+            <tr><td><a href="#trumpet">FL-003 The Trumpet</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Flatulences_03°2°_JJZh.ogg">Flatulences 03°2° JJZh.ogg</a></td><td>Prononcateur</td><td><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td><td class="num">1.20</td><td class="num">123</td></tr>
+            <tr><td><a href="#squeaker">FL-004 The Squeaker</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.85</td><td class="num">279</td></tr>
+            <tr><td><a href="#ripper">FL-005 The Ripper</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">1.45</td><td class="num">143</td></tr>
+            <tr><td><a href="#machinegun">FL-006 The Machine Gun</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">1.06</td><td class="num">149</td></tr>
+            <tr><td><a href="#bubbler">FL-007 The Bubbler</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Wet_fart_tummy_rumbles.ogg">Wet fart tummy rumbles.ogg</a></td><td>natalie</td><td><a href="https://en.wikipedia.org/wiki/Public_domain">Public domain</a></td><td class="num">1.86</td><td class="num">60</td></tr>
+            <tr><td><a href="#wet">FL-009 The Wet One</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.84</td><td class="num">169</td></tr>
+            <tr><td><a href="#crescendo">FL-010 The Crescendo</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Frt755_1.ogg">Frt755 1.ogg</a></td><td>Horst Frank</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></td><td class="num">2.60</td><td class="num">280</td></tr>
+            <tr><td><a href="#sneezefart">FL-011 The Sneeze-Fart</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.33</td><td class="num">128</td></tr>
+            <tr><td><a href="#chaircreak">FL-012 The Chair Creak</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.65</td><td class="num">208</td></tr>
+            <tr><td><a href="#marathon">FL-013 The Marathon</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">5.82</td><td class="num">90</td></tr>
+            <tr><td><a href="#pop">FL-014 The Pop</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">0.23</td><td class="num">96</td></tr>
+            <tr><td><a href="#afterburner">FL-015 The Afterburner</a></td><td><a href="https://commons.wikimedia.org/wiki/File:425594_ylearkisto_farts-pieruja.wav">425594 ylearkisto farts-pieruja.wav</a></td><td>Zache</td><td><a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></td><td class="num">2.28</td><td class="num">88</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note note--data" style="margin-top:1.25rem">
+        <span class="note__title">Reuse</span>
+        Source recordings remain under their original licences — chiefly <b>CC BY 3.0/4.0</b> and
+        <b>CC BY-SA 3.0/4.0</b>, with one public-domain item. The clips here are trimmed, peak-normalised
+        and re-encoded, which makes them derivative works: if you reuse them, carry the attribution above
+        and honour ShareAlike where it applies. Everything else on this site is public domain.
       </div>
     </section>
 
@@ -667,8 +760,9 @@
         <li><a href="#specimens">Systematic descriptions</a></li>
         <li><a href="#key">Dichotomous key</a></li>
         <li><a href="#silent">The dangerous one</a></li>
+        <li><a href="#provenance">Provenance &amp; licences</a></li>
       </ul></div>
-      <div><h4>Notice</h4><p class="tiny">All audio is synthesised in-browser via Web Audio. Nothing is recorded, uploaded or transmitted. Press <kbd>Esc</kbd> to stop playback.</p></div>
+      <div><h4>Notice</h4><p class="tiny">All audio consists of real recordings under CC BY / CC BY-SA / public domain — see <a href="#provenance">provenance</a>. Press <kbd>Esc</kbd> to stop playback.</p></div>
     </div>
     <div class="site-foot__base">
       <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
@@ -685,7 +779,8 @@
 </style>
 
 <script src="audio/manifest.js"></script>
-<script src="assets/js/synth.js"></script>
+<script src="audio/waveforms.js"></script>
+<script src="assets/js/player.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

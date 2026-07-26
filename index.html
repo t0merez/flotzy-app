@@ -223,21 +223,21 @@
 
       <figure data-fig class="full" style="margin-top:1.5rem">
         <div class="panel">
-          <div class="panel__bar"><span class="dot"></span> Live specimen · synthesised reed-valve model</div>
+          <div class="panel__bar"><span class="dot"></span> Specimen library · field recordings</div>
           <div class="panel__body">
-            <p class="tiny muted" style="margin-bottom:.9rem">Every sound on this site is generated in your
-              browser from the physical parameters listed beside it — no recordings are used. Press to audition.</p>
+            <p class="tiny muted" style="margin-bottom:.9rem">Every sound on this site is a real recording,
+              sourced from Wikimedia Commons and matched to its class by measured acoustics. Press to audition.</p>
             <div class="chips">
-              <button class="chip" data-fart="trumpet" type="button">▶ The Trumpet · 132 Hz</button>
-              <button class="chip" data-fart="squeaker" type="button">▶ The Squeaker · 340 Hz</button>
-              <button class="chip" data-fart="ripper" type="button">▶ The Ripper · 105 Hz</button>
-              <button class="chip" data-fart="silent" type="button">▶ Silent But Deadly · 40 Hz</button>
-              <button class="chip" data-fart="machinegun" type="button">▶ Machine Gun · 11 bursts</button>
+              <button class="chip" data-fart="trumpet" type="button">▶ The Trumpet · 123 Hz</button>
+              <button class="chip" data-fart="squeaker" type="button">▶ The Squeaker · 279 Hz</button>
+              <button class="chip" data-fart="ripper" type="button">▶ The Ripper · 143 Hz</button>
+              <button class="chip" data-fart="marathon" type="button">▶ The Marathon · 5.8 s</button>
+              <button class="chip" data-fart="machinegun" type="button">▶ Machine Gun · 10 bursts</button>
             </div>
           </div>
         </div>
-        <figcaption>Audition panel. Four of fifteen catalogued specimens. Full descriptions, measured
-          parameters and waveform previews appear in the <a href="types.html">Typology</a>.
+        <figcaption>Audition panel. Five of thirteen recorded specimens. Full descriptions, measured
+          parameters, waveforms and provenance appear in the <a href="types.html">Typology</a>.
           <b>Press <kbd>Esc</kbd> at any time to silence all playback.</b></figcaption>
       </figure>
     </section>
@@ -363,8 +363,8 @@
       </div>
       <div>
         <h4>Notice</h4>
-        <p class="tiny">All audio is synthesised in-browser via Web Audio. Nothing is recorded, uploaded
-          or transmitted. Not medical advice. Please do not ignite anything.</p>
+        <p class="tiny">All audio consists of real recordings under CC BY / CC BY-SA / public domain —
+          see <a href="types.html#provenance">provenance</a>. Not medical advice. Please do not ignite anything.</p>
       </div>
     </div>
     <div class="site-foot__base">
@@ -382,7 +382,8 @@
 </style>
 
 <script src="audio/manifest.js"></script>
-<script src="assets/js/synth.js"></script>
+<script src="audio/waveforms.js"></script>
+<script src="assets/js/player.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>
