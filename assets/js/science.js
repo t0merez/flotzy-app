@@ -1,7 +1,6 @@
 /* ============================================================
    FLOTZY — assets/js/science.js
-   Wires the multi-medium simulator to its instrument panel and
-   drives the live spectrum display.
+   Hooks the simulator up to its buttons.
    ============================================================ */
 
 (function () {
@@ -13,12 +12,9 @@
   var MEDIA = window.FlotzySim.MEDIA;
   var VIEWS = window.FlotzySim.VIEWS;
   var sim = new window.FlotzySim.Sim(cv);
-
   var $ = function (id) { return document.getElementById(id); };
 
-  /* ---------- medium & view selectors ---------- */
-
-  function buildChips(host, dict, current, onPick) {
+  function chips(host, dict, current, pick) {
     host.innerHTML = '';
     Object.keys(dict).forEach(function (key) {
       var b = document.createElement('button');
@@ -29,54 +25,39 @@
       b.addEventListener('click', function () {
         host.querySelectorAll('.chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
         b.setAttribute('aria-pressed', 'true');
-        onPick(key);
+        pick(key);
       });
       host.appendChild(b);
     });
   }
 
-  buildChips($('media'), MEDIA, sim.medium, function (k) {
+  chips($('media'), MEDIA, sim.medium, function (k) {
     sim.medium = k;
     sim.clear();
-    describeMedium();
+    describe();
   });
 
-  buildChips($('views'), VIEWS, sim.view, function (k) {
+  chips($('views'), VIEWS, sim.view, function (k) {
     sim.view = k;
     $('viewHint').textContent = VIEWS[k].hint;
   });
 
-  function describeMedium() {
+  function describe() {
     var m = MEDIA[sim.medium];
     $('medLabel').textContent = m.label;
     $('medSub').textContent = m.sub;
     $('medNote').textContent = m.note;
-    $('fireBtn').disabled = false;
-    $('silentWarn').hidden = m.c > 0;
+    $('silentWarn').hidden = !!m.sound;
   }
 
-  /* ---------- sliders ---------- */
-
-  function bindSlider(id, prop, transform) {
-    var el = $(id);
-    if (!el) return;
-    var apply = function () {
-      sim[prop] = transform ? transform(parseFloat(el.value)) : parseFloat(el.value);
-    };
-    el.addEventListener('input', apply);
+  var sizeEl = $('size');
+  if (sizeEl) {
+    var apply = function () { sim.size = parseFloat(sizeEl.value); };
+    sizeEl.addEventListener('input', apply);
     apply();
   }
 
-  bindSlider('aperture', 'aperture');
-  bindSlider('volume', 'volume');
-  bindSlider('bodyT', 'bodyT');
-  bindSlider('ambientT', 'ambientT');
-  bindSlider('timeScale', 'timeScale');
-
-  /* ---------- readouts ---------- */
-
-  var fields = ['velocity', 'reynolds', 'regime', 'soundSpeed', 'soundArrival',
-                'front', 'density', 'detect', 'distance', 'terminal'];
+  var fields = ['spread', 'gap', 'heard', 'smelled', 'speed'];
   sim.onReadout = function (r) {
     fields.forEach(function (f) {
       var el = $('r-' + f);
@@ -84,32 +65,18 @@
     });
   };
 
-  /* ---------- fire ---------- */
-
   function fire() {
     sim.fire();
-
     var m = MEDIA[sim.medium];
-    var classKey = $('fartClass').value;
+    var pick = $('fartClass') ? $('fartClass').value : 'sputterer';
     if (!window.Flotzy) return;
 
-    if (m.c === 0) {
-      // Vacuum: the simulation runs, the speakers do not.
-      flash('NO SOUND — vacuum carries no pressure wave');
-      return;
-    }
-    if (!window.Flotzy.has(classKey)) {
-      flash('NO RECORDING — this class is silent by definition');
-      return;
-    }
+    if (!m.sound) { flash('No sound out here. Space is silent.'); return; }
+    if (!window.Flotzy.has(pick)) { flash('That one has no recording — it is a silent one.'); return; }
 
-    // The medium acts on the recording: resonances shift with the speed of
-    // sound, and the surroundings damp and reverberate it.
     var a = m.audio;
     window.Flotzy.stopAll();
-    window.Flotzy.play(classKey, {
-      dampDb: a.dampDb, room: a.room, reflect: 0.6, gainDb: 0, rate: a.rate
-    });
+    window.Flotzy.play(pick, { dampDb: a.dampDb, room: a.room, reflect: 0.6, rate: a.rate });
   }
 
   function flash(msg) {
@@ -126,80 +93,7 @@
     if (window.Flotzy) window.Flotzy.stopAll();
   });
 
-  /* ---------- live spectrum ---------- */
-
-  var spec = document.getElementById('spectrum');
-  if (spec) {
-    var sg = spec.getContext('2d');
-    var sized = false;
-
-    function sizeSpec() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var w = spec.clientWidth || 400;
-      spec.style.height = '120px';
-      spec.width = Math.round(w * dpr);
-      spec.height = Math.round(120 * dpr);
-      sg.setTransform(dpr, 0, 0, dpr, 0, 0);
-      sized = true;
-      return { w: w, h: 120 };
-    }
-    var dims = sizeSpec();
-    window.addEventListener('resize', function () { dims = sizeSpec(); });
-
-    var bins = null;
-    function drawSpectrum() {
-      requestAnimationFrame(drawSpectrum);
-      if (!sized) return;
-      var an = window.Flotzy && window.Flotzy.__analyser;
-      var css = getComputedStyle(document.documentElement);
-      var w = dims.w, h = dims.h;
-
-      sg.clearRect(0, 0, w, h);
-      sg.fillStyle = '#0E1218';
-      sg.fillRect(0, 0, w, h);
-
-      if (!an) {
-        sg.fillStyle = 'rgba(255,255,255,.35)';
-        sg.font = '11px ui-monospace, monospace';
-        sg.fillText('AWAITING FIRST EMISSION — press FIRE', 12, h / 2);
-        return;
-      }
-      if (!bins || bins.length !== an.frequencyBinCount) bins = new Uint8Array(an.frequencyBinCount);
-      an.getByteFrequencyData(bins);
-
-      // Only the lowest ~4 kHz carries anything of interest here.
-      var n = Math.floor(bins.length * 0.18);
-      var bw = w / n;
-      for (var i = 0; i < n; i++) {
-        var v = bins[i] / 255;
-        var bh = v * (h - 16);
-        var t = i / n;
-        var r = Math.round(110 + t * 145), g2 = Math.round(70 + v * 120), b = Math.round(40 + t * 40);
-        sg.fillStyle = 'rgba(' + r + ',' + g2 + ',' + b + ',' + (0.35 + v * 0.65) + ')';
-        sg.fillRect(i * bw, h - bh - 12, Math.max(1, bw - 0.5), bh);
-      }
-
-      sg.fillStyle = 'rgba(255,255,255,.35)';
-      sg.font = '9px ui-monospace, monospace';
-      var sr = 48000, nyq = sr / 2, span = nyq * 0.18;
-      [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
-        sg.fillText(Math.round(span * f) + ' Hz', f * w + (f === 1 ? -44 : 2), h - 2);
-      });
-    }
-    drawSpectrum();
-  }
-
-  /* Expose the analyser once the context exists, so the spectrum can find it. */
-  var origPlay = window.Flotzy && window.Flotzy.play;
-  if (origPlay) {
-    window.Flotzy.play = function () {
-      var h = origPlay.apply(window.Flotzy, arguments);
-      window.Flotzy.__analyser = window.Flotzy.analyser();
-      return h;
-    };
-  }
-
-  describeMedium();
+  describe();
   $('viewHint').textContent = VIEWS[sim.view].hint;
   sim.start();
 })();

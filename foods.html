@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Substrate Loading — Flotzy</title>
-<meta name="description" content="Forty-two foodstuffs ranked on the Flatulence Index: volumetric yield, odour intensity, onset latency, campaign duration and dominant acoustic class.">
+<title>Foods, Ranked — Flotzy</title>
+<meta name="description" content="42 foods ranked by how much gas they make, how bad they smell, and how long you have before they kick in.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236B4423'/%3E%3Cellipse cx='12' cy='19' rx='7' ry='5.5' fill='%23E1D2B9' opacity='.9'/%3E%3Cellipse cx='21' cy='14' rx='5' ry='4' fill='%23B4762B'/%3E%3Cellipse cx='24' cy='22' rx='3.4' ry='2.7' fill='%23E1D2B9' opacity='.7'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/paper.css">
 </head>
@@ -17,10 +17,10 @@
     <a class="wordmark" href="index.html"><b>FLOTZY</b><span class="heb" lang="he" dir="rtl">פלוץ</span></a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="types.html">Typology</a>
-      <a href="foods.html">Substrates</a>
-      <a href="science.html">Simulation</a>
-      <a class="sub" href="amplification.html">Amplification</a>
+      <a href="types.html">The Types</a>
+      <a href="foods.html">Foods</a>
+      <a href="science.html">Simulator</a>
+      <a class="sub" href="amplification.html">Get Louder</a>
     </nav>
   </div>
 </header>
@@ -28,339 +28,218 @@
 <main id="main" class="shell paper-body">
 
   <div class="masthead">
-    <div class="masthead__meta">
-      <span>Part III</span><span>Nutritional Pneumatics</span><span>n = 42 substrates</span><span>Table 1</span>
-    </div>
-    <p class="kicker">Original Research · Dietary Determinants</p>
-    <h1>Substrate Loading</h1>
-    <p class="subtitle">Forty-two foodstuffs ranked on the Flatulence Index — a composite of volumetric
-      yield, odour intensity, campaign duration and reliability — with onset latencies and the acoustic
-      class each most dependably produces.</p>
-    <p class="byline">
-      <b>Department of Nutritional Pneumatics</b> · Flotzy Institute<br>
-      Conflicts of interest: the authors like all forty-two of these and intend to keep eating them.
-    </p>
+    <h1>Foods, Ranked</h1>
+    <p class="subtitle">Forty-two foods, sorted by how much trouble they cause. Beans win. Rice loses.</p>
   </div>
 
-  <div class="paper-grid section-gap numbered">
+  <div class="paper-grid section-gap">
 
+    <!-- ============ THE RULE ============ -->
     <div class="full">
-      <div class="abstract flow-md">
-        <h2>Abstract</h2>
-        <p>The colon does not ferment food. It ferments <b>whatever the small intestine failed to absorb</b>.
-          Any carbohydrate that reaches the large bowel intact becomes bacterial substrate, and every gram
-          of substrate becomes gas. This gives dietary flatology a clean predictive rule: <b>the more
-          indigestible the carbohydrate, the greater the yield</b> — while odour is governed by a wholly
-          separate variable, dietary sulfur. We rank 42 substrates against both axes and find, as expected,
-          that the highest-volume and highest-odour foods are largely disjoint sets.</p>
+      <div class="bigfact">
+        <div class="bigfact__n">🫘</div>
+        <div>
+          <h2>One rule explains almost all of it</h2>
+          <p>Your gut bacteria don't eat your food. They eat <b>whatever you couldn't digest</b>. So the
+            harder a food is to break down, the more of it reaches the bacteria, and the more gas you
+            get. That's it. That's the whole thing.</p>
+          <p><b>Smell is separate.</b> That comes from sulfur — eggs, cabbage, broccoli, garlic. A food
+            can be huge on gas and smell of nothing, or tiny on gas and clear a room.</p>
+        </div>
       </div>
     </div>
 
-    <!-- ================= THE INDEX ================= -->
-    <section id="index">
-      <h2 class="section-head">The Flatulence Index</h2>
-
-      <div class="prose flow-md">
-        <p>Each substrate is scored on four subscales from 0 to 10, then combined into a single index
-          from 0 to 100:</p>
-      </div>
-
-      <div class="full">
-        <figure data-fig>
-          <div class="formula">
-            <span class="fi">FI</span> <span class="eq">=</span>
-            <span class="term" style="--c:var(--brown)">4.0<i>V</i></span> +
-            <span class="term" style="--c:var(--hazard)">3.5<i>O</i></span> +
-            <span class="term" style="--c:var(--ochre)">1.5<i>D</i></span> +
-            <span class="term" style="--c:var(--methane)">1.0<i>R</i></span>
-          </div>
-          <div class="grid-2" style="margin-top:1.1rem">
-            <div class="note note--data">
-              <span class="note__title">V · Volumetric yield</span>
-              Millilitres of gas produced per standard serving, normalised. Driven almost entirely by
-              indigestible carbohydrate content: oligosaccharides, fructans, polyols and resistant starch.
-              Weighted highest because it is the only subscale that is straightforwardly measurable.
-            </div>
-            <div class="note note--warn">
-              <span class="note__title">O · Odour intensity</span>
-              Volatile sulfur output. Depends on dietary sulfur — cysteine, methionine and the
-              glucosinolates of the cabbage family — not on volume. This is why eggs rank 28th overall
-              while ranking 1st on this subscale alone.
-            </div>
-            <div class="note">
-              <span class="note__title">D · Campaign duration</span>
-              Hours from onset to resolution. Slowly fermented substrates such as bran and sorbitol
-              produce lower peak output but sustain it far longer, which in many social contexts is worse.
-            </div>
-            <div class="note note--tip">
-              <span class="note__title">R · Reliability</span>
-              Consistency of effect across individuals. Legumes are near-universal (R ≈ 9.5); dairy is
-              highly bimodal (R ≈ 7.0) because roughly two thirds of the world's adults are lactase
-              non-persistent and one third are not.
-            </div>
-          </div>
-          <figcaption>The Flatulence Index. Maximum attainable score is 100; no naturally occurring
-            foodstuff exceeds 90, which we regard as fortunate.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ================= PODIUM ================= -->
+    <!-- ============ TOP 3 ============ -->
     <section class="full">
-      <h2 class="section-head">The leading substrates</h2>
-
+      <h2 class="section-head">The worst three</h2>
       <div class="cards">
         <div class="card podium podium--1">
-          <span class="card__no">Rank 1 · FI 89</span>
-          <h3>Baked Beans <span class="tag tag--brown">Navy</span></h3>
-          <p>The reference standard, and the reason the entire field exists. Navy beans carry the highest
-            concentration of <b>raffinose and stachyose</b> of any commonly eaten food — α-galactosides
-            that humans cannot cleave, because we do not produce α-galactosidase. Every gram reaches the
-            colon intact and is fermented in full.</p>
+          <span class="card__no">Number 1</span>
+          <h3>Baked Beans</h3>
+          <p>The obvious champion, and it isn't close. Beans contain a sugar humans simply cannot break
+            down — we don't have the right tool for it. So every bit of it arrives at the bacteria
+            untouched, and they have a party.</p>
           <div class="flow-sm" style="margin-top:.4rem">
-            <div class="meter-row"><span>Yield</span><div class="meter" data-v="96" style="--c:var(--brown)"></div><span class="val">9.6</span></div>
-            <div class="meter-row"><span>Odour</span><div class="meter" data-v="80" style="--c:var(--hazard)"></div><span class="val">8.0</span></div>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="85" style="--c:var(--ochre)"></div><span class="val">14 h</span></div>
+            <div class="meter-row"><span>Gas</span><div class="meter" data-v="96" style="--c:var(--brown)"></div><span class="val">huge</span></div>
+            <div class="meter-row"><span>Smell</span><div class="meter" data-v="80" style="--c:var(--hazard)"></div><span class="val">bad</span></div>
           </div>
-          <p class="tiny muted">Onset 6 h · Produces <a href="types.html#afterburner">FL-013 Afterburner</a></p>
+          <p class="tiny muted">Kicks in after about 6 hours, lasts 14</p>
         </div>
 
         <div class="card podium podium--2">
-          <span class="card__no">Rank 2 · FI 86</span>
-          <h3>Brussels Sprouts <span class="tag tag--haz">Sulfur</span></h3>
-          <p>The odour leader among vegetables. Brassicas store <b>glucosinolates</b>, which bacterial
-            myrosinase converts into sulfur-bearing isothiocyanates and, ultimately, hydrogen sulfide.
-            High yield and near-maximal odour make this the only substrate to score above 8 on both
-            primary axes.</p>
+          <span class="card__no">Number 2</span>
+          <h3>Brussels Sprouts</h3>
+          <p>The smelliest vegetable there is, and near the top for gas as well. Sprouts are packed with
+            sulfur, which is the stuff that actually smells. The only food on the list that scores high
+            on both counts at once.</p>
           <div class="flow-sm" style="margin-top:.4rem">
-            <div class="meter-row"><span>Yield</span><div class="meter" data-v="84" style="--c:var(--brown)"></div><span class="val">8.4</span></div>
-            <div class="meter-row"><span>Odour</span><div class="meter" data-v="94" style="--c:var(--hazard)"></div><span class="val">9.4</span></div>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="62" style="--c:var(--ochre)"></div><span class="val">10 h</span></div>
+            <div class="meter-row"><span>Gas</span><div class="meter" data-v="84" style="--c:var(--brown)"></div><span class="val">lots</span></div>
+            <div class="meter-row"><span>Smell</span><div class="meter" data-v="94" style="--c:var(--hazard)"></div><span class="val">awful</span></div>
           </div>
-          <p class="tiny muted">Onset 5 h · Produces <a href="types.html#silent">FL-002 Silent But Deadly</a></p>
+          <p class="tiny muted">Kicks in after about 5 hours, lasts 10</p>
         </div>
 
         <div class="card podium podium--3">
-          <span class="card__no">Rank 4 · FI 84</span>
-          <h3>Jerusalem Artichoke <span class="tag tag--meth">Inulin</span></h3>
-          <p>Known in the older literature, without irony, as the <i>fartichoke</i>. Composed of up to 76%
-            <b>inulin</b>, a fructan polymer for which the human gut possesses no hydrolytic enzyme
-            whatsoever. Yield is the highest recorded in this study; the sixteen-hour campaign duration is
-            also unmatched.</p>
+          <span class="card__no">Number 4</span>
+          <h3>Jerusalem Artichoke</h3>
+          <p>People used to call these <i>fartichokes</i>, which tells you everything. Three quarters of
+            them is a fibre we have absolutely no way of digesting. Produces more gas than anything else
+            here, for longer.</p>
           <div class="flow-sm" style="margin-top:.4rem">
-            <div class="meter-row"><span>Yield</span><div class="meter" data-v="98" style="--c:var(--brown)"></div><span class="val">9.8</span></div>
-            <div class="meter-row"><span>Odour</span><div class="meter" data-v="62" style="--c:var(--hazard)"></div><span class="val">6.2</span></div>
-            <div class="meter-row"><span>Duration</span><div class="meter" data-v="98" style="--c:var(--ochre)"></div><span class="val">16 h</span></div>
+            <div class="meter-row"><span>Gas</span><div class="meter" data-v="98" style="--c:var(--brown)"></div><span class="val">enormous</span></div>
+            <div class="meter-row"><span>Smell</span><div class="meter" data-v="62" style="--c:var(--hazard)"></div><span class="val">medium</span></div>
           </div>
-          <p class="tiny muted">Onset 7 h · Produces <a href="types.html#marathon">FL-011 Marathon</a></p>
+          <p class="tiny muted">Kicks in after about 7 hours, lasts 16</p>
         </div>
       </div>
 
       <div class="grid-2" style="margin-top:1.25rem">
         <div class="note note--warn">
-          <span class="note__title">Special citation · Sugar-free gum</span>
-          Ranked 7th (FI 80) despite containing almost no food. <b>Sorbitol</b> and <b>xylitol</b> are
-          polyols absorbed slowly and incompletely; the unabsorbed fraction ferments completely. A 2008
-          case report in the <i>BMJ</i> described a patient who lost 22 kg and suffered chronic diarrhoea
-          from consuming around 20 sticks of sugar-free gum per day. The dose here is small; the
-          <b>eighteen-hour</b> duration is the longest in the table.
+          <span class="note__title">The sugar-free gum surprise</span>
+          Number 7, despite barely being food. Sugar-free gum uses sweeteners your body absorbs slowly
+          and badly, so most of it goes straight through to the bacteria. It also lasts <b>18 hours</b>,
+          the longest of anything on the list. There's a famous case of someone chewing about twenty
+          sticks a day and losing 22 kg.
         </div>
         <div class="note note--data">
-          <span class="note__title">Special citation · Eggs</span>
-          Ranked only 28th on the composite (FI 62) but <b>1st of 42 on odour alone (O = 10.0)</b>. Egg
-          protein is exceptionally rich in cysteine and methionine, which sulfate-reducing bacteria
-          convert directly into hydrogen sulfide. Volume is negligible. This is the single clearest
-          demonstration in the dataset that <b>the two axes are independent</b>.
+          <span class="note__title">The egg thing</span>
+          Eggs come 28th overall but are <b>number one for smell</b>, by a distance. They barely make any
+          gas at all — they just make the gas you already had considerably worse. This is the clearest
+          proof that the two things really are unrelated.
         </div>
       </div>
     </section>
 
-    <!-- ================= FULL TABLE ================= -->
+    <!-- ============ THE TABLE ============ -->
     <section class="full" id="table">
-      <h2 class="section-head">Complete rankings</h2>
+      <h2 class="section-head">All forty-two</h2>
 
       <div class="btn-row" style="margin-bottom:1rem">
-        <label class="sr-only" for="q">Filter substrates</label>
-        <input type="text" id="q" placeholder="Filter — try “legume”, “sulfur”, “polyol”…"
+        <label class="sr-only" for="q">Search the list</label>
+        <input type="text" id="q" placeholder="Search — try “beans”, “cheese”, “gum”…"
                data-filters="fitable" data-count="shown" style="min-width:min(100%,320px)">
-        <span class="tiny muted"><b id="shown">42</b> of 42 substrates shown · click any column to sort</span>
+        <span class="tiny muted">showing <b id="shown">42</b> of 42 · tap a heading to sort</span>
       </div>
 
       <div class="table-wrap">
         <table id="fitable" data-sortable>
-          <caption><b>Table 1.</b> Forty-two substrates ranked by Flatulence Index.
-            <b>V</b> volumetric yield · <b>O</b> odour intensity · <b>D</b> campaign duration ·
-            <b>R</b> reliability · all 0–10. Onset in hours post-ingestion.</caption>
+          <caption>Gas and smell are out of 10. "Kicks in" is how many hours after eating it starts.
+            "Lasts" is how many hours it goes on for.</caption>
           <thead>
             <tr>
               <th class="num" data-sort="num">#</th>
-              <th data-sort="text">Substrate</th>
-              <th class="num" data-sort="num">FI</th>
-              <th class="num" data-sort="num">V</th>
-              <th class="num" data-sort="num">O</th>
-              <th class="num" data-sort="num">Onset</th>
-              <th class="num" data-sort="num">Dur.</th>
-              <th data-sort="text">Mechanism</th>
-              <th data-sort="text">Dominant class</th>
+              <th data-sort="text">Food</th>
+              <th class="num" data-sort="num">Gas</th>
+              <th class="num" data-sort="num">Smell</th>
+              <th class="num" data-sort="num">Kicks in</th>
+              <th class="num" data-sort="num">Lasts</th>
+              <th data-sort="text">Why</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td>Baked beans (navy)</td><td class="num"><b>89</b></td><td class="num">9.6</td><td class="num">8.0</td><td class="num">6.0</td><td class="num">14</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#afterburner">FL-013 Afterburner</a></td></tr>
-            <tr><td class="num">2</td><td>Brussels sprouts</td><td class="num"><b>86</b></td><td class="num">8.4</td><td class="num">9.4</td><td class="num">5.0</td><td class="num">10</td><td><span class="tag tag--haz">Sulfur</span> brassica</td><td><a href="types.html#silent">FL-002 Silent But Deadly</a></td></tr>
-            <tr><td class="num">3</td><td>Black beans</td><td class="num"><b>86</b></td><td class="num">9.4</td><td class="num">7.6</td><td class="num">6.5</td><td class="num">13</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#ripper">FL-004 Ripper</a></td></tr>
-            <tr><td class="num">4</td><td>Jerusalem artichoke</td><td class="num"><b>84</b></td><td class="num">9.8</td><td class="num">6.2</td><td class="num">7.0</td><td class="num">16</td><td><span class="tag tag--meth">Fructan</span> inulin</td><td><a href="types.html#marathon">FL-011 Marathon</a></td></tr>
-            <tr><td class="num">5</td><td>Cabbage</td><td class="num"><b>83</b></td><td class="num">8.0</td><td class="num">9.0</td><td class="num">5.0</td><td class="num">10</td><td><span class="tag tag--haz">Sulfur</span> brassica</td><td><a href="types.html#silent">FL-002 Silent But Deadly</a></td></tr>
-            <tr><td class="num">6</td><td>Lentils</td><td class="num"><b>81</b></td><td class="num">9.0</td><td class="num">6.8</td><td class="num">6.0</td><td class="num">12</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#machinegun">FL-005 Machine Gun</a></td></tr>
-            <tr><td class="num">7</td><td>Sugar-free gum (sorbitol)</td><td class="num"><b>80</b></td><td class="num">9.2</td><td class="num">6.0</td><td class="num">1.5</td><td class="num">18</td><td><span class="tag tag--ochre">Polyol</span> + aerophagia</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">8</td><td>Whey protein powder</td><td class="num"><b>79</b></td><td class="num">7.0</td><td class="num">9.2</td><td class="num">2.5</td><td class="num">9</td><td><span class="tag tag--haz">Sulfur</span> + lactose</td><td><a href="types.html#silent">FL-002 Silent But Deadly</a></td></tr>
-            <tr><td class="num">9</td><td>Chickpeas</td><td class="num"><b>79</b></td><td class="num">8.8</td><td class="num">6.4</td><td class="num">6.5</td><td class="num">11</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#afterburner">FL-011 Afterburner</a></td></tr>
-            <tr><td class="num">10</td><td>Broccoli</td><td class="num"><b>79</b></td><td class="num">7.6</td><td class="num">8.6</td><td class="num">4.5</td><td class="num">9</td><td><span class="tag tag--haz">Sulfur</span> brassica</td><td><a href="types.html#ghost">FL-006 Ghost</a></td></tr>
-            <tr><td class="num">11</td><td>Split peas</td><td class="num"><b>77</b></td><td class="num">8.4</td><td class="num">6.6</td><td class="num">6.0</td><td class="num">11</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#machinegun">FL-005 Machine Gun</a></td></tr>
-            <tr><td class="num">12</td><td>Cauliflower</td><td class="num"><b>77</b></td><td class="num">7.4</td><td class="num">8.4</td><td class="num">4.5</td><td class="num">9</td><td><span class="tag tag--haz">Sulfur</span> brassica</td><td><a href="types.html#ghost">FL-006 Ghost</a></td></tr>
-            <tr><td class="num">13</td><td>Milk (lactase non-persistent)</td><td class="num"><b>77</b></td><td class="num">8.6</td><td class="num">7.0</td><td class="num">1.0</td><td class="num">8</td><td><span class="tag tag--steam">Lactose</span></td><td><a href="types.html#wet">FL-007 Wet One</a> ⚠</td></tr>
-            <tr><td class="num">14</td><td>Onions</td><td class="num"><b>76</b></td><td class="num">7.0</td><td class="num">8.2</td><td class="num">4.0</td><td class="num">9</td><td><span class="tag tag--meth">Fructan</span> + allium sulfur</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">15</td><td>Prunes</td><td class="num"><b>74</b></td><td class="num">8.2</td><td class="num">5.6</td><td class="num">3.0</td><td class="num">14</td><td><span class="tag tag--ochre">Polyol</span> sorbitol</td><td><a href="types.html#marathon">FL-011 Marathon</a></td></tr>
-            <tr><td class="num">16</td><td>Durian</td><td class="num"><b>73</b></td><td class="num">5.8</td><td class="num">9.6</td><td class="num">4.0</td><td class="num">8</td><td><span class="tag tag--haz">Sulfur</span> thiols</td><td><a href="types.html#silent">FL-002 Silent But Deadly</a></td></tr>
-            <tr><td class="num">17</td><td>Sauerkraut</td><td class="num"><b>72</b></td><td class="num">6.8</td><td class="num">7.6</td><td class="num">3.5</td><td class="num">9</td><td><span class="tag tag--haz">Sulfur</span> + fermented fibre</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">18</td><td>Globe artichoke</td><td class="num"><b>72</b></td><td class="num">8.0</td><td class="num">5.8</td><td class="num">6.0</td><td class="num">12</td><td><span class="tag tag--meth">Fructan</span> inulin</td><td><a href="types.html#marathon">FL-011 Marathon</a></td></tr>
-            <tr><td class="num">19</td><td>Wheat bran</td><td class="num"><b>71</b></td><td class="num">7.8</td><td class="num">5.2</td><td class="num">10.0</td><td class="num">16</td><td><span class="tag">Insoluble fibre</span></td><td><a href="types.html#marathon">FL-011 Marathon</a></td></tr>
-            <tr><td class="num">20</td><td>Beer</td><td class="num"><b>70</b></td><td class="num">7.4</td><td class="num">6.0</td><td class="num">3.0</td><td class="num">10</td><td><span class="tag tag--steam">Carbonation</span> + maltose</td><td><a href="types.html#crescendo">FL-008 Crescendo</a></td></tr>
-            <tr><td class="num">21</td><td>Soy / tofu</td><td class="num"><b>70</b></td><td class="num">7.6</td><td class="num">6.0</td><td class="num">5.0</td><td class="num">10</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#afterburner">FL-011 Afterburner</a></td></tr>
-            <tr><td class="num">22</td><td>Kimchi</td><td class="num"><b>69</b></td><td class="num">6.4</td><td class="num">7.4</td><td class="num">3.5</td><td class="num">9</td><td><span class="tag tag--haz">Sulfur</span> brassica, fermented</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">23</td><td>Garlic</td><td class="num"><b>69</b></td><td class="num">5.4</td><td class="num">8.8</td><td class="num">4.0</td><td class="num">8</td><td><span class="tag tag--haz">Sulfur</span> allicin, fructan</td><td><a href="types.html#ghost">FL-006 Ghost</a></td></tr>
-            <tr><td class="num">24</td><td>Ice cream</td><td class="num"><b>69</b></td><td class="num">7.2</td><td class="num">6.8</td><td class="num">1.5</td><td class="num">8</td><td><span class="tag tag--steam">Lactose</span> + fat delay</td><td><a href="types.html#wet">FL-007 Wet One</a> ⚠</td></tr>
-            <tr><td class="num">25</td><td>Leeks</td><td class="num"><b>68</b></td><td class="num">6.6</td><td class="num">7.0</td><td class="num">4.0</td><td class="num">8</td><td><span class="tag tag--meth">Fructan</span> allium</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">26</td><td>Sugar-free mints (xylitol)</td><td class="num"><b>65</b></td><td class="num">7.4</td><td class="num">4.6</td><td class="num">2.0</td><td class="num">12</td><td><span class="tag tag--ochre">Polyol</span></td><td><a href="types.html#pop">FL-012 Pop</a></td></tr>
-            <tr><td class="num">27</td><td>Rye bread</td><td class="num"><b>63</b></td><td class="num">6.8</td><td class="num">4.8</td><td class="num">8.0</td><td class="num">11</td><td><span class="tag tag--meth">Fructan</span> + fibre</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">28</td><td>Eggs</td><td class="num"><b>62</b></td><td class="num">3.0</td><td class="num">10.0</td><td class="num">3.0</td><td class="num">5</td><td><span class="tag tag--haz">Sulfur</span> cysteine/methionine</td><td><a href="types.html#silent">FL-002 Silent But Deadly</a></td></tr>
-            <tr><td class="num">29</td><td>Sweetcorn</td><td class="num"><b>62</b></td><td class="num">6.8</td><td class="num">5.0</td><td class="num">7.0</td><td class="num">9</td><td><span class="tag">Resistant starch</span> + cellulose</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">30</td><td>Asparagus</td><td class="num"><b>61</b></td><td class="num">4.6</td><td class="num">7.8</td><td class="num">4.0</td><td class="num">6</td><td><span class="tag tag--haz">Sulfur</span> asparagusic acid</td><td><a href="types.html#ghost">FL-006 Ghost</a></td></tr>
-            <tr><td class="num">31</td><td>High-fructose soft drinks</td><td class="num"><b>61</b></td><td class="num">7.0</td><td class="num">4.2</td><td class="num">2.0</td><td class="num">11</td><td><span class="tag tag--ochre">Fructose</span> malabsorption</td><td><a href="types.html#crescendo">FL-008 Crescendo</a></td></tr>
-            <tr><td class="num">32</td><td>Raisins</td><td class="num"><b>57</b></td><td class="num">6.0</td><td class="num">4.6</td><td class="num">5.0</td><td class="num">10</td><td><span class="tag tag--ochre">Fructose</span> + fibre</td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">33</td><td>Pears</td><td class="num"><b>56</b></td><td class="num">6.6</td><td class="num">3.6</td><td class="num">3.0</td><td class="num">8</td><td><span class="tag tag--ochre">Polyol</span> sorbitol</td><td><a href="types.html#wet">FL-007 Wet One</a></td></tr>
-            <tr><td class="num">34</td><td>Oats</td><td class="num"><b>56</b></td><td class="num">6.0</td><td class="num">4.0</td><td class="num">8.0</td><td class="num">10</td><td><span class="tag">Soluble fibre</span> β-glucan</td><td><a href="types.html#marathon">FL-011 Marathon</a></td></tr>
-            <tr><td class="num">35</td><td>Peanuts</td><td class="num"><b>55</b></td><td class="num">5.2</td><td class="num">5.6</td><td class="num">5.0</td><td class="num">7</td><td><span class="tag tag--brown">Oligosaccharide</span> legume</td><td><a href="types.html#pop">FL-012 Pop</a></td></tr>
-            <tr><td class="num">36</td><td>Sweet potato</td><td class="num"><b>54</b></td><td class="num">5.6</td><td class="num">4.4</td><td class="num">6.0</td><td class="num">8</td><td><span class="tag">Resistant starch</span></td><td><a href="types.html#sputterer">FL-001 Sputterer</a></td></tr>
-            <tr><td class="num">37</td><td>Apples</td><td class="num"><b>53</b></td><td class="num">6.2</td><td class="num">3.4</td><td class="num">3.0</td><td class="num">7</td><td><span class="tag tag--ochre">Polyol</span> + pectin</td><td><a href="types.html#squeaker">FL-003 Squeaker</a></td></tr>
-            <tr><td class="num">38</td><td>Mushrooms</td><td class="num"><b>53</b></td><td class="num">5.0</td><td class="num">5.4</td><td class="num">4.5</td><td class="num">6</td><td><span class="tag tag--ochre">Polyol</span> mannitol</td><td><a href="types.html#squeaker">FL-003 Squeaker</a></td></tr>
-            <tr><td class="num">39</td><td>Hard cheese</td><td class="num"><b>49</b></td><td class="num">3.4</td><td class="num">6.6</td><td class="num">2.0</td><td class="num">5</td><td><span class="tag tag--haz">Sulfur</span> · lactose depleted</td><td><a href="types.html#pop">FL-012 Pop</a></td></tr>
-            <tr><td class="num">40</td><td>Carbonated water</td><td class="num"><b>47</b></td><td class="num">6.6</td><td class="num">2.0</td><td class="num">0.3</td><td class="num">3</td><td><span class="tag tag--steam">Carbonation</span> pure CO₂</td><td><a href="types.html#pop">FL-012 Pop</a></td></tr>
-            <tr><td class="num">41</td><td>Chewing gum (sugared)</td><td class="num"><b>35</b></td><td class="num">4.4</td><td class="num">1.6</td><td class="num">0.4</td><td class="num">4</td><td><span class="tag tag--steam">Aerophagia</span> swallowed air</td><td><a href="types.html#pop">FL-012 Pop</a></td></tr>
-            <tr><td class="num">42</td><td>White rice <span class="tag">Control</span></td><td class="num"><b>11</b></td><td class="num">0.8</td><td class="num">1.0</td><td class="num">9.0</td><td class="num">2</td><td><span class="tag">None</span> fully absorbed</td><td class="muted">— none —</td></tr>
+            <tr><td class="num">1</td><td>Baked beans</td><td class="num">9.6</td><td class="num">8.0</td><td class="num">6</td><td class="num">14</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">2</td><td>Brussels sprouts</td><td class="num">8.4</td><td class="num">9.4</td><td class="num">5</td><td class="num">10</td><td>Sulfur</td></tr>
+            <tr><td class="num">3</td><td>Black beans</td><td class="num">9.4</td><td class="num">7.6</td><td class="num">6.5</td><td class="num">13</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">4</td><td>Jerusalem artichoke</td><td class="num">9.8</td><td class="num">6.2</td><td class="num">7</td><td class="num">16</td><td>Fibre we can't digest</td></tr>
+            <tr><td class="num">5</td><td>Cabbage</td><td class="num">8.0</td><td class="num">9.0</td><td class="num">5</td><td class="num">10</td><td>Sulfur</td></tr>
+            <tr><td class="num">6</td><td>Lentils</td><td class="num">9.0</td><td class="num">6.8</td><td class="num">6</td><td class="num">12</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">7</td><td>Sugar-free gum</td><td class="num">9.2</td><td class="num">6.0</td><td class="num">1.5</td><td class="num">18</td><td>Sweeteners we absorb badly</td></tr>
+            <tr><td class="num">8</td><td>Protein powder</td><td class="num">7.0</td><td class="num">9.2</td><td class="num">2.5</td><td class="num">9</td><td>Sulfur + milk sugar</td></tr>
+            <tr><td class="num">9</td><td>Chickpeas</td><td class="num">8.8</td><td class="num">6.4</td><td class="num">6.5</td><td class="num">11</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">10</td><td>Broccoli</td><td class="num">7.6</td><td class="num">8.6</td><td class="num">4.5</td><td class="num">9</td><td>Sulfur</td></tr>
+            <tr><td class="num">11</td><td>Split peas</td><td class="num">8.4</td><td class="num">6.6</td><td class="num">6</td><td class="num">11</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">12</td><td>Cauliflower</td><td class="num">7.4</td><td class="num">8.4</td><td class="num">4.5</td><td class="num">9</td><td>Sulfur</td></tr>
+            <tr><td class="num">13</td><td>Milk</td><td class="num">8.6</td><td class="num">7.0</td><td class="num">1</td><td class="num">8</td><td>Milk sugar, if you can't handle it</td></tr>
+            <tr><td class="num">14</td><td>Onions</td><td class="num">7.0</td><td class="num">8.2</td><td class="num">4</td><td class="num">9</td><td>Fibre + sulfur</td></tr>
+            <tr><td class="num">15</td><td>Prunes</td><td class="num">8.2</td><td class="num">5.6</td><td class="num">3</td><td class="num">14</td><td>Sweeteners we absorb badly</td></tr>
+            <tr><td class="num">16</td><td>Durian</td><td class="num">5.8</td><td class="num">9.6</td><td class="num">4</td><td class="num">8</td><td>Sulfur</td></tr>
+            <tr><td class="num">17</td><td>Sauerkraut</td><td class="num">6.8</td><td class="num">7.6</td><td class="num">3.5</td><td class="num">9</td><td>Sulfur + fibre</td></tr>
+            <tr><td class="num">18</td><td>Globe artichoke</td><td class="num">8.0</td><td class="num">5.8</td><td class="num">6</td><td class="num">12</td><td>Fibre we can't digest</td></tr>
+            <tr><td class="num">19</td><td>Wheat bran</td><td class="num">7.8</td><td class="num">5.2</td><td class="num">10</td><td class="num">16</td><td>Pure fibre</td></tr>
+            <tr><td class="num">20</td><td>Beer</td><td class="num">7.4</td><td class="num">6.0</td><td class="num">3</td><td class="num">10</td><td>Bubbles + sugars</td></tr>
+            <tr><td class="num">21</td><td>Soy and tofu</td><td class="num">7.6</td><td class="num">6.0</td><td class="num">5</td><td class="num">10</td><td>Sugar we can't digest</td></tr>
+            <tr><td class="num">22</td><td>Kimchi</td><td class="num">6.4</td><td class="num">7.4</td><td class="num">3.5</td><td class="num">9</td><td>Sulfur, fermented</td></tr>
+            <tr><td class="num">23</td><td>Garlic</td><td class="num">5.4</td><td class="num">8.8</td><td class="num">4</td><td class="num">8</td><td>Sulfur</td></tr>
+            <tr><td class="num">24</td><td>Ice cream</td><td class="num">7.2</td><td class="num">6.8</td><td class="num">1.5</td><td class="num">8</td><td>Milk sugar</td></tr>
+            <tr><td class="num">25</td><td>Leeks</td><td class="num">6.6</td><td class="num">7.0</td><td class="num">4</td><td class="num">8</td><td>Fibre + sulfur</td></tr>
+            <tr><td class="num">26</td><td>Sugar-free mints</td><td class="num">7.4</td><td class="num">4.6</td><td class="num">2</td><td class="num">12</td><td>Sweeteners we absorb badly</td></tr>
+            <tr><td class="num">27</td><td>Rye bread</td><td class="num">6.8</td><td class="num">4.8</td><td class="num">8</td><td class="num">11</td><td>Fibre</td></tr>
+            <tr><td class="num">28</td><td>Eggs</td><td class="num">3.0</td><td class="num">10.0</td><td class="num">3</td><td class="num">5</td><td>Sulfur, and lots of it</td></tr>
+            <tr><td class="num">29</td><td>Sweetcorn</td><td class="num">6.8</td><td class="num">5.0</td><td class="num">7</td><td class="num">9</td><td>Starch + tough skins</td></tr>
+            <tr><td class="num">30</td><td>Asparagus</td><td class="num">4.6</td><td class="num">7.8</td><td class="num">4</td><td class="num">6</td><td>Sulfur</td></tr>
+            <tr><td class="num">31</td><td>Fizzy drinks (sugary)</td><td class="num">7.0</td><td class="num">4.2</td><td class="num">2</td><td class="num">11</td><td>Bubbles + fruit sugar</td></tr>
+            <tr><td class="num">32</td><td>Raisins</td><td class="num">6.0</td><td class="num">4.6</td><td class="num">5</td><td class="num">10</td><td>Fruit sugar + fibre</td></tr>
+            <tr><td class="num">33</td><td>Pears</td><td class="num">6.6</td><td class="num">3.6</td><td class="num">3</td><td class="num">8</td><td>Sweeteners we absorb badly</td></tr>
+            <tr><td class="num">34</td><td>Oats</td><td class="num">6.0</td><td class="num">4.0</td><td class="num">8</td><td class="num">10</td><td>Soft fibre</td></tr>
+            <tr><td class="num">35</td><td>Peanuts</td><td class="num">5.2</td><td class="num">5.6</td><td class="num">5</td><td class="num">7</td><td>Also a bean, technically</td></tr>
+            <tr><td class="num">36</td><td>Sweet potato</td><td class="num">5.6</td><td class="num">4.4</td><td class="num">6</td><td class="num">8</td><td>Stubborn starch</td></tr>
+            <tr><td class="num">37</td><td>Apples</td><td class="num">6.2</td><td class="num">3.4</td><td class="num">3</td><td class="num">7</td><td>Sweeteners + fibre</td></tr>
+            <tr><td class="num">38</td><td>Mushrooms</td><td class="num">5.0</td><td class="num">5.4</td><td class="num">4.5</td><td class="num">6</td><td>Sweeteners we absorb badly</td></tr>
+            <tr><td class="num">39</td><td>Hard cheese</td><td class="num">3.4</td><td class="num">6.6</td><td class="num">2</td><td class="num">5</td><td>Sulfur (the milk sugar is gone)</td></tr>
+            <tr><td class="num">40</td><td>Sparkling water</td><td class="num">6.6</td><td class="num">2.0</td><td class="num">0.3</td><td class="num">3</td><td>Just bubbles</td></tr>
+            <tr><td class="num">41</td><td>Normal chewing gum</td><td class="num">4.4</td><td class="num">1.6</td><td class="num">0.4</td><td class="num">4</td><td>Swallowed air</td></tr>
+            <tr><td class="num">42</td><td>White rice</td><td class="num">0.8</td><td class="num">1.0</td><td class="num">9</td><td class="num">2</td><td>Nothing. You digest all of it.</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="note note--tip" style="margin-top:1.25rem">
-        <span class="note__title">On the control</span>
-        White rice is the only common starch absorbed so completely in the small intestine that
-        essentially nothing reaches the colon. It is the negative control of the entire field and the
-        reason it appears in every bland diet ever prescribed. If you need to be in a lift tomorrow, this
-        row is the answer.
+        <span class="note__title">Why rice is last</span>
+        White rice is one of the only things you absorb so completely that essentially nothing reaches
+        the bacteria. Nothing gets through, so nothing happens. This is why it's in every bland diet ever
+        prescribed — and why, if you have to be in a lift tomorrow morning, it's the answer.
       </div>
     </section>
 
-    <!-- ================= MECHANISMS ================= -->
-    <section>
-      <h2 class="section-head">Mechanisms of gas production</h2>
-
+    <!-- ============ TIMING ============ -->
+    <section class="full">
+      <h2 class="section-head">When it hits</h2>
       <div class="prose flow-md">
-        <p>Every substrate in Table 1 acts through one of six pathways. Understanding which pathway a food
-          uses predicts not only <i>how much</i> gas it will generate but <i>when</i>, <i>for how long</i>,
-          and <i>whether it will smell</i>.</p>
+        <p>The "kicks in" column is the most useful one and everybody ignores it. Beans eaten at lunch
+          don't affect lunch. <b>They affect your evening.</b></p>
       </div>
 
-      <div class="cards full" style="margin-top:1.25rem">
+      <div class="cards" style="margin-top:1.25rem">
         <div class="card">
-          <span class="card__no">Pathway 1 · Highest yield</span>
-          <h3>α-Galactoside fermentation</h3>
-          <p><b>Raffinose, stachyose, verbascose.</b> Found in all legumes. Humans lack α-galactosidase
-            entirely, so 100% of the dose reaches the colon. Products are H₂ and CO₂ — voluminous, and
-            <b>odourless</b>. This is the loud pathway.</p>
-          <p class="tiny muted">Onset 5–7 h · Commercial α-galactosidase drops genuinely work.</p>
+          <span class="card__no">Under an hour</span>
+          <h3>Fizzy drinks and gum</h3>
+          <p>This is just swallowed air passing through. It arrives almost immediately and doesn't smell
+            of anything.</p>
         </div>
         <div class="card">
-          <span class="card__no">Pathway 2 · Longest duration</span>
-          <h3>Polyol malabsorption</h3>
-          <p><b>Sorbitol, xylitol, mannitol, maltitol.</b> Absorbed by passive diffusion only — slow and
-            incomplete. The unabsorbed fraction ferments over an extended window and also draws water
-            osmotically into the bowel, which is where the sugar-free gum stories come from.</p>
-          <p class="tiny muted">Onset 1–3 h · Duration up to 18 h.</p>
+          <span class="card__no">1 to 3 hours</span>
+          <h3>Dairy and sweeteners</h3>
+          <p>Fast, if you're one of the many people who can't handle milk sugar. About two thirds of
+            adults worldwide can't.</p>
         </div>
         <div class="card">
-          <span class="card__no">Pathway 3 · The odour pathway</span>
-          <h3>Sulfate reduction</h3>
-          <p><b>Cysteine, methionine, glucosinolates, allicin.</b> Sulfate-reducing bacteria — chiefly
-            <i>Desulfovibrio</i> — metabolise dietary sulfur to hydrogen sulfide. Volume contribution is
-            near zero. Perceptual contribution is total.</p>
-          <p class="tiny muted">Onset 3–5 h · Detection threshold 0.5 ppb.</p>
+          <span class="card__no">3 to 5 hours</span>
+          <h3>Eggs, cabbage, garlic</h3>
+          <p>The smell window. Not much volume — this is when things start to become noticeable rather
+            than audible.</p>
         </div>
         <div class="card">
-          <span class="card__no">Pathway 4 · Bimodal</span>
-          <h3>Lactose maldigestion</h3>
-          <p>Roughly <b>65% of the world's adults</b> downregulate lactase after weaning. In those
-            individuals, dairy sugar arrives in the colon undigested and ferments rapidly. In the other
-            35%, dairy does essentially nothing. Highest inter-individual variance in the table.</p>
-          <p class="tiny muted">Onset 0.5–2 h · Fastest of all pathways.</p>
+          <span class="card__no">5 to 7 hours</span>
+          <h3>Beans and lentils</h3>
+          <p>The main event. Peak output. A bean lunch lands squarely on your dinner plans.</p>
         </div>
         <div class="card">
-          <span class="card__no">Pathway 5 · Slowest</span>
-          <h3>Fibre &amp; resistant starch</h3>
-          <p>Cellulose, β-glucan and retrograded starch ferment slowly and steadily along the whole length
-            of the colon. Low peak output, very long tail. The characteristic profile is a low background
-            rumble that persists into the following day.</p>
-          <p class="tiny muted">Onset 7–12 h · Duration 10–16 h.</p>
+          <span class="card__no">7 to 12 hours</span>
+          <h3>Fibre and bran</h3>
+          <p>Slow and steady rather than dramatic. This is tomorrow morning's problem, not tonight's.</p>
         </div>
         <div class="card">
-          <span class="card__no">Pathway 6 · Fastest</span>
-          <h3>Aerophagia &amp; carbonation</h3>
-          <p>Swallowed atmospheric air and dissolved CO₂ require no fermentation at all — the gas is
-            pre-assembled and merely transits. Onset can be under twenty minutes. Almost entirely
-            odourless, and the primary source of the nitrogen fraction in
-            <a href="index.html">Part I, Table 1</a>.</p>
-          <p class="tiny muted">Onset 0.2–0.5 h · Mostly belched rather than passed.</p>
+          <span class="card__no">If you need it to stop</span>
+          <h3>What actually works</h3>
+          <p>Soaking beans and throwing the water away genuinely helps. So do the enzyme drops sold for
+            exactly this. Adding fibre slowly over a few weeks lets your gut adjust.</p>
         </div>
       </div>
-    </section>
 
-    <!-- ================= TIMING ================= -->
-    <section>
-      <h2 class="section-head">Onset latency and campaign planning</h2>
-
-      <div class="prose flow-md">
-        <p>Onset latency is the most operationally useful column in Table 1 and the most widely ignored.
-          A substrate eaten at 13:00 with a six-hour latency does not affect lunch. It affects the
-          19:00 meeting.</p>
-      </div>
-
-      <figure data-fig class="full">
-        <div class="timeline">
-          <div class="timeline__row"><span class="timeline__k">0–0.5 h</span><div class="timeline__bar" style="--a:0;--b:4;--c:var(--steam)"></div><span class="timeline__v">Carbonation, gum · pre-assembled gas, no fermentation</span></div>
-          <div class="timeline__row"><span class="timeline__k">0.5–2 h</span><div class="timeline__bar" style="--a:4;--b:17;--c:var(--brown-lite)"></div><span class="timeline__v">Dairy · lactose reaches colon undigested</span></div>
-          <div class="timeline__row"><span class="timeline__k">1–3 h</span><div class="timeline__bar" style="--a:8;--b:25;--c:var(--ochre)"></div><span class="timeline__v">Polyols · slow passive diffusion, incomplete uptake</span></div>
-          <div class="timeline__row"><span class="timeline__k">3–5 h</span><div class="timeline__bar" style="--a:25;--b:42;--c:var(--hazard)"></div><span class="timeline__v">Sulfur compounds · the odour window opens</span></div>
-          <div class="timeline__row"><span class="timeline__k">5–7 h</span><div class="timeline__bar" style="--a:42;--b:58;--c:var(--brown)"></div><span class="timeline__v">Legumes · peak volumetric output, the main event</span></div>
-          <div class="timeline__row"><span class="timeline__k">7–12 h</span><div class="timeline__bar" style="--a:58;--b:100;--c:var(--methane)"></div><span class="timeline__v">Fibre, resistant starch · low, sustained, next-morning</span></div>
-        </div>
-        <figcaption>Onset windows by mechanism, plotted across a twelve-hour horizon.
-          <b>The practical consequence:</b> a legume-heavy lunch is a dinner-party problem, and a
-          fibre-heavy dinner is tomorrow's problem.</figcaption>
-      </figure>
-
-      <div class="grid-2 full" style="margin-top:1.5rem">
-        <div class="note note--tip">
-          <span class="note__title">Reduction protocol</span>
-          Soaking legumes and discarding the soak water removes a substantial fraction of the
-          α-galactosides. Commercial α-galactosidase supplements are effective and genuinely evidence-based.
-          Gradual, sustained fibre increase adapts the microbiota over roughly three weeks.
-        </div>
-        <div class="note note--warn">
-          <span class="note__title">Loading protocol</span>
-          For readers approaching this table from the opposite direction — see
-          <a href="amplification.html">Part IV(a)</a>, where dietary loading is treated as an input to
-          acoustic output rather than as a problem to be solved. The Institute takes no position on which
-          reading is correct.
-        </div>
+      <div class="cta">
+        <p class="cta__text"><b>Reading this the other way round?</b> There's a whole page on making
+          them louder on purpose.</p>
+        <a class="btn btn--lg" href="amplification.html">Make it louder <span class="arrow">→</span></a>
       </div>
     </section>
 
@@ -370,67 +249,42 @@
 <footer class="site-foot">
   <div class="shell">
     <div class="site-foot__grid">
-      <div><h4>Flotzy</h4><p class="tiny">The Journal of Applied Flatology. A serious treatment of an unserious gas.</p></div>
-      <div><h4>Parts</h4><ul>
-        <li><a href="index.html">I · Introduction</a></li>
-        <li><a href="types.html">II · Typology</a></li>
-        <li><a href="foods.html">III · Substrates</a></li>
-        <li><a href="science.html">IV · Simulation</a></li>
-        <li><a href="amplification.html">IV(a) · Amplification</a></li>
+      <div><h4>Flotzy</h4><p class="tiny">Everything you never asked about farts.</p></div>
+      <div><h4>Pages</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="types.html">The Types</a></li>
+        <li><a href="foods.html">Foods</a></li>
+        <li><a href="science.html">Simulator</a></li>
+        <li><a href="amplification.html">Get Louder</a></li>
       </ul></div>
-      <div><h4>This part</h4><ul>
-        <li><a href="#index">The Flatulence Index</a></li>
-        <li><a href="#table">Complete rankings</a></li>
-        <li><a href="types.html">Acoustic classes</a></li>
-      </ul></div>
-      <div><h4>Notice</h4><p class="tiny">Not dietary advice. Not medical advice. If food consistently causes you pain, see a physician rather than a table.</p></div>
+      <div><h4>Sounds</h4><p class="tiny">All real recordings.
+        <a href="types.html#provenance">Where they came from</a>.</p></div>
+      <div><h4>Careful</h4><p class="tiny">Not food advice and not medical advice. If eating hurts,
+        see a doctor, not a table.</p></div>
     </div>
     <div class="site-foot__base">
-      <span>© Flotzy Institute · Released to the public domain, like the gas itself.</span>
-      <span class="mono">ISSN 0000-0000 · <span lang="he" dir="rtl">פלוץ</span></span>
+      <span>Flotzy · free for anyone to use, like the gas itself.</span>
+      <span class="mono"><span lang="he" dir="rtl">פלוץ</span> = fart, in Hebrew</span>
     </div>
   </div>
 </footer>
 
 <style>
-  .formula {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem;
-    font-family: var(--serif); font-size: clamp(1.15rem, 1rem + 1.1vw, 1.7rem);
-    padding: 1rem 0; justify-content: center;
+  .bigfact {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    background: var(--paper-2); border: 1px solid var(--rule);
+    border-left: 5px solid var(--ochre); border-radius: var(--radius);
   }
-  .formula .fi { font-weight: 700; color: var(--ink); }
-  .formula .eq { color: var(--ink-3); }
-  .formula .term {
-    color: var(--c); font-family: var(--mono); font-size: .8em;
-    border-bottom: 2px solid var(--c); padding-bottom: .1em;
-  }
-  .formula .term i { font-family: var(--serif); font-size: 1.25em; font-style: italic; }
-
+  .bigfact__n { font-size: clamp(3rem, 2rem + 6vw, 5rem); line-height: .9; }
+  .bigfact > div:last-child { flex: 1 1 20rem; }
+  .bigfact h2 { font-size: clamp(1.3rem, 1.1rem + 1vw, 1.9rem); margin-bottom: .5rem; }
+  .bigfact p { font-size: .97rem; color: var(--ink-2); }
+  .bigfact p + p { margin-top: .6rem; }
   .podium { border-top: 3px solid var(--rule); }
   .podium--1 { border-top-color: var(--ochre); }
   .podium--2 { border-top-color: var(--hazard); }
   .podium--3 { border-top-color: var(--methane); }
-
-  .timeline { display: grid; gap: .5rem; }
-  .timeline__row {
-    display: grid; grid-template-columns: 5.5rem minmax(120px, 1fr); gap: .75rem;
-    align-items: center; font-family: var(--sans); font-size: .78rem;
-  }
-  .timeline__k { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); text-align: right; }
-  .timeline__bar {
-    position: relative; height: 20px; border-radius: 3px; background: var(--paper-2);
-    border: 1px solid var(--rule-soft);
-  }
-  .timeline__bar::after {
-    content: ""; position: absolute; top: 2px; bottom: 2px;
-    left: calc(var(--a) * 1%); right: calc(100% - var(--b) * 1%);
-    background: var(--c); border-radius: 2px;
-  }
-  .timeline__v { grid-column: 2; font-size: .76rem; color: var(--ink-2); margin-top: -.15rem; }
-  @media (min-width: 720px) {
-    .timeline__row { grid-template-columns: 5.5rem minmax(120px, 260px) 1fr; }
-    .timeline__v { grid-column: 3; margin-top: 0; }
-  }
 </style>
 
 <script src="assets/js/site.js"></script>
